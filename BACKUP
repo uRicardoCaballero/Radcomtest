@@ -1,0 +1,65 @@
+# In-memory "database" for tickets (can switch to SQLite later)
+tickets_db = []
+#HEADS UP, YOU NEED THIS---------------------#HEADS UP, YOU NEED THIS---------------------#HEADS UP, YOU NEED THIS---------------------
+# Endpoint to create a new ticket
+@app.route('/create_ticket', methods=['POST'])
+def create_ticket():
+    if current_user.role != 'worker' or 'admin' :
+        return jsonify({"error": "Access denied"}), 403
+     
+    data = request.form
+    ticket_number = data.get('ticket_number')
+    client = data.get('client')
+    paid_amount = float(data.get('paid_amount'))
+    correction_id = data.get('correction_id')
+
+    new_ticket = Ticket(
+        ticket_number=ticket_number,
+        client=client,
+        paid_amount=paid_amount,
+        correction_id=correction_id
+    )
+    db.session.add(new_ticket)
+    db.session.commit()
+
+    # Save the image if provided
+    if 'image' in request.files:
+        image = request.files['image']
+        # Save the image using ticket_id + image.filename
+        image_path = save_image(image, new_ticket.ticket_id)
+        new_ticket.image_path = image_path
+        db.session.commit()  # Update the ticket record with the image path
+   
+    
+    
+    # Add the ticket to the database and commit
+    
+    
+    return jsonify({"message": "Ticket created successfully", "ticket_id": new_ticket.ticket_id})
+#HEADS UP, YOU NEED THIS---------------------#HEADS UP, YOU NEED THIS---------------------#HEADS UP, YOU NEED THIS---------------------
+# Save uploaded image
+def save_image(image, ticket_id):
+    filename = secure_filename(f"ticket_{ticket_id}_{image.filename}")
+    image_path = os.path.join("ticket_images", filename)
+    image.save(image_path)
+    return image_path
+#HEADS UP, YOU NEED THIS---------------------#HEADS UP, YOU NEED THIS---------------------#HEADS UP, YOU NEED THIS---------------------
+
+
+@app.route('/consult_ticket/<int:ticket_id>', methods=['GET'])
+def consult_ticket(ticket_id):
+    ticket = Ticket.query.get(ticket_id)
+    if ticket:
+        return jsonify({
+            "ticket_id": ticket.ticket_id,
+            "ticket_number": ticket.ticket_number,
+            "client": ticket.client,
+            "paid_amount": ticket.paid_amount,
+            "image_path": ticket.image_path,
+            "correction_id": ticket.correction_id,
+            "timestamp": ticket.timestamp
+        })
+    return jsonify({"error": "Ticket not found"}), 404
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0', port=8000)
