@@ -1,9 +1,7 @@
-from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from pytz import timezone
-
+from app.database import db
 local_tz = timezone('America/Mexico_City')
-db = SQLAlchemy()
 
 # Antenas table
 class Antena(db.Model):
