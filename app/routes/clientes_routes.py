@@ -19,8 +19,9 @@ def crear_cliente():
     estado_factura = data.get('estado_factura')  # Boolean
     fecha_cobro = datetime.strptime(data.get('fecha_cobro'), '%Y-%m-%d').date() # Date
     fecha_alerta = datetime.strptime(data.get('fecha_alerta'), '%Y-%m-%d').date()
+    plan_pago = data.get('plan_pago')   # "400", "350", "200"
+    monto_pagado = data.get('monto_pagado')
     if not all([id_cliente]):
-        
         return jsonify({"error": "Falta id"}), 400
     
     if not nombre:
@@ -53,6 +54,12 @@ def crear_cliente():
     if not fecha_alerta:
         return jsonify({"error": "Falta fecha de alerta"}), 404
     
+    if not plan_pago:
+        return jsonify({"error": "Falta el plan de pago"}), 404
+    
+    if not monto_pagado:
+        return jsonify({"error": "Falta el monto pagado"}), 404
+    
     # Check if id_cliente is unique
     if Cliente.query.get(id_cliente):
         return jsonify({"error": "id_cliente ya existe"}), 400
@@ -61,8 +68,10 @@ def crear_cliente():
     zona = Zona.query.get(zona_id)
     if not zona:
         return jsonify({"error": "Zona no encontrada"}), 404
-
-    nuevo_cliente = Cliente(
+    
+    if data.get('monto_pagado'):
+        monto_pagado = float(data.get('monto_pagado'))
+        nuevo_cliente = Cliente(
         id_cliente=id_cliente,
         nombre=nombre,
         telefono=telefono,
@@ -73,8 +82,12 @@ def crear_cliente():
         folio_cobro=folio_cobro,
         estado_factura=estado_factura,
         fecha_cobro=fecha_cobro,
-        fecha_alerta=fecha_alerta
+        fecha_alerta=fecha_alerta,
+        plan_pago=plan_pago,
+        monto_pagado=monto_pagado
     )
+    
+    
 
     db.session.add(nuevo_cliente)
     db.session.commit()

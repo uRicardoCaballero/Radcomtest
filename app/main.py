@@ -1,15 +1,22 @@
+import sys
+from PyQt5 import QtWidgets
+import threading 
 from app import create_app
 from app.routes import *
+from app.frontend.RADCOM import MainWindow
 from flask_login import LoginManager
 from flask_migrate import Migrate
 from datetime import datetime, date
 import os
-
-from app.models import db, Usuario
+import time
+import atexit
+from app import create_app
+from app.models import Usuario
+from app.database import db
 
 app = create_app()
 
-
+shutdown_flag = False
 # Flask-Login setup
 
 # set SECRET_KEY=mysecretkeyvalue
@@ -22,7 +29,7 @@ migrate = Migrate(app, db)
 # Initialize Flask-Login
 login_manager = LoginManager()
 login_manager.init_app(app)
-login_manager.login_view = 'login'
+login_manager.login_view = 'login.login'
 
 
 
@@ -57,8 +64,36 @@ app.register_blueprint(municipios_bp, url_prefix='/api')
 app.register_blueprint(register_bp, url_prefix='/api')
 app.register_blueprint(usuarios_bp, url_prefix='/api')
 app.register_blueprint(zonas_bp, url_prefix='/api')
+app.register_blueprint(tests_bp, url_prefix='/api')
+
+@app.route('/')
+def home():
+    return "Radcom Backend Running"
+
+def run_flask():
+    global shutdown_flag
+    app.run(debug=True, use_reloader=False)
+
+def shutdown_flask():
+    global shutdown_flag
+    shutdown_flag = True
+    print("Shutting down Flask server...")
+
 
 
 # ------------------- Run the Flask App -------------------
 if __name__ == '__main__':
-    app.run(debug=True)
+    flask_thread = threading.Thread(target=run_flask)
+    flask_thread.start()
+    # Start the PyQt5 UI
+    app = QtWidgets.QApplication(sys.argv)
+    
+    main_window = MainWindow()
+    main_window.show()
+    exit_code = app.exec_()
+
+    while not shutdown_flag:
+        time.sleep(1)
+    flask_thread.join()
+    sys.exit(app.exec())
+    

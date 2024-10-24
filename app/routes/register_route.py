@@ -11,7 +11,7 @@ def register():
     data = request.get_json()
     username = data.get('username')
     password = data.get('password')
-    tipo_usuario = data.get('tipo_usuario')  # "admin" or "worker"
+    tipo_usuario = data.get('tipo_usuario')  # "admin", "cobrador" o "facturador"
 
     if not username or not password or not tipo_usuario:
         return jsonify({"error": "Faltan campos requeridos"}), 400

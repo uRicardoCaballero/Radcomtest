@@ -43,7 +43,7 @@ def zonas(client, nombre, ubicacion, numero_zona):
     }), content_type='application/json')
     return response
 
-def clientes(client, id_cliente, nombre, telefono, zona_id, tipo, estado_cobro, estatus, folio_cobro, estado_factura, fecha_cobro, fecha_alerta):
+def clientes(client, id_cliente, nombre, telefono, zona_id, tipo, estado_cobro, estatus, folio_cobro, estado_factura, fecha_cobro, fecha_alerta, plan_pago, monto_pagado):
     response = client.post('/api/clientes', data=json.dumps({
         'id_cliente': id_cliente,
         'nombre': nombre,
@@ -55,7 +55,9 @@ def clientes(client, id_cliente, nombre, telefono, zona_id, tipo, estado_cobro, 
         'folio_cobro': folio_cobro,
         'estado_factura': estado_factura,
         'fecha_cobro': fecha_cobro,
-        'fecha_alerta': fecha_alerta
+        'fecha_alerta': fecha_alerta,
+        'plan_pago': plan_pago,
+        'monto_pagado': monto_pagado
     }), content_type='application/json')
     return response
 
@@ -65,3 +67,4 @@ def folio(client, folio, cliente_id):
         'cliente_id': cliente_id
     }), content_type='application/json')
     return response
+

@@ -36,9 +36,43 @@ def test_admin_access(client):
                                         "11111",
                                         "falso",
                                         "2024-10-16",
-                                        "2024-10-31")
-
+                                        "2024-10-31",
+                                        'mensual',
+                                        '400.0')
     assert register_cliente.status_code == 201
+
+    register_cliente = clientes(client,
+                                        "PAz01357952",
+                                        "ricardo caballero",
+                                        "6271045990",
+                                        1,
+                                        "libre",
+                                        "pagado",
+                                        "en linea",
+                                        "11111",
+                                        "falso",
+                                        "2024-10-16",
+                                        "2024-10-31",
+                                        "libres",
+                                        "0.0")
+    assert register_cliente.status_code == 201
+
+    register_cliente = clientes(client,
+                                        "PAz01357953",
+                                        "ricardo caballero",
+                                        "6271045990",
+                                        1,
+                                        "libre",
+                                        "pagado",
+                                        "en linea",
+                                        "11111",
+                                        "falso",
+                                        "2024-10-16",
+                                        "2024-10-31",
+                                        "libres",
+                                        "0.0")
+    assert register_cliente.status_code == 201
+
 
     register_folio = folio(client, '77411', 'PAz01357951')
 
@@ -68,7 +102,7 @@ def test_admin_access(client):
     assert register_zona.status_code == 403
     
     register_cliente = clientes(client,
-                                        "PAz01357952",
+                                        "PAz01357954",
                                         "celina caballero",
                                         "6271045990",
                                         1,
@@ -78,7 +112,9 @@ def test_admin_access(client):
                                         "11111",
                                         "falso",
                                         "2024-10-16",
-                                        "2024-10-31")
+                                        "2024-10-31",
+                                        "400",
+                                        "0.0")
 
     assert register_cliente.status_code == 201
 

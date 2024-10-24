@@ -1,5 +1,6 @@
 from . import *
-
+from app.models import * 
+       
 logout_bp = Blueprint('logout', __name__)
 @logout_bp.route('/logout', methods=['POST'])
 @login_required
