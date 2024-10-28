@@ -4,7 +4,7 @@ from flask import Blueprint, jsonify, request, send_file
 from PyQt5.QtWidgets import QApplication, QMainWindow, QStackedWidget, QMessageBox , QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QHBoxLayout, QSizePolicy, QFrame
 from PyQt5.QtCore import Qt, QSize
 from PyQt5.QtGui import QPixmap, QIcon
-from app.frontend.pantalla_principal_admin1 import Ui_Form
+from app.frontend.pantalla_principal_admin import Ui_Form
 
 # Pantalla principal que maneja todas las pantallas
 class MainWindow(QMainWindow):

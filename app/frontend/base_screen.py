@@ -24,7 +24,7 @@ class BaseScreen(QWidget):
         # Botones de minimizar, maximizar y cerrar
         self.minimize_button = QPushButton()
         self.minimize_button.setFixedSize(40, 30)
-        self.minimize_button.setIcon(QIcon('assets/Min.png'))
+        self.minimize_button.setIcon(QIcon('app/frontend/assets/Min.png'))
         self.minimize_button.clicked.connect(self.showMinimized)
         self.minimize_button.setStyleSheet("border: none;")
 
@@ -36,7 +36,7 @@ class BaseScreen(QWidget):
 
         self.close_button = QPushButton()
         self.close_button.setFixedSize(40, 30)
-        self.close_button.setIcon(QIcon('assets/Close.png'))
+        self.close_button.setIcon(QIcon('app/frontend/assets/Close.png'))
         self.close_button.clicked.connect(self.close)
         self.close_button.setStyleSheet("border: none;")
 
@@ -71,11 +71,11 @@ class BaseScreen(QWidget):
         if self.is_maximized:
             self.showNormal()
             self.is_maximized = False
-            self.maximize_button.setIcon(QIcon('assets/Max.png'))
+            self.maximize_button.setIcon(QIcon('app/frontend/assets/Max.png'))
         else:
             self.showMaximized()
             self.is_maximized = True
-            self.maximize_button.setIcon(QIcon('assets/Restore.png'))
+            self.maximize_button.setIcon(QIcon('app/frontend/assets/Restore.png'))
 
     # Permitir mover la ventana al arrastrar desde la barra de título
     def mousePressEvent(self, event):

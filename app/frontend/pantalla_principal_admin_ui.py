@@ -183,7 +183,8 @@ class Ui_Form(object):
         font.setPointSize(12)
         self.AdministradorOption.setFont(font)
         self.AdministradorOption.setStyleSheet("QRadioButton{\n"
-"color: #FFFFFF;\n"
+"    background: transparent; \n"
+"    color: #FFFFFF;\n"
 "}")
         self.AdministradorOption.setObjectName("AdministradorOption")
         self.FacturadorOption = QtWidgets.QRadioButton(self.frame_white_grey)
@@ -193,7 +194,8 @@ class Ui_Form(object):
         font.setPointSize(12)
         self.FacturadorOption.setFont(font)
         self.FacturadorOption.setStyleSheet("QRadioButton{\n"
-"color: #FFFFFF;\n"
+"    background: transparent; \n"
+"    color: #FFFFFF;\n"
 "}")
         self.FacturadorOption.setObjectName("FacturadorOption")
         self.CobradorOption = QtWidgets.QRadioButton(self.frame_white_grey)
@@ -203,7 +205,8 @@ class Ui_Form(object):
         font.setPointSize(12)
         self.CobradorOption.setFont(font)
         self.CobradorOption.setStyleSheet("QRadioButton{\n"
-"color: #FFFFFF;\n"
+"    background: transparent; \n"
+"    color: #FFFFFF;\n"
 "}")
         self.CobradorOption.setObjectName("CobradorOption")
         self.pushButton = QtWidgets.QPushButton(self.frame_white_grey)
@@ -220,24 +223,13 @@ class Ui_Form(object):
         self.perfil = QtWidgets.QLabel(self.frame_white)
         self.perfil.setGeometry(QtCore.QRect(20, 510, 101, 91))
         self.perfil.setText("")
-        self.perfil.setPixmap(QtGui.QPixmap("screens\\../assets/Profile.png"))
+        self.perfil.setPixmap(QtGui.QPixmap("app/frontend/assets/Profile.png"))
         self.perfil.setScaledContents(True)
         self.perfil.setObjectName("perfil")
-        self.frame_8 = QtWidgets.QFrame(self.frame_white)
-        self.frame_8.setGeometry(QtCore.QRect(19, 390, 261, 4))
-        self.frame_8.setStyleSheet("QFrame {\n"
-"    border: none;       /* Color y grosor del borde */\n"
-"    background-color: #37373d;    /* Color de fondo */\n"
-"}\n"
-"\n"
-"")
-        self.frame_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_8.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_8.setObjectName("frame_8")
         self.label_3 = QtWidgets.QLabel(self.frame_white)
         self.label_3.setGeometry(QtCore.QRect(20, 170, 101, 111))
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("screens\\../assets/Date.png"))
+        self.label_3.setPixmap(QtGui.QPixmap("app/frontend/assets/Date.png"))
         self.label_3.setScaledContents(True)
         self.label_3.setObjectName("label_3")
         self.FechadeCobtoText = QtWidgets.QTextBrowser(self.frame_white)
@@ -278,10 +270,21 @@ class Ui_Form(object):
 "    margin: 0;                /* Eliminar márgenes */\n"
 "}")
         self.FechadeCobtoText_2.setObjectName("FechadeCobtoText_2")
+        self.frame_10 = QtWidgets.QFrame(self.frame_white)
+        self.frame_10.setGeometry(QtCore.QRect(20, 390, 261, 4))
+        self.frame_10.setStyleSheet("QFrame {\n"
+"    border: none;       /* Color y grosor del borde */\n"
+"    background-color: #37373d;    /* Color de fondo */\n"
+"}\n"
+"\n"
+"")
+        self.frame_10.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_10.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_10.setObjectName("frame_10")
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("screens\\../assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("app/frontend/assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.frame = QtWidgets.QFrame(Form)

@@ -3,7 +3,7 @@ from PyQt5 import QtWidgets
 import threading 
 from app import create_app
 from app.routes import *
-from app.frontend.RADCOM import MainWindow
+from app.frontend.main import *
 from flask_login import LoginManager
 from flask_migrate import Migrate
 from datetime import datetime, date
@@ -84,16 +84,5 @@ def shutdown_flask():
 # ------------------- Run the Flask App -------------------
 if __name__ == '__main__':
     flask_thread = threading.Thread(target=run_flask)
-    flask_thread.start()
     # Start the PyQt5 UI
-    app = QtWidgets.QApplication(sys.argv)
-    
-    main_window = MainWindow()
-    main_window.show()
-    exit_code = app.exec_()
-
-    while not shutdown_flag:
-        time.sleep(1)
-    flask_thread.join()
-    sys.exit(app.exec())
-    
+    frontend(0)

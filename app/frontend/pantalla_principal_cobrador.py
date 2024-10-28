@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QWidget, QApplication
-from screens.pantalla_principal_cobrador_ui import Ui_Form  # Importa la clase generada por Qt Designer
+from app.frontend.pantalla_principal_cobrador_ui import Ui_Form  # Importa la clase generada por Qt Designer
 import sys
 
 class PantallaPrincipalCobrador(QWidget):

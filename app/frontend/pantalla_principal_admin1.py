@@ -223,13 +223,13 @@ class Ui_Form(object):
         self.perfil = QtWidgets.QLabel(self.frame_white)
         self.perfil.setGeometry(QtCore.QRect(20, 510, 101, 91))
         self.perfil.setText("")
-        self.perfil.setPixmap(QtGui.QPixmap("../assets/Profile.png"))
+        self.perfil.setPixmap(QtGui.QPixmap("app/frontend/assets/Profile.png"))
         self.perfil.setScaledContents(True)
         self.perfil.setObjectName("perfil")
         self.label_3 = QtWidgets.QLabel(self.frame_white)
         self.label_3.setGeometry(QtCore.QRect(20, 170, 101, 111))
         self.label_3.setText("")
-        self.label_3.setPixmap(QtGui.QPixmap("../assets/Date.png"))
+        self.label_3.setPixmap(QtGui.QPixmap("app/frontend/assets/Date.png"))
         self.label_3.setScaledContents(True)
         self.label_3.setObjectName("label_3")
         self.FechadeCobtoText = QtWidgets.QTextBrowser(self.frame_white)
@@ -273,7 +273,7 @@ class Ui_Form(object):
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("../assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("app/frontend/assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.frame = QtWidgets.QFrame(Form)
@@ -741,7 +741,7 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
-
+         
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
@@ -811,6 +811,9 @@ class Ui_Form(object):
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt; font-weight:600;\">Cerrar Sesion</span></p></body></html>"))
 
+    
+
+        
 
 if __name__ == "__main__":
     import sys
