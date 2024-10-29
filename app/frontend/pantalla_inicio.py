@@ -33,8 +33,8 @@ class PantallaInicio(QWidget):
                 self.parent.user_role = role
                 if role == "admin":
                     self.parent.change_screen(1)
-                # elif role == "facturador":
-                #     self.parent.change_screen(2)"teeemporal"
+                elif role == "facturador":
+                    self.parent.change_screen(2)
                 elif role == "cobrador":
                     self.parent.change_screen(3)
             else:
