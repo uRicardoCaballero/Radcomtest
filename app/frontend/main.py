@@ -33,21 +33,23 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
         super().__init__()  # Pasamos el título a BaseScreen
         self.setGeometry(100, 100, 1320, 800)  # Tamaño de la ventana principal
 
+        self.session = requests.Session()
+        #self.user_role = None
         # Crear QStackedWidget para manejar las pantallas
-        self.stacked_widget = QStackedWidget(self)
+        self.stacked_widget = QStackedWidget()
         self.setCentralWidget(self.stacked_widget)
 
         # Crear las pantallas
-        self.pantalla_inicio = PantallaInicio(self)
+        self.pantalla_inicio = PantallaInicio(self.session, self)
         self.pantalla_principal_admin = PantallaPrincipalAdmin(self)
         self.pantalla_principal_facturador = PantallaPrincipalFacturador(self)
-        self.pantalla_principal_cobrador = PantallaPrincipalCobrador(self.change_screen,self.logout, self)
+        self.pantalla_principal_cobrador = PantallaPrincipalCobrador(self.session, self.change_screen, self)
         self.pantalla_cobro_admin = PantallaCobroAdmin(self)
         self.pantalla_cobro_facturador = PantallaCobroFacturador(self)
-        self.pantalla_cobro_cobrador =  PantallaCobroCobrador(self.change_screen,self.logout, self)
+        self.pantalla_cobro_cobrador =  PantallaCobroCobrador(self.session, self.change_screen, self)
         self.pantalla_adeudo_admin = PantallaAdeudoAdmin(self)
         self.pantalla_adeudo_facturador = PantallaAdeudoFacturador(self)
-        self.pantalla_adeudo_cobrador = PantallaAdeudoCobrador(self.change_screen,self.logout, self)
+        self.pantalla_adeudo_cobrador = PantallaAdeudoCobrador(self.session, self.change_screen, self)
         self.pantalla_factura_pendiente_admin = PantallaFacturaPendienteAdmin(self)
         self.pantalla_factura_nueva_admin = PantallaFacturaNuevaAdmin(self)
         self.pantalla_factura_facturador = PantallaFacturaFacturador(self)
@@ -88,9 +90,7 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
         self.stacked_widget.addWidget(self.pantalla_crearS_municipio)
         self.stacked_widget.addWidget(self.pantalla_crearS_antena)
 
-        
-        self.pantalla_inicio = PantallaInicio(self)
-        self.stacked_widget.addWidget(self.pantalla_inicio)
+        self.stacked_widget.setCurrentWidget(self.pantalla_inicio)
 
     def change_screen(self, screen_number):
         self.stacked_widget.setCurrentIndex(screen_number)
@@ -99,23 +99,19 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
         # main_layout.addWidget(self.stacked_widget)
         
         #self.stacked_widget.setCurrentIndex(numberscreen)
-
     def logout(self):
-        url = "127.0.0.1:5000/api/logout"
+        url = "http://127.0.0.1:5000/api/logout"
         try:
-            response = requests.post(url)
+            response = self.session.post(url)  # Use stored session for logout
             if response.status_code == 200:
-                self.stacked_widget.setCurrentIndex(0)
+                self.change_screen(0)  # Redirect to login screen
+                print("Logged out successfully")
             else:
-                msg = QMessageBox()
-                msg.setWindowTitle("Error")
-                msg.setText("Ocurrio un error al intentar cerrar sesion, verifica que estes conectado a la red e intenta de nuevo")
-                print(msg.exec())
-                print("Login failed")
+                QMessageBox.warning(self, "Error", "Logout failed. Please try again.")
         except requests.RequestException as e:
-            print("request failed:", e)
-        
-        
+            QMessageBox.critical(self, "Network Error", f"Request failed: {e}")
+            print("Logout request failed:", e)
+
         
 
 

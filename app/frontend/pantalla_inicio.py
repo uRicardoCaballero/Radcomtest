@@ -4,15 +4,14 @@ import requests
 import sys
 
 class PantallaInicio(QWidget):
-    def __init__(self, parent=None):
+    def __init__(self, session, parent=None):
         super().__init__(parent)
-
         # Instancia de la clase generada por Qt Designer
         self.ui = Ui_Form()
         self.ui.setupUi(self)  # Configura la UI
+        self.session = session
 
         self.parent = parent
-
 
         # Aquí puedes agregar más funcionalidades o conectores si es necesario
         self.ui.pushButton.clicked.connect(self.handle_login)
@@ -25,7 +24,7 @@ class PantallaInicio(QWidget):
         data = {"username": username, "password": password}
 
         try:
-            response = requests.post(url, json=data)
+            response = self.session.post(url, json=data)
             if response.status_code == 200:
                 user_data = response.json()
                 role = user_data.get("tipo_usuario")
@@ -42,10 +41,3 @@ class PantallaInicio(QWidget):
         except requests.RequestException as e:
             print("request failed:", e)
 
-    
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = PantallaInicio()  # Cambiar a la clase correcta
-    window.show()
-    sys.exit(app.exec_())

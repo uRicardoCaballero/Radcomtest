@@ -14,15 +14,18 @@ import atexit
 from app import create_app
 from app.models import Usuario
 from app.database import db
+from flask_cors import CORS
+from flask_session import Session
+
 
 app = create_app()
+CORS(app, supports_credentials=True)
 
 shutdown_flag = False
 # Flask-Login setup
 
 # set SECRET_KEY=mysecretkeyvalue
 # app.secret_key = os.getenv('SECRET_KEY', 'your-default-secret-key')
-app.secret_key = 'fX9l3LhCudCwVqUUDZ0q80RvCiswOFnLoYzzXpn64UzfEoqqBy9CRh7lZEnhIUsN'
 
 # Initialize the database
 migrate = Migrate(app, db)
