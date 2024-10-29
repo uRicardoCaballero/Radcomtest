@@ -2,6 +2,33 @@ from . import *
 from app.models import Usuario
 
 usuarios_bp = Blueprint('usuarios', __name__)
+
+@usuarios_bp.route('/usuarios', methods=['POST'])
+def crear_usuario():
+    data = request.get_json()
+    username = data.get('username')
+    password = data.get('password')
+    tipo_usuario = data.get('tipo_usuario')
+
+    if not username or not password:
+        return jsonify({"error": "Faltan campos requeridos"}), 400
+
+    if Usuario.query.filter_by(username=username).first():
+        return jsonify({"error": "El nombre de usuario ya existe"}), 400
+
+    hashed_password = generate_password_hash(password)
+
+    new_user = Usuario(
+        username=username,
+        password=hashed_password,
+        tipo_usuario=tipo_usuario
+    )
+
+    db.session.add(new_user)
+    db.session.commit()
+
+    return jsonify({"message": "Usuario tipo: " + tipo_usuario + " creado exitosamente"}), 201
+
 @usuarios_bp.route('/usuarios', methods=['GET'])
 @login_required
 def obtener_usuarios():

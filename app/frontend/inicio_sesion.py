@@ -3,6 +3,7 @@ from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import Qt
 import requests
 from app.frontend.main import *
+from app.frontend.pantalla_adeudo_admin import PantallaAdeudoAdmin
 
 class PantallaInicioSesion(QWidget):
     def __init__(self, parent=None):
@@ -119,7 +120,9 @@ class PantallaInicioSesion(QWidget):
                 if response.status_code == 200:
                     #change to another window
                     print("Login successful!")
-                    frontend(1) # Go to next screen
+                    self.ui = PantallaAdeudoAdmin()
+                    self.main_window.show()
+                    self.close()
                 else:
                     msg.setWindowTitle("wut")
                     msg.setText("QN VERGAS ERES??? hola mundo")

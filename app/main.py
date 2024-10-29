@@ -1,5 +1,6 @@
 import sys
 from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QApplication
 import threading 
 from app import create_app
 from app.routes import *
@@ -66,23 +67,23 @@ app.register_blueprint(usuarios_bp, url_prefix='/api')
 app.register_blueprint(zonas_bp, url_prefix='/api')
 app.register_blueprint(tests_bp, url_prefix='/api')
 
-@app.route('/')
-def home():
-    return "Radcom Backend Running"
+
 
 def run_flask():
-    global shutdown_flag
     app.run(debug=True, use_reloader=False)
 
-def shutdown_flask():
-    global shutdown_flag
-    shutdown_flag = True
-    print("Shutting down Flask server...")
-
+def main():
+    flask_thread = threading.Thread(target=run_flask)
+    flask_thread.start()
+    app = QApplication(sys.argv)
+    app.setStyleSheet("QWidget { background-color: #37373d; }")
+    main_window = MainWindow()
+    main_window.setMinimumSize(1275, 725)
+    main_window.setMaximumSize(1275, 725)
+    main_window.show()
+    sys.exit(app.exec_())
 
 
 # ------------------- Run the Flask App -------------------
 if __name__ == '__main__':
-    flask_thread = threading.Thread(target=run_flask)
-    # Start the PyQt5 UI
-    frontend(0)
+    main()

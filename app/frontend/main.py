@@ -1,7 +1,7 @@
 import sys
 import threading
-from PyQt5.QtWidgets import QApplication, QStackedWidget
-from app.frontend.inicio_sesion import PantallaInicioSesion
+import requests
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QApplication, QMessageBox, QStackedWidget,QMainWindow
 from app.frontend.pantalla_principal_admin import PantallaPrincipalAdmin
 from app.frontend.pantalla_principal_facturador import PantallaPrincipalFacturador
 from app.frontend.pantalla_principal_cobrador import PantallaPrincipalCobrador
@@ -24,28 +24,30 @@ from app.frontend.pantalla_crearS_cliente import PantallaCrearSCliente
 from app.frontend.pantalla_crearS_comunidad import PantallaCrearSComunidad
 from app.frontend.pantalla_crearS_municipio import PantallaCrearSMunicipio
 from app.frontend.pantalla_crearS_antena import PantallaCrearSAntena
-from app.frontend.base_screen import BaseScreen  # Asegúrate de que BaseScreen esté importado
+from app.frontend.pantalla_inicio import PantallaInicio  # Asegúrate de que BaseScreen esté importado
 from app.main import *
 
-class MainWindow(BaseScreen):  # Hereda de BaseScreen para utilizar la barra personalizada
-    def __init__(self,numberscreen):
-        super().__init__(title="RADCOM")  # Pasamos el título a BaseScreen
+
+class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra personalizada
+    def __init__(self):
+        super().__init__()  # Pasamos el título a BaseScreen
         self.setGeometry(100, 100, 1320, 800)  # Tamaño de la ventana principal
 
         # Crear QStackedWidget para manejar las pantallas
-        self.stacked_widget = QStackedWidget()
+        self.stacked_widget = QStackedWidget(self)
+        self.setCentralWidget(self.stacked_widget)
 
         # Crear las pantallas
-        self.pantalla_inicio = PantallaInicioSesion(self)
+        self.pantalla_inicio = PantallaInicio(self)
         self.pantalla_principal_admin = PantallaPrincipalAdmin(self)
         self.pantalla_principal_facturador = PantallaPrincipalFacturador(self)
-        self.pantalla_principal_cobrador = PantallaPrincipalCobrador(self)
+        self.pantalla_principal_cobrador = PantallaPrincipalCobrador(self.change_screen,self.logout, self)
         self.pantalla_cobro_admin = PantallaCobroAdmin(self)
         self.pantalla_cobro_facturador = PantallaCobroFacturador(self)
-        self.pantalla_cobro_cobrador =  PantallaCobroCobrador(self)
+        self.pantalla_cobro_cobrador =  PantallaCobroCobrador(self.change_screen,self.logout, self)
         self.pantalla_adeudo_admin = PantallaAdeudoAdmin(self)
         self.pantalla_adeudo_facturador = PantallaAdeudoFacturador(self)
-        self.pantalla_adeudo_cobrador = PantallaAdeudoCobrador(self)
+        self.pantalla_adeudo_cobrador = PantallaAdeudoCobrador(self.change_screen,self.logout, self)
         self.pantalla_factura_pendiente_admin = PantallaFacturaPendienteAdmin(self)
         self.pantalla_factura_nueva_admin = PantallaFacturaNuevaAdmin(self)
         self.pantalla_factura_facturador = PantallaFacturaFacturador(self)
@@ -86,26 +88,37 @@ class MainWindow(BaseScreen):  # Hereda de BaseScreen para utilizar la barra per
         self.stacked_widget.addWidget(self.pantalla_crearS_municipio)
         self.stacked_widget.addWidget(self.pantalla_crearS_antena)
 
+        
+        self.pantalla_inicio = PantallaInicio(self)
+        self.stacked_widget.addWidget(self.pantalla_inicio)
 
-        # Añadir el QStackedWidget al layout de contenido en BaseScreen
-        self.layout().insertWidget(1, self.stacked_widget)
-
-        # Establecer la pantalla de inicio
     def change_screen(self, screen_number):
         self.stacked_widget.setCurrentIndex(screen_number)
+        # Añadir el QStackedWidget al layout de contenido en BaseScreen
+        # main_layout = QVBoxLayout(self)
+        # main_layout.addWidget(self.stacked_widget)
+        
+        #self.stacked_widget.setCurrentIndex(numberscreen)
 
-app = None
-main_window = None
-def frontend(screenumber):
-    global app, main_window
+    def logout(self):
+        url = "127.0.0.1:5000/api/logout"
+        try:
+            response = requests.post(url)
+            if response.status_code == 200:
+                self.stacked_widget.setCurrentIndex(0)
+            else:
+                msg = QMessageBox()
+                msg.setWindowTitle("Error")
+                msg.setText("Ocurrio un error al intentar cerrar sesion, verifica que estes conectado a la red e intenta de nuevo")
+                print(msg.exec())
+                print("Login failed")
+        except requests.RequestException as e:
+            print("request failed:", e)
+        
+        
+        
 
-    if app is None:
-        app = QApplication(sys.argv)
-        main_window = MainWindow(screenumber)
-        main_window.show()
-    else:
-        main_window.change_screen(screenumber)
 
-if __name__ == "__main__":
-    flask_thread.start()
-    sys.exit(app.exec_())
+
+
+    

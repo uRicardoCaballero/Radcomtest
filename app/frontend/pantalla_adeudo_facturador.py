@@ -23,3 +23,5 @@ if __name__ == "__main__":
     window = PantallaAdeudoFacturador()  # Cambiar a la clase correcta
     window.show()
     sys.exit(app.exec_())
+
+
