@@ -26,10 +26,10 @@ def init_admin():
     admin_usuario = Usuario(
         username=username,
         password=hashed_password,
-        tipo_usuario='admin'
+        tipo_usuario='Administrador'
     )
 
     db.session.add(admin_usuario)
     db.session.commit()
 
-    return jsonify({"message": "Admin creado exitosamente"}), 201
+    return jsonify({"message": "Administrador creado exitosamente"}), 201

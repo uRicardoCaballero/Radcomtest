@@ -139,7 +139,7 @@ def obtener_cliente(id_cliente):
 @clientes_bp.route('/clientes/<string:id_cliente>', methods=['PUT'])
 @login_required
 def actualizar_cliente(id_cliente):
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     cliente = Cliente.query.get_or_404(id_cliente)
@@ -180,7 +180,7 @@ def actualizar_cliente(id_cliente):
 @clientes_bp.route('/clientes/<string:id_cliente>', methods=['DELETE'])
 @login_required
 def eliminar_cliente(id_cliente):
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     cliente = Cliente.query.get_or_404(id_cliente)

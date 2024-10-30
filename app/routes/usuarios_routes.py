@@ -32,7 +32,7 @@ def crear_usuario():
 @usuarios_bp.route('/usuarios', methods=['GET'])
 @login_required
 def obtener_usuarios():
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     usuarios = Usuario.query.all()
@@ -48,7 +48,7 @@ def obtener_usuarios():
 @usuarios_bp.route('/usuarios/<int:usuario_id>', methods=['GET'])
 @login_required
 def obtener_usuario(usuario_id):
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     usuario = Usuario.query.get_or_404(usuario_id)
@@ -62,7 +62,7 @@ def obtener_usuario(usuario_id):
 @usuarios_bp.route('/usuarios/<int:usuario_id>', methods=['PUT'])
 @login_required
 def actualizar_usuario(usuario_id):
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     usuario = Usuario.query.get_or_404(usuario_id)
@@ -90,7 +90,7 @@ def actualizar_usuario(usuario_id):
 @usuarios_bp.route('/usuarios/<int:usuario_id>', methods=['DELETE'])
 @login_required
 def eliminar_usuario(usuario_id):
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     usuario = Usuario.query.get_or_404(usuario_id)

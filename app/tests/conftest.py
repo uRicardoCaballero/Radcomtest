@@ -17,7 +17,7 @@ def app():
         db.drop_all()
         db.create_all()  # Create the tables in the in-memory database
         password_hash=generate_password_hash("54321")
-        db.session.add(Usuario(username='cesar', password=password_hash, tipo_usuario='admin'))
+        db.session.add(Usuario(username='cesar', password=password_hash, tipo_usuario='Administrador'))
         db.session.add(Usuario(username='celina', password=password_hash, tipo_usuario='worker'))
         
         db.session.commit()

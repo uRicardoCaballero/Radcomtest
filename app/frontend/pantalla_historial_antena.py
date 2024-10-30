@@ -60,8 +60,3 @@ class PantallaHistorialAntena(QWidget):
             self.change_screen(17)
         elif label_name == "menuOption7_2":
             self.logout()
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = PantallaHistorialAntena()  # Cambiar a la clase correcta
-    window.show()
-    sys.exit(app.exec_())

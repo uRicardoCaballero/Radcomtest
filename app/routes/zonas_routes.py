@@ -6,7 +6,7 @@ zonas_bp = Blueprint('zonas', __name__)
 @zonas_bp.route('/zonas', methods=['POST'])
 @login_required
 def crear_zona():
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     data = request.get_json()
@@ -66,7 +66,7 @@ def obtener_zona(zona_id):
 @zonas_bp.route('/zonas/<int:zona_id>', methods=['PUT'])
 @login_required
 def actualizar_zona(zona_id):
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     zona = Zona.query.get_or_404(zona_id)
@@ -90,7 +90,7 @@ def actualizar_zona(zona_id):
 @zonas_bp.route('/zonas/<int:zona_id>', methods=['DELETE'])
 @login_required
 def eliminar_zona(zona_id):
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     zona = Zona.query.get_or_404(zona_id)

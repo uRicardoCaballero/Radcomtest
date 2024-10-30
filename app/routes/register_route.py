@@ -5,7 +5,7 @@ register_bp = Blueprint('register', __name__)
 @register_bp.route('/register', methods=['POST'])
 @login_required
 def register():
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     data = request.get_json()

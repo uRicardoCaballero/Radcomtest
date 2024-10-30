@@ -43,13 +43,13 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
         self.pantalla_inicio = PantallaInicio(self.session, self)
         self.pantalla_principal_admin = PantallaPrincipalAdmin(self.change_screen,self.logout, self)
         self.pantalla_principal_facturador = PantallaPrincipalFacturador(self.change_screen,self.logout, self)
-        self.pantalla_principal_cobrador = PantallaPrincipalCobrador(self.session, self.change_screen, self)
-        self.pantalla_cobro_admin = PantallaCobroAdmin(self.change_screen,self.logout, self)
+        self.pantalla_principal_cobrador = PantallaPrincipalCobrador(self.change_screen,self.logout, self)
+        self.pantalla_cobro_admin = PantallaCobroAdmin(self.change_screen,self.logout, self.session, self)
         self.pantalla_cobro_facturador = PantallaCobroFacturador(self.change_screen,self.logout, self)
-        self.pantalla_cobro_cobrador =  PantallaCobroCobrador(self.session, self.change_screen, self)
+        self.pantalla_cobro_cobrador =  PantallaCobroCobrador(self.change_screen,self.logout, self)
         self.pantalla_adeudo_admin = PantallaAdeudoAdmin(self.change_screen,self.logout, self)
         self.pantalla_adeudo_facturador = PantallaAdeudoFacturador(self.change_screen,self.logout, self)
-        self.pantalla_adeudo_cobrador = PantallaAdeudoCobrador(self.session, self.change_screen, self)
+        self.pantalla_adeudo_cobrador = PantallaAdeudoCobrador(self.change_screen,self.logout, self)
         self.pantalla_factura_pendiente_admin = PantallaFacturaPendienteAdmin(self.change_screen,self.logout, self)
         self.pantalla_factura_nueva_admin = PantallaFacturaNuevaAdmin(self.change_screen,self.logout, self)
         self.pantalla_factura_facturador = PantallaFacturaFacturador(self.change_screen,self.logout, self)
@@ -64,10 +64,6 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
         self.pantalla_crearS_municipio = PantallaCrearSMunicipio(self.change_screen,self.logout, self)
         self.pantalla_crearS_antena = PantallaCrearSAntena(self.change_screen,self.logout, self)
         
-        
-        
-        
-
 
         # Añadir las pantallas al QStackedWidget
         self.stacked_widget.addWidget(self.pantalla_inicio)
@@ -98,6 +94,8 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
 
     def change_screen(self, screen_number):
         self.stacked_widget.setCurrentIndex(screen_number)
+        if screen_number == 4:
+            self.pantalla_cobro_admin.load_client_data()
         # Añadir el QStackedWidget al layout de contenido en BaseScreen
         # main_layout = QVBoxLayout(self)
         # main_layout.addWidget(self.stacked_widget)

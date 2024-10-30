@@ -9,7 +9,7 @@ def test_admin_access(client):
     # Assert admin access is allowed
     assert login_response.status_code == 200
 
-    register_admin = register(client, 'registro admin', '12345', 'admin')
+    register_admin = register(client, 'registro admin', '12345', 'Administrador')
 
     assert register_admin.status_code == 201
 
@@ -85,7 +85,7 @@ def test_admin_access(client):
     # Assert admin access is allowed
     assert login_response.status_code == 200
 
-    register_admin = register(client, 'registro admin', '12345', 'admin')
+    register_admin = register(client, 'registro admin', '12345', 'Administrador')
 
     assert register_admin.status_code == 403
 

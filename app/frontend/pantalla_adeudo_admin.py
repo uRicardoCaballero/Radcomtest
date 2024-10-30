@@ -1,6 +1,7 @@
-from PyQt5.QtWidgets import QWidget, QApplication
+from PyQt5.QtWidgets import QWidget, QApplication, QMessageBox
 from app.frontend.pantalla_adeudo_admin_ui import Ui_Form  # Importa la clase generada por Qt Designer
 import sys
+import requests
 
 class PantallaAdeudoAdmin(QWidget):
     def __init__(self, change_screen_func, logout, parent=None):
@@ -46,8 +47,3 @@ class PantallaAdeudoAdmin(QWidget):
         elif label_name == "menuOption7_2":
             self.logout()
 
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = PantallaAdeudoAdmin()  # Cambiar a la clase correcta
-    window.show()
-    sys.exit(app.exec_())

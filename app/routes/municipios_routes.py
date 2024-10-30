@@ -5,7 +5,7 @@ municipios_bp = Blueprint('municipios', __name__)
 @municipios_bp.route('/municipios', methods=['POST'])
 @login_required
 def crear_municipio():
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     data = request.get_json()
@@ -57,7 +57,7 @@ def obtener_municipio(municipio_id):
 @municipios_bp.route('/municipios/<int:municipio_id>', methods=['PUT'])
 @login_required
 def actualizar_municipio(municipio_id):
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     municipio = Municipio.query.get_or_404(municipio_id)
@@ -79,7 +79,7 @@ def actualizar_municipio(municipio_id):
 @municipios_bp.route('/municipios/<int:municipio_id>', methods=['DELETE'])
 @login_required
 def eliminar_municipio(municipio_id):
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     municipio = Municipio.query.get_or_404(municipio_id)

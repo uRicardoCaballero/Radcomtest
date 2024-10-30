@@ -30,11 +30,11 @@ class PantallaInicio(QWidget):
                 role = user_data.get("tipo_usuario")
 
                 self.parent.user_role = role
-                if role == "admin":
+                if role == "Administrador":
                     self.parent.change_screen(1)
-                elif role == "facturador":
+                elif role == "Facturador":
                     self.parent.change_screen(2)
-                elif role == "cobrador":
+                elif role == "Cobrador":
                     self.parent.change_screen(3)
             else:
                 print("Login failed")

@@ -5,7 +5,7 @@ folios_bp = Blueprint('folios', __name__)
 @folios_bp.route('/folios', methods=['POST'])
 @login_required
 def crear_folio():
-    if current_user.tipo_usuario not in ['admin', 'worker']:
+    if current_user.tipo_usuario not in ['Administrador']:
         return jsonify({"error": "Acceso denegado"}), 403
 
     data = request.get_json()
@@ -59,7 +59,7 @@ def obtener_folio(folio):
 @folios_bp.route('/folios/<string:folio>', methods=['PUT'])
 @login_required
 def actualizar_folio(folio):
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     folio_obj = Folio.query.get_or_404(folio)
@@ -87,7 +87,7 @@ def actualizar_folio(folio):
 @folios_bp.route('/folios/<string:folio>', methods=['DELETE'])
 @login_required
 def eliminar_folio(folio):
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     folio_obj = Folio.query.get_or_404(folio)

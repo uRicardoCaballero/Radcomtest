@@ -29,7 +29,7 @@ class PantallaHistorialMunicipio(QWidget):
         self.ui.ComunidadText.mousePressEvent = lambda event: self.label_clicked(event,"ComunidadText")
         self.ui.MunicipioText.mousePressEvent = lambda event: self.label_clicked(event,"MunicipioText")
         self.ui.AntenaText.mousePressEvent = lambda event: self.label_clicked(event,"AntenaText")
-        self.ui.globaltext.mousePressEvent = lambda event: self.label_clicked(event,"globaltext")
+        self.ui.globaltext.mousePressEvent = lambda eventwqe: self.label_clicked(event,"globaltext")
         self.ui.menuOption7_2.mousePressEvent = lambda event: self.label_clicked(event, "menuOption7_2")
 
     def label_clicked(self, event, label_name):
@@ -60,8 +60,3 @@ class PantallaHistorialMunicipio(QWidget):
             self.change_screen(17)
         elif label_name == "menuOption7_2":
             self.logout()
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = PantallaHistorialMunicipio()  # Cambiar a la clase correcta
-    window.show()
-    sys.exit(app.exec_())

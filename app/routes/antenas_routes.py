@@ -5,7 +5,7 @@ antenas_bp = Blueprint('antenas', __name__)
 @antenas_bp.route('/antenas', methods=['POST'])
 @login_required
 def crear_antena():
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     data = request.get_json()
@@ -52,7 +52,7 @@ def obtener_antena(antena_id):
 @antenas_bp.route('/antenas/<int:antena_id>', methods=['PUT'])
 @login_required
 def actualizar_antena(antena_id):
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     antena = Antena.query.get_or_404(antena_id)
@@ -68,7 +68,7 @@ def actualizar_antena(antena_id):
 @antenas_bp.route('/antenas/<int:antena_id>', methods=['DELETE'])
 @login_required
 def eliminar_antena(antena_id):
-    if current_user.tipo_usuario != 'admin':
+    if current_user.tipo_usuario != 'Administrador':
         return jsonify({"error": "Acceso denegado"}), 403
 
     antena = Antena.query.get_or_404(antena_id)
