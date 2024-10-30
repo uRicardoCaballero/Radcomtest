@@ -146,14 +146,14 @@ class Ui_Form(object):
         self.Usuario.setGeometry(QtCore.QRect(140, 460, 371, 41))
         font = QtGui.QFont()
         font.setFamily("Montserratl")
-        font.setPointSize(-1)
+        font.setPointSize(20)
         self.Usuario.setFont(font)
         self.Usuario.setStyleSheet("QLineEdit {\n"
 "    background: transparent;    /* Quitar el fondo */\n"
 "    border: 1px solid #FFFFFF;               /* Quitar el borde */\n"
 "    color: #FFFFFF;             /* Cambiar el color del texto (ejemplo: blanco) */\n"
 "    font-family: \"Montserratl\";       /* Cambiar el tipo de letra */\n"
-"    font-size: 10px;            /* Cambiar el tamaño de la fuente */\n"
+"    font-size: 20px;            /* Cambiar el tamaño de la fuente */\n"
 "}")
         self.Usuario.setInputMask("")
         self.Usuario.setText("")
@@ -170,7 +170,7 @@ class Ui_Form(object):
 "    border: 1px solid #FFFFFF;               /* Quitar el borde */\n"
 "    color: #FFFFFF;             /* Cambiar el color del texto (ejemplo: blanco) */\n"
 "    font-family: \"Montserratl\";       /* Cambiar el tipo de letra */\n"
-"    font-size: 10px;            /* Cambiar el tamaño de la fuente */\n"
+"    font-size: 20px;            /* Cambiar el tamaño de la fuente */\n"
 "}")
         self.Contrasena.setInputMask("")
         self.Contrasena.setText("")
@@ -180,7 +180,7 @@ class Ui_Form(object):
         self.AdministradorOption.setGeometry(QtCore.QRect(40, 580, 141, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
-        font.setPointSize(12)
+        font.setPointSize(20)
         self.AdministradorOption.setFont(font)
         self.AdministradorOption.setStyleSheet("QRadioButton{\n"
 "    background: transparent; \n"

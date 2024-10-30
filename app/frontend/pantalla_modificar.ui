@@ -210,6 +210,7 @@ p, li { white-space: pre-wrap; }
      <property name="styleSheet">
       <string notr="true">QLineEdit{
 		border: none;
+        color: white;
 		background: transparent; 
 }</string>
      </property>
@@ -651,6 +652,7 @@ p, li { white-space: pre-wrap; }
       <string notr="true">QLineEdit{
 		border: none;
 		background: transparent; 
+        color: #white;
 }</string>
      </property>
      <property name="inputMask">

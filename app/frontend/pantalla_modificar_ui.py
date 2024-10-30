@@ -98,7 +98,8 @@ class Ui_Form(object):
         self.CalleHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.CalleHolder.setStyleSheet("QLineEdit{\n"
 "        border: none;\n"
-"        background: transparent; \n"
+"        background: transparent; \n"        
+"        color: white;  \n"
 "}")
         self.CalleHolder.setInputMask("")
         self.CalleHolder.setAlignment(QtCore.Qt.AlignCenter)
@@ -119,7 +120,7 @@ class Ui_Form(object):
         self.IPHolder.setAutoFillBackground(False)
         self.IPHolder.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
-"    color:#FFFFFF;\n"
+"    color: white;\n"
 "    border: none;             /* Quitar el borde */\n"
 "    margin: 0;                /* Eliminar márgenes */\n"
 "}")
@@ -301,6 +302,7 @@ class Ui_Form(object):
         self.CalleHolder_2.setStyleSheet("QLineEdit{\n"
 "        border: none;\n"
 "        background: transparent; \n"
+"        color: white; \n"
 "}")
         self.CalleHolder_2.setInputMask("")
         self.CalleHolder_2.setAlignment(QtCore.Qt.AlignCenter)
@@ -335,6 +337,7 @@ class Ui_Form(object):
         self.NumHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.NumHolder.setStyleSheet("QLineEdit{\n"
 "        border: none;\n"
+"        color: white; \n"
 "        background: transparent; \n"
 "}")
         self.NumHolder.setInputMask("")
@@ -370,6 +373,7 @@ class Ui_Form(object):
         self.CPHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.CPHolder.setStyleSheet("QLineEdit{\n"
 "        border: none;\n"
+"        color: white; \n"
 "        background: transparent; \n"
 "}")
         self.CPHolder.setInputMask("")

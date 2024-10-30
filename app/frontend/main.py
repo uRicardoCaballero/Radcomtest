@@ -47,7 +47,7 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
         self.pantalla_cobro_admin = PantallaCobroAdmin(self.change_screen,self.logout, self.session, self)
         self.pantalla_cobro_facturador = PantallaCobroFacturador(self.change_screen,self.logout, self)
         self.pantalla_cobro_cobrador =  PantallaCobroCobrador(self.change_screen,self.logout, self)
-        self.pantalla_adeudo_admin = PantallaAdeudoAdmin(self.change_screen,self.logout, self)
+        self.pantalla_adeudo_admin = PantallaAdeudoAdmin(self.change_screen,self.logout, self.session, self)
         self.pantalla_adeudo_facturador = PantallaAdeudoFacturador(self.change_screen,self.logout, self)
         self.pantalla_adeudo_cobrador = PantallaAdeudoCobrador(self.change_screen,self.logout, self)
         self.pantalla_factura_pendiente_admin = PantallaFacturaPendienteAdmin(self.change_screen,self.logout, self)
@@ -58,7 +58,7 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
         self.pantalla_historial_municipio = PantallaHistorialMunicipio(self.change_screen,self.logout, self)
         self.pantalla_historial_antena = PantallaHistorialAntena(self.change_screen,self.logout, self)
         self.pantalla_historial_global = PantallaHistorialGlobal(self.change_screen,self.logout, self)
-        self.pantalla_modificar = PantallaModificar(self.change_screen,self.logout, self)
+        self.pantalla_modificar = PantallaModificar(self.change_screen,self.logout, self.session, self)
         self.pantalla_crearS_cliente = PantallaCrearSCliente(self.change_screen,self.logout, self)
         self.pantalla_crearS_comunidad = PantallaCrearSComunidad(self.change_screen,self.logout, self)
         self.pantalla_crearS_municipio = PantallaCrearSMunicipio(self.change_screen,self.logout, self)
@@ -96,6 +96,10 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
         self.stacked_widget.setCurrentIndex(screen_number)
         if screen_number == 4:
             self.pantalla_cobro_admin.load_client_data()
+        elif screen_number == 7:
+            self.pantalla_adeudo_admin.load_client_data()
+        elif screen_number == 18:
+            self.pantalla_modificar.load_client_data()
         # Añadir el QStackedWidget al layout de contenido en BaseScreen
         # main_layout = QVBoxLayout(self)
         # main_layout.addWidget(self.stacked_widget)
