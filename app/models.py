@@ -8,7 +8,9 @@ class Antena(db.Model):
     __tablename__ = 'antenas'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nombre = db.Column(db.String(100), nullable=False)
-    ubicacion = db.Column(db.String(255), nullable=True)  # Optional field
+    nombreDispositivo = db.Column(db.String(100), nullable=False)
+    modelo = db.Column (db.String(100), nullable=False)
+    ssid = db.Colum (db.String(100), nullable=False)
 
     municipios = db.relationship('Municipio', backref='antena', lazy=True)
 
@@ -36,7 +38,9 @@ class Cliente(db.Model):
     __tablename__ = 'clientes'
     id_cliente = db.Column(db.String(20), primary_key=True)  # Format: "XXzYYNNNNN"
     nombre = db.Column(db.String(100), nullable=False)
-    telefono = db.Column(db.String(50), nullable=False)
+    telefono = db.Column(db.String(13
+), nullable=False)
+    ip = db.Column(db.String(50), nullable=False)
     zona_id = db.Column(db.Integer, db.ForeignKey('zonas.numero_zona'), nullable=False)
     tipo = db.Column(db.String(50), nullable=False)  # "libre", "mensual", "anual"
     estado_cobro = db.Column(db.String(50), nullable=False)  # "pagado", "por cobrar"
@@ -68,6 +72,13 @@ class Folio(db.Model):
     __tablename__ = 'folios'
     folio = db.Column(db.String(100), primary_key=True)  # Unique payment ID
     cliente_id = db.Column(db.String(20), db.ForeignKey('clientes.id_cliente'), nullable=False)
+
+#Facturas table
+class Factura(db.Model):
+    __tablename__ = 'facturas'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    nombre = db.Column(db.String(100), nullable=False)
+    numero = db.Column(db.String(100), nullable=False, unique=True)  # Unique to avoid duplicate factura numbers
 
 # Usuarios table
 class Usuario(db.Model):
