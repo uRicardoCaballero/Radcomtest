@@ -10,8 +10,7 @@ class Antena(db.Model):
     nombre = db.Column(db.String(100), nullable=False)
     nombreDispositivo = db.Column(db.String(100), nullable=False)
     modelo = db.Column (db.String(100), nullable=False)
-    ssid = db.Colum (db.String(100), nullable=False)
-
+    ssid = db.Column (db.String(100), nullable=False)
     municipios = db.relationship('Municipio', backref='antena', lazy=True)
 
 # Municipios table

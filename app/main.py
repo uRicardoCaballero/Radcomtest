@@ -3,6 +3,7 @@ from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication
 import threading 
 from app import create_app
+from flask import Flask
 from app.routes import *
 from app.frontend.main import *
 from flask_login import LoginManager
@@ -11,7 +12,6 @@ from datetime import datetime, date
 import os
 import time
 import atexit
-from app import create_app
 from app.models import Usuario
 from app.database import db
 from flask_cors import CORS
@@ -19,6 +19,7 @@ from flask_session import Session
 
 
 app = create_app()
+
 CORS(app, supports_credentials=True)
 
 shutdown_flag = False
@@ -69,6 +70,7 @@ app.register_blueprint(register_bp, url_prefix='/api')
 app.register_blueprint(usuarios_bp, url_prefix='/api')
 app.register_blueprint(zonas_bp, url_prefix='/api')
 app.register_blueprint(tests_bp, url_prefix='/api')
+app.register_blueprint(facturas_bp, url_prefix='/api')
 
 
 

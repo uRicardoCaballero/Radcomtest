@@ -11,6 +11,7 @@ def crear_cliente():
     id_cliente = data.get('id_cliente')  # Format: "XXzYYNNNNN"
     nombre = data.get('nombre')
     telefono = data.get('telefono')
+    ip = data.get('ip')
     zona_id = data.get('zona_id')
     tipo = data.get('tipo')  # "libre", "mensual", "anual"
     estado_cobro = data.get('estado_cobro')  # "pagado", "por cobrar"
@@ -75,6 +76,7 @@ def crear_cliente():
         id_cliente=id_cliente,
         nombre=nombre,
         telefono=telefono,
+        ip=ip,
         zona_id=zona_id,
         tipo=tipo,
         estado_cobro=estado_cobro,
@@ -147,6 +149,7 @@ def actualizar_cliente(id_cliente):
 
     cliente.nombre = data.get('nombre', cliente.nombre)
     cliente.telefono = data.get('telefono', cliente.telefono)
+    
     zona_id = data.get('zona_id')
     if zona_id:
         zona = Zona.query.get(zona_id)

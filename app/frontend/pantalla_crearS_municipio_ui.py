@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'screens/pantalla_crearS_municipio.ui'
+# Form implementation generated from reading ui file 'pantalla_crearS_municipio.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -115,27 +115,6 @@ class Ui_Form(object):
 "    margin: 0;                /* Eliminar márgenes */\n"
 "}")
         self.AntenaText_2.setObjectName("AntenaText_2")
-        self.NombreComunidadHolder = QtWidgets.QTextBrowser(self.frame_white_grey)
-        self.NombreComunidadHolder.setGeometry(QtCore.QRect(70, 330, 481, 41))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.NombreComunidadHolder.sizePolicy().hasHeightForWidth())
-        self.NombreComunidadHolder.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(5)
-        self.NombreComunidadHolder.setFont(font)
-        self.NombreComunidadHolder.setToolTipDuration(-1)
-        self.NombreComunidadHolder.setAutoFillBackground(False)
-        self.NombreComunidadHolder.setStyleSheet("QTextBrowser {\n"
-"    background: #ffffff;  /* Quitar el fondo */\n"
-"    color:#FFFFFF;\n"
-"    border: none;             /* Quitar el borde */\n"
-"    margin: 0;                /* Eliminar márgenes */\n"
-"         border-radius: 20px; \n"
-"}")
-        self.NombreComunidadHolder.setObjectName("NombreComunidadHolder")
         self.MunicipioText_2 = QtWidgets.QTextBrowser(self.frame_white_grey)
         self.MunicipioText_2.setGeometry(QtCore.QRect(70, 290, 231, 31))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -176,56 +155,35 @@ class Ui_Form(object):
 "    margin: 0;                /* Eliminar márgenes */\n"
 "}")
         self.NombreMText.setObjectName("NombreMText")
-        self.AntenaSelect = QtWidgets.QFontComboBox(self.frame_white_grey)
-        self.AntenaSelect.setGeometry(QtCore.QRect(70, 240, 371, 31))
+        self.AntenaHolder = QtWidgets.QLineEdit(self.frame_white_grey)
+        self.AntenaHolder.setGeometry(QtCore.QRect(70, 330, 491, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
-        font.setPointSize(14)
-        self.AntenaSelect.setFont(font)
-        self.AntenaSelect.setStyleSheet("QFontComboBox{\n"
-"    border: 1px solid #FFFFFF;\n"
-"    border-radius: 10px;\n"
-"    background: transparent;\n"
-"    color: #FFFFFF;\n"
-"}\n"
-"QComboBox::drop-down {\n"
-"    subcontrol-origin: padding;\n"
-"    subcontrol-position: top right;\n"
-"    width: 15px;\n"
-"    border-left-width: 1px;\n"
-"    border-left-color: darkgray;\n"
-"    border-left-style: solid;\n"
-"    border-top-right-radius: 3px;\n"
-"    border-bottom-right-radius: 3px;\n"
-"    background: transparent;  /* Fondo transparente */\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow {\n"
-"    image: url(none); /* Borra cualquier imagen personalizada */\n"
-"    width: 10px;  /* Tamaño predeterminado de la flecha */\n"
-"    height: 10px;\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow {\n"
-"    image: url(:/qt-project.org/styles/commonstyle/images/arrow-down-16.png);  /* Restaura la flecha predeterminada */\n"
+        font.setPointSize(18)
+        self.AntenaHolder.setFont(font)
+        self.AntenaHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.AntenaHolder.setStyleSheet("QLineEdit{\n"
+"    border: 1px solid  #37373d;\n"
+"        background: #FFFFFF; \n"
+"         border-radius: 20px; \n"
 "}")
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.AntenaSelect.setCurrentFont(font)
+        self.AntenaHolder.setInputMask("")
+        self.AntenaHolder.setAlignment(QtCore.Qt.AlignCenter)
+        self.AntenaHolder.setPlaceholderText("")
+        self.AntenaHolder.setObjectName("AntenaHolder")
+        self.AntenaSelect = QtWidgets.QComboBox(self.frame_white_grey)
+        self.AntenaSelect.setGeometry(QtCore.QRect(70, 240, 371, 22))
         self.AntenaSelect.setObjectName("AntenaSelect")
         self.cliente = QtWidgets.QLabel(self.frame_white)
         self.cliente.setGeometry(QtCore.QRect(30, 70, 81, 81))
         self.cliente.setText("")
-        self.cliente.setPixmap(QtGui.QPixmap("app/frontend/assets/Profile.png"))
+        self.cliente.setPixmap(QtGui.QPixmap("../assets/Profile.png"))
         self.cliente.setScaledContents(True)
         self.cliente.setObjectName("cliente")
         self.comunidad = QtWidgets.QLabel(self.frame_white)
         self.comunidad.setGeometry(QtCore.QRect(20, 250, 91, 61))
         self.comunidad.setText("")
-        self.comunidad.setPixmap(QtGui.QPixmap("app/frontend/assets/Comunidad.png"))
+        self.comunidad.setPixmap(QtGui.QPixmap("../assets/Comunidad.png"))
         self.comunidad.setScaledContents(True)
         self.comunidad.setObjectName("comunidad")
         self.ClienteText = QtWidgets.QTextBrowser(self.frame_white)
@@ -291,7 +249,7 @@ class Ui_Form(object):
         self.municipio = QtWidgets.QLabel(self.frame_white)
         self.municipio.setGeometry(QtCore.QRect(30, 420, 71, 81))
         self.municipio.setText("")
-        self.municipio.setPixmap(QtGui.QPixmap("app/frontend/assets/Municipio.png"))
+        self.municipio.setPixmap(QtGui.QPixmap("../assets/Municipio.png"))
         self.municipio.setScaledContents(True)
         self.municipio.setObjectName("municipio")
         self.frame_12 = QtWidgets.QFrame(self.frame_white)
@@ -346,13 +304,13 @@ class Ui_Form(object):
         self.antena = QtWidgets.QLabel(self.frame_white)
         self.antena.setGeometry(QtCore.QRect(30, 590, 81, 81))
         self.antena.setText("")
-        self.antena.setPixmap(QtGui.QPixmap("app/frontend/assets/Antena.png"))
+        self.antena.setPixmap(QtGui.QPixmap("../assets/Antena.png"))
         self.antena.setScaledContents(True)
         self.antena.setObjectName("antena")
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("app/frontend/assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("../assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.frame = QtWidgets.QFrame(Form)
@@ -831,11 +789,6 @@ class Ui_Form(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Antena:</span></p></body></html>"))
-        self.NombreComunidadHolder.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.MunicipioText_2.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -846,7 +799,6 @@ class Ui_Form(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:24pt; font-weight:600;\">DATOS DEL MUNICIPIO</span></p></body></html>"))
-        self.AntenaSelect.setCurrentText(_translate("Form", "Selecciona una Antena"))
         self.ClienteText.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -907,3 +859,13 @@ class Ui_Form(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt; font-weight:600;\">Cerrar Sesion</span></p></body></html>"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Form = QtWidgets.QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
+    sys.exit(app.exec_())

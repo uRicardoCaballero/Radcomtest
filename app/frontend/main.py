@@ -61,8 +61,8 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
         self.pantalla_modificar = PantallaModificar(self.change_screen,self.logout, self.session, self)
         self.pantalla_crearS_cliente = PantallaCrearSCliente(self.change_screen,self.logout, self)
         self.pantalla_crearS_comunidad = PantallaCrearSComunidad(self.change_screen,self.logout, self)
-        self.pantalla_crearS_municipio = PantallaCrearSMunicipio(self.change_screen,self.logout, self)
-        self.pantalla_crearS_antena = PantallaCrearSAntena(self.change_screen,self.logout, self)
+        self.pantalla_crearS_municipio = PantallaCrearSMunicipio(self.change_screen,self.logout,self.session, self)
+        self.pantalla_crearS_antena = PantallaCrearSAntena(self.change_screen,self.logout, self.session, self)
         
 
         # Añadir las pantallas al QStackedWidget
@@ -100,6 +100,9 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
             self.pantalla_adeudo_admin.load_client_data()
         elif screen_number == 18:
             self.pantalla_modificar.load_client_data()
+        elif screen_number == 19:
+            self.pantalla_crearS_municipio.populate_antenna_dropdown()
+        
         # Añadir el QStackedWidget al layout de contenido en BaseScreen
         # main_layout = QVBoxLayout(self)
         # main_layout.addWidget(self.stacked_widget)

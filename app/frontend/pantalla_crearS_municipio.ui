@@ -243,50 +243,6 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Antena:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QTextBrowser" name="NombreComunidadHolder">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>330</y>
-       <width>481</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <family>Montserrat</family>
-       <pointsize>5</pointsize>
-      </font>
-     </property>
-     <property name="toolTipDuration">
-      <number>-1</number>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QTextBrowser {
-    background: #ffffff;  /* Quitar el fondo */
-	color:#FFFFFF;
-    border: none;             /* Quitar el borde */
-	margin: 0;                /* Eliminar márgenes */
-		 border-radius: 20px; 
-}</string>
-     </property>
-     <property name="html">
-      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Montserrat'; font-size:5pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
     <widget class="QTextBrowser" name="MunicipioText_2">
      <property name="geometry">
       <rect>
@@ -373,60 +329,49 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:600;&quot;&gt;DATOS DEL MUNICIPIO&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QFontComboBox" name="AntenaSelect">
+    <widget class="QLineEdit" name="AntenaHolder">
      <property name="geometry">
       <rect>
        <x>70</x>
-       <y>240</y>
-       <width>371</width>
-       <height>31</height>
+       <y>330</y>
+       <width>491</width>
+       <height>41</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Montserrat</family>
-       <pointsize>14</pointsize>
+       <pointsize>18</pointsize>
       </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
      </property>
      <property name="styleSheet">
-      <string notr="true">QFontComboBox{
-	border: 1px solid #FFFFFF;
-	border-radius: 10px;
-	background: transparent;
-	color: #FFFFFF;
-}
-QComboBox::drop-down {
-    subcontrol-origin: padding;
-    subcontrol-position: top right;
-    width: 15px;
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    background: transparent;  /* Fondo transparente */
-}
-
-QComboBox::down-arrow {
-    image: url(none); /* Borra cualquier imagen personalizada */
-    width: 10px;  /* Tamaño predeterminado de la flecha */
-    height: 10px;
-}
-
-QComboBox::down-arrow {
-    image: url(:/qt-project.org/styles/commonstyle/images/arrow-down-16.png);  /* Restaura la flecha predeterminada */
+      <string notr="true">QLineEdit{
+	border: 1px solid  #37373d;
+		background: #FFFFFF; 
+		 border-radius: 20px; 
 }</string>
      </property>
-     <property name="currentText">
-      <string>Montserrat</string>
+     <property name="inputMask">
+      <string/>
      </property>
-     <property name="currentFont">
-      <font>
-       <family>Montserrat</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="AntenaSelect">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>240</y>
+       <width>371</width>
+       <height>22</height>
+      </rect>
      </property>
     </widget>
    </widget>

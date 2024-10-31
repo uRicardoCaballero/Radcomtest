@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'screens/pantalla_crearS_antena.ui'
+# Form implementation generated from reading ui file 'pantalla_crearS_antena.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -54,7 +54,7 @@ class Ui_Form(object):
         self.frame_white.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_white.setObjectName("frame_white")
         self.frame_white_grey = QtWidgets.QFrame(self.frame_white)
-        self.frame_white_grey.setGeometry(QtCore.QRect(300, 0, 961, 781))
+        self.frame_white_grey.setGeometry(QtCore.QRect(320, -30, 961, 781))
         self.frame_white_grey.setStyleSheet("QFrame {\n"
 "    border: none;       /* Color y grosor del borde */\n"
 "    border-radius: 55px;          /* Radio de las esquinas */\n"
@@ -95,27 +95,6 @@ class Ui_Form(object):
 "        border: 2px solid #ffffff;\n"
 "}")
         self.CancelarButton.setObjectName("CancelarButton")
-        self.NombreAntenaHolder = QtWidgets.QTextBrowser(self.frame_white_grey)
-        self.NombreAntenaHolder.setGeometry(QtCore.QRect(70, 230, 481, 41))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.NombreAntenaHolder.sizePolicy().hasHeightForWidth())
-        self.NombreAntenaHolder.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(5)
-        self.NombreAntenaHolder.setFont(font)
-        self.NombreAntenaHolder.setToolTipDuration(-1)
-        self.NombreAntenaHolder.setAutoFillBackground(False)
-        self.NombreAntenaHolder.setStyleSheet("QTextBrowser {\n"
-"    background: #ffffff;  /* Quitar el fondo */\n"
-"    color:#FFFFFF;\n"
-"    border: none;             /* Quitar el borde */\n"
-"    margin: 0;                /* Eliminar márgenes */\n"
-"         border-radius: 20px; \n"
-"}")
-        self.NombreAntenaHolder.setObjectName("NombreAntenaHolder")
         self.ModeloText = QtWidgets.QTextBrowser(self.frame_white_grey)
         self.ModeloText.setGeometry(QtCore.QRect(70, 380, 261, 31))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -136,27 +115,6 @@ class Ui_Form(object):
 "    margin: 0;                /* Eliminar márgenes */\n"
 "}")
         self.ModeloText.setObjectName("ModeloText")
-        self.SSIDHolder = QtWidgets.QTextBrowser(self.frame_white_grey)
-        self.SSIDHolder.setGeometry(QtCore.QRect(70, 500, 481, 41))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.SSIDHolder.sizePolicy().hasHeightForWidth())
-        self.SSIDHolder.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(5)
-        self.SSIDHolder.setFont(font)
-        self.SSIDHolder.setToolTipDuration(-1)
-        self.SSIDHolder.setAutoFillBackground(False)
-        self.SSIDHolder.setStyleSheet("QTextBrowser {\n"
-"    background: #ffffff;  /* Quitar el fondo */\n"
-"    color:#FFFFFF;\n"
-"    border: none;             /* Quitar el borde */\n"
-"    margin: 0;                /* Eliminar márgenes */\n"
-"         border-radius: 20px; \n"
-"}")
-        self.SSIDHolder.setObjectName("SSIDHolder")
         self.NombreAText = QtWidgets.QTextBrowser(self.frame_white_grey)
         self.NombreAText.setGeometry(QtCore.QRect(70, 200, 211, 31))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -177,27 +135,6 @@ class Ui_Form(object):
 "    margin: 0;                /* Eliminar márgenes */\n"
 "}")
         self.NombreAText.setObjectName("NombreAText")
-        self.ModeloDispositivoHolder = QtWidgets.QTextBrowser(self.frame_white_grey)
-        self.ModeloDispositivoHolder.setGeometry(QtCore.QRect(70, 410, 481, 41))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.ModeloDispositivoHolder.sizePolicy().hasHeightForWidth())
-        self.ModeloDispositivoHolder.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(5)
-        self.ModeloDispositivoHolder.setFont(font)
-        self.ModeloDispositivoHolder.setToolTipDuration(-1)
-        self.ModeloDispositivoHolder.setAutoFillBackground(False)
-        self.ModeloDispositivoHolder.setStyleSheet("QTextBrowser {\n"
-"    background: #ffffff;  /* Quitar el fondo */\n"
-"    color:#FFFFFF;\n"
-"    border: none;             /* Quitar el borde */\n"
-"    margin: 0;                /* Eliminar márgenes */\n"
-"         border-radius: 20px; \n"
-"}")
-        self.ModeloDispositivoHolder.setObjectName("ModeloDispositivoHolder")
         self.NombreDText_2 = QtWidgets.QTextBrowser(self.frame_white_grey)
         self.NombreDText_2.setGeometry(QtCore.QRect(70, 470, 231, 31))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -238,27 +175,6 @@ class Ui_Form(object):
 "    margin: 0;                /* Eliminar márgenes */\n"
 "}")
         self.NombreDText.setObjectName("NombreDText")
-        self.NombreDispositivoHolder = QtWidgets.QTextBrowser(self.frame_white_grey)
-        self.NombreDispositivoHolder.setGeometry(QtCore.QRect(70, 320, 481, 41))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.NombreDispositivoHolder.sizePolicy().hasHeightForWidth())
-        self.NombreDispositivoHolder.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(5)
-        self.NombreDispositivoHolder.setFont(font)
-        self.NombreDispositivoHolder.setToolTipDuration(-1)
-        self.NombreDispositivoHolder.setAutoFillBackground(False)
-        self.NombreDispositivoHolder.setStyleSheet("QTextBrowser {\n"
-"    background: #ffffff;  /* Quitar el fondo */\n"
-"    color:#FFFFFF;\n"
-"    border: none;             /* Quitar el borde */\n"
-"    margin: 0;                /* Eliminar márgenes */\n"
-"         border-radius: 20px; \n"
-"}")
-        self.NombreDispositivoHolder.setObjectName("NombreDispositivoHolder")
         self.NombreAText_2 = QtWidgets.QTextBrowser(self.frame_white_grey)
         self.NombreAText_2.setGeometry(QtCore.QRect(70, 110, 491, 61))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -279,6 +195,54 @@ class Ui_Form(object):
 "    margin: 0;                /* Eliminar márgenes */\n"
 "}")
         self.NombreAText_2.setObjectName("NombreAText_2")
+        self.NombreAHolder = QtWidgets.QLineEdit(self.frame_white_grey)
+        self.NombreAHolder.setGeometry(QtCore.QRect(70, 230, 491, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(18)
+        self.NombreAHolder.setFont(font)
+        self.NombreAHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.NombreAHolder.setStyleSheet("QLineEdit{\n"
+"    border: 1px solid  #37373d;\n"
+"        background: #FFFFFF; \n"
+"         border-radius: 20px; \n"
+"}")
+        self.NombreAHolder.setInputMask("")
+        self.NombreAHolder.setAlignment(QtCore.Qt.AlignCenter)
+        self.NombreAHolder.setPlaceholderText("")
+        self.NombreAHolder.setObjectName("NombreAHolder")
+        self.NombreAHolder_2 = QtWidgets.QLineEdit(self.frame_white_grey)
+        self.NombreAHolder_2.setGeometry(QtCore.QRect(70, 320, 491, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(18)
+        self.NombreAHolder_2.setFont(font)
+        self.NombreAHolder_2.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.NombreAHolder_2.setStyleSheet("QLineEdit{\n"
+"    border: 1px solid  #37373d;\n"
+"        background: #FFFFFF; \n"
+"         border-radius: 20px; \n"
+"}")
+        self.NombreAHolder_2.setInputMask("")
+        self.NombreAHolder_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.NombreAHolder_2.setPlaceholderText("")
+        self.NombreAHolder_2.setObjectName("NombreAHolder_2")
+        self.NombreAHolder_4 = QtWidgets.QLineEdit(self.frame_white_grey)
+        self.NombreAHolder_4.setGeometry(QtCore.QRect(70, 500, 491, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(18)
+        self.NombreAHolder_4.setFont(font)
+        self.NombreAHolder_4.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.NombreAHolder_4.setStyleSheet("QLineEdit{\n"
+"    border: 1px solid  #37373d;\n"
+"        background: #FFFFFF; \n"
+"         border-radius: 20px; \n"
+"}")
+        self.NombreAHolder_4.setInputMask("")
+        self.NombreAHolder_4.setAlignment(QtCore.Qt.AlignCenter)
+        self.NombreAHolder_4.setPlaceholderText("")
+        self.NombreAHolder_4.setObjectName("NombreAHolder_4")
         self.cliente = QtWidgets.QLabel(self.frame_white)
         self.cliente.setGeometry(QtCore.QRect(30, 70, 81, 81))
         self.cliente.setText("")
@@ -880,6 +844,22 @@ class Ui_Form(object):
 "}")
         self.menuOption7_2.setPlaceholderText("")
         self.menuOption7_2.setObjectName("menuOption7_2")
+        self.NombreAHolder_3 = QtWidgets.QLineEdit(Form)
+        self.NombreAHolder_3.setGeometry(QtCore.QRect(730, 390, 491, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(18)
+        self.NombreAHolder_3.setFont(font)
+        self.NombreAHolder_3.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.NombreAHolder_3.setStyleSheet("QLineEdit{\n"
+"    border: 1px solid  #37373d;\n"
+"        background: #FFFFFF; \n"
+"         border-radius: 20px; \n"
+"}")
+        self.NombreAHolder_3.setInputMask("")
+        self.NombreAHolder_3.setAlignment(QtCore.Qt.AlignCenter)
+        self.NombreAHolder_3.setPlaceholderText("")
+        self.NombreAHolder_3.setObjectName("NombreAHolder_3")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -889,42 +869,22 @@ class Ui_Form(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.GuardarButton.setText(_translate("Form", "GUARDAR"))
         self.CancelarButton.setText(_translate("Form", "CANCELAR"))
-        self.NombreAntenaHolder.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.ModeloText.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Modelo del Dispositivo:</span></p></body></html>"))
-        self.SSIDHolder.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Nombre del Dipositivo:</span></p></body></html>"))
         self.NombreAText.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Nombre de la Antena:</span></p></body></html>"))
-        self.ModeloDispositivoHolder.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.NombreDText_2.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">SSID</span></p></body></html>"))
         self.NombreDText.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Nombre del Dipositivo:</span></p></body></html>"))
-        self.NombreDispositivoHolder.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
@@ -994,3 +954,13 @@ class Ui_Form(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt; font-weight:600;\">Cerrar Sesion</span></p></body></html>"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Form = QtWidgets.QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
+    sys.exit(app.exec_())
