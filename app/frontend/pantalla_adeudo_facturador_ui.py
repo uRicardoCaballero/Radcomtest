@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'screens/pantalla_adeudo_facturador.ui'
+# Form implementation generated from reading ui file 'pantalla_adeudo_facturador.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -385,50 +385,24 @@ class Ui_Form(object):
         self.lineEdit.setInputMask("")
         self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit.setObjectName("lineEdit")
-        self.Filtro = QtWidgets.QFontComboBox(self.frame_white)
-        self.Filtro.setGeometry(QtCore.QRect(50, 610, 221, 22))
+        self.Select1 = QtWidgets.QComboBox(self.frame_white)
+        self.Select1.setGeometry(QtCore.QRect(40, 600, 241, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
-        font.setPointSize(14)
-        self.Filtro.setFont(font)
-        self.Filtro.setStyleSheet("QFontComboBox{\n"
-"    border: 1px solid #37373d;\n"
-"    border-radius: 10px;\n"
-"    background: transparent;\n"
-"}\n"
-"QComboBox::drop-down {\n"
-"    subcontrol-origin: padding;\n"
-"    subcontrol-position: top right;\n"
-"    width: 15px;\n"
-"    border-left-width: 1px;\n"
-"    border-left-color: darkgray;\n"
-"    border-left-style: solid;\n"
-"    border-top-right-radius: 3px;\n"
-"    border-bottom-right-radius: 3px;\n"
-"    background: transparent;  /* Fondo transparente */\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow {\n"
-"    image: url(none); /* Borra cualquier imagen personalizada */\n"
-"    width: 10px;  /* Tamaño predeterminado de la flecha */\n"
-"    height: 10px;\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow {\n"
-"    image: url(:/qt-project.org/styles/commonstyle/images/arrow-down-16.png);  /* Restaura la flecha predeterminada */\n"
+        font.setPointSize(-1)
+        self.Select1.setFont(font)
+        self.Select1.setStyleSheet("QComboBox{\n"
+"     background: #FFFFFF;\n"
+"    color: #37373d;\n"
+"    border-radius: 5px;\n"
+"    font-family: Montserrat; /* Type of font */\n"
+"    font-size: 16px;                /* Size of the text */\n"
 "}")
-        self.Filtro.setCurrentText("")
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.Filtro.setCurrentFont(font)
-        self.Filtro.setObjectName("Filtro")
+        self.Select1.setObjectName("Select1")
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("app/frontend/assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("Personal Projects/RADCOM/Radcomtest/app/assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.frame = QtWidgets.QFrame(Form)
@@ -798,3 +772,13 @@ class Ui_Form(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt; font-weight:600;\">Cerrar Sesion</span></p></body></html>"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Form = QtWidgets.QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
+    sys.exit(app.exec_())

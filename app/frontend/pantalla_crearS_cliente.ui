@@ -974,174 +974,6 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600;&quot;&gt;UBICACION DE LA RED:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QFontComboBox" name="AntenaSelect">
-     <property name="geometry">
-      <rect>
-       <x>50</x>
-       <y>470</y>
-       <width>161</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Montserrat</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QFontComboBox{
-	border: 1px solid #FFFFFF;
-	border-radius: 10px;
-	background: transparent;
-	color: #FFFFFF;
-}
-QComboBox::drop-down {
-    subcontrol-origin: padding;
-    subcontrol-position: top right;
-    width: 15px;
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    background: transparent;  /* Fondo transparente */
-}
-
-QComboBox::down-arrow {
-    image: url(none); /* Borra cualquier imagen personalizada */
-    width: 10px;  /* Tamaño predeterminado de la flecha */
-    height: 10px;
-}
-
-QComboBox::down-arrow {
-    image: url(:/qt-project.org/styles/commonstyle/images/arrow-down-16.png);  /* Restaura la flecha predeterminada */
-}</string>
-     </property>
-     <property name="currentText">
-      <string>Antena</string>
-     </property>
-     <property name="currentFont">
-      <font>
-       <family>Montserrat</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-    </widget>
-    <widget class="QFontComboBox" name="MunicipioSelect">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>470</y>
-       <width>161</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Montserrat</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QFontComboBox{
-	border: 1px solid #FFFFFF;
-	border-radius: 10px;
-	background: transparent;
-	color: #FFFFFF;
-}
-QComboBox::drop-down {
-    subcontrol-origin: padding;
-    subcontrol-position: top right;
-    width: 15px;
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    background: transparent;  /* Fondo transparente */
-}
-
-QComboBox::down-arrow {
-    image: url(none); /* Borra cualquier imagen personalizada */
-    width: 10px;  /* Tamaño predeterminado de la flecha */
-    height: 10px;
-}
-
-QComboBox::down-arrow {
-    image: url(:/qt-project.org/styles/commonstyle/images/arrow-down-16.png);  /* Restaura la flecha predeterminada */
-}</string>
-     </property>
-     <property name="currentText">
-      <string>Municipio</string>
-     </property>
-     <property name="currentFont">
-      <font>
-       <family>Montserrat</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-    </widget>
-    <widget class="QFontComboBox" name="ComunidadSelect">
-     <property name="geometry">
-      <rect>
-       <x>440</x>
-       <y>470</y>
-       <width>161</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Montserrat</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QFontComboBox{
-	border: 1px solid #FFFFFF;
-	border-radius: 10px;
-	background: transparent;
-	color: #FFFFFF;
-}
-QComboBox::drop-down {
-    subcontrol-origin: padding;
-    subcontrol-position: top right;
-    width: 15px;
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    background: transparent;  /* Fondo transparente */
-}
-
-QComboBox::down-arrow {
-    image: url(none); /* Borra cualquier imagen personalizada */
-    width: 10px;  /* Tamaño predeterminado de la flecha */
-    height: 10px;
-}
-
-QComboBox::down-arrow {
-    image: url(:/qt-project.org/styles/commonstyle/images/arrow-down-16.png);  /* Restaura la flecha predeterminada */
-}</string>
-     </property>
-     <property name="currentText">
-      <string>Comunidad</string>
-     </property>
-     <property name="currentFont">
-      <font>
-       <family>Montserrat</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-    </widget>
     <widget class="QTextBrowser" name="tIPOcLIENTEText">
      <property name="geometry">
       <rect>
@@ -1262,6 +1094,81 @@ color: #FFFFFF;
       <string>CANCELAR</string>
      </property>
     </widget>
+    <widget class="QComboBox" name="Select1">
+     <property name="geometry">
+      <rect>
+       <x>50</x>
+       <y>470</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Montserrat</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QComboBox{
+ 	background: #FFFFFF;
+	color: #37373d;
+	border-radius: 5px;
+	font-family: Montserrat; /* Type of font */
+    font-size: 16px;                /* Size of the text */
+}</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="Select2">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>470</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Montserrat</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QComboBox{
+ 	background: #FFFFFF;
+	color: #37373d;
+	border-radius: 5px;
+	font-family: Montserrat; /* Type of font */
+    font-size: 16px;                /* Size of the text */
+}</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="Select3">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>470</y>
+       <width>161</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Montserrat</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QComboBox{
+ 	background: #FFFFFF;
+	color: #37373d;
+	border-radius: 5px;
+	font-family: Montserrat; /* Type of font */
+    font-size: 16px;                /* Size of the text */
+}</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QLabel" name="cliente">
     <property name="geometry">
@@ -1276,7 +1183,7 @@ color: #FFFFFF;
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../assets/Profile.png</pixmap>
+     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Profile.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1295,7 +1202,7 @@ color: #FFFFFF;
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../assets/Comunidad.png</pixmap>
+     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Comunidad.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1446,7 +1353,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../assets/Municipio.png</pixmap>
+     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Municipio.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1573,7 +1480,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../assets/Antena.png</pixmap>
+     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Antena.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1593,7 +1500,7 @@ p, li { white-space: pre-wrap; }
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../assets/LOGO_M.png</pixmap>
+    <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/LOGO_M.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

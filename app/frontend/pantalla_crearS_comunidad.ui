@@ -204,7 +204,7 @@
      <property name="geometry">
       <rect>
        <x>70</x>
-       <y>380</y>
+       <y>290</y>
        <width>261</width>
        <height>31</height>
       </rect>
@@ -243,54 +243,11 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Nombre de la Comunidad:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QTextBrowser" name="AntenaText_2">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>200</y>
-       <width>211</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <family>Montserrat</family>
-       <pointsize>5</pointsize>
-      </font>
-     </property>
-     <property name="toolTipDuration">
-      <number>-1</number>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QTextBrowser {
-    background: transparent;  /* Quitar el fondo */
-	color:#FFFFFF;
-    border: none;             /* Quitar el borde */
-	margin: 0;                /* Eliminar márgenes */
-}</string>
-     </property>
-     <property name="html">
-      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Montserrat'; font-size:5pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Antena:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
     <widget class="QTextBrowser" name="NombreComunidadHolder">
      <property name="geometry">
       <rect>
        <x>70</x>
-       <y>410</y>
+       <y>320</y>
        <width>481</width>
        <height>41</height>
       </rect>
@@ -334,7 +291,7 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>70</x>
-       <y>290</y>
+       <y>200</y>
        <width>231</width>
        <height>31</height>
       </rect>
@@ -416,116 +373,29 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:600;&quot;&gt;DATOS DE LA COMUNIDAD&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QFontComboBox" name="AntenaSelect">
+    <widget class="QComboBox" name="Select2">
      <property name="geometry">
       <rect>
        <x>70</x>
        <y>240</y>
-       <width>371</width>
+       <width>461</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Montserrat</family>
-       <pointsize>14</pointsize>
+       <pointsize>-1</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">QFontComboBox{
-	border: 1px solid #FFFFFF;
-	border-radius: 10px;
-	background: transparent;
-	color: #FFFFFF;
-}
-QComboBox::drop-down {
-    subcontrol-origin: padding;
-    subcontrol-position: top right;
-    width: 15px;
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    background: transparent;  /* Fondo transparente */
-}
-
-QComboBox::down-arrow {
-    image: url(none); /* Borra cualquier imagen personalizada */
-    width: 10px;  /* Tamaño predeterminado de la flecha */
-    height: 10px;
-}
-
-QComboBox::down-arrow {
-    image: url(:/qt-project.org/styles/commonstyle/images/arrow-down-16.png);  /* Restaura la flecha predeterminada */
+      <string notr="true">QComboBox{
+ 	background: #FFFFFF;
+	color: #37373d;
+	border-radius: 5px;
+	font-family: Montserrat; /* Type of font */
+    font-size: 16px;                /* Size of the text */
 }</string>
-     </property>
-     <property name="currentText">
-      <string>Montserrat</string>
-     </property>
-     <property name="currentFont">
-      <font>
-       <family>Montserrat</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-    </widget>
-    <widget class="QFontComboBox" name="MunicipioSelect">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>330</y>
-       <width>441</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Montserrat</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QFontComboBox{
-	border: 1px solid #FFFFFF;
-	border-radius: 10px;
-	background: transparent;
-	color: #FFFFFF;
-}
-QComboBox::drop-down {
-    subcontrol-origin: padding;
-    subcontrol-position: top right;
-    width: 15px;
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    background: transparent;  /* Fondo transparente */
-}
-
-QComboBox::down-arrow {
-    image: url(none); /* Borra cualquier imagen personalizada */
-    width: 10px;  /* Tamaño predeterminado de la flecha */
-    height: 10px;
-}
-
-QComboBox::down-arrow {
-    image: url(:/qt-project.org/styles/commonstyle/images/arrow-down-16.png);  /* Restaura la flecha predeterminada */
-}</string>
-     </property>
-     <property name="currentText">
-      <string>Montserrat</string>
-     </property>
-     <property name="currentFont">
-      <font>
-       <family>Montserrat</family>
-       <pointsize>14</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
      </property>
     </widget>
    </widget>
@@ -542,7 +412,7 @@ QComboBox::down-arrow {
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../assets/Profile.png</pixmap>
+     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Profile.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -561,7 +431,7 @@ QComboBox::down-arrow {
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../assets/Comunidad.png</pixmap>
+     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Comunidad.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -712,7 +582,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../assets/Municipio.png</pixmap>
+     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Municipio.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -839,7 +709,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../assets/Antena.png</pixmap>
+     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Antena.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -859,7 +729,7 @@ p, li { white-space: pre-wrap; }
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../assets/LOGO_M.png</pixmap>
+    <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/LOGO_M.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

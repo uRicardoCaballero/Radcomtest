@@ -51,20 +51,30 @@ class Cliente(db.Model):
     fecha_creacion = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
     plan_pago = db.Column(db.String(50), nullable=False)  # '400', '350', '200', 'libre'
     monto_pagado = db.Column(db.Float, default=0.0)  # To track how much the client has paid
+    due_balance = db.Column(db.Float, default=0.0)
 
-    def es_libre(self):
-        """Returns True if the client is on the 'libre' plan."""
-        return self.plan_pago == 'libre'
-
-    def monto_restante(self):
-        """Calculates the remaining amount based on the payment plan."""
-        if self.es_libre():
-            return 0
-        total_plan = float(self.plan_pago)
-        return total_plan - self.monto_pagado
-    
 
     folios = db.relationship('Folio', backref='cliente', lazy=True)
+
+    def calculate_due_amount(self):
+        # Check for "libre" plan - if so, due is always 0
+        if self.plan_pago == 'libre':
+            return 0.0
+
+        # Calculate how many months have passed since `fecha_creacion`
+        today = datetime.now().date()
+        months_elapsed = (today.year - self.fecha_creacion.year) * 12 + (today.month - self.fecha_creacion.month)
+
+        # Monthly plan amount
+        monthly_plan_amount = float(self.plan_pago)
+
+        # Calculate total due amount by multiplying months elapsed with the plan amount
+        total_due = months_elapsed * monthly_plan_amount
+
+        # Subtract any amount already paid
+        current_due = total_due - self.monto_pagado
+
+        return max(0.0, current_due)
 
 # Folios table
 class Folio(db.Model):

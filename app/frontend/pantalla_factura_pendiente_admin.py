@@ -1,15 +1,16 @@
-from PyQt5.QtWidgets import QWidget, QApplication
+from PyQt5.QtWidgets import QWidget, QApplication, QMessageBox
 from app.frontend.pantalla_factura_pendiente_admin_ui import Ui_Form  # Importa la clase generada por Qt Designer
 import sys
+import requests
 
 class PantallaFacturaPendienteAdmin(QWidget):
-    def __init__(self, change_screen_func, logout, parent=None):
+    def __init__(self, change_screen_func, logout, session, parent=None):
         super().__init__(parent)
 
         # Instancia de la clase generada por Qt Designer
         self.ui = Ui_Form()
         self.ui.setupUi(self)  # Configura la UI
-
+        self.session = session
         self.change_screen = change_screen_func
         self.logout = logout
 
@@ -28,6 +29,9 @@ class PantallaFacturaPendienteAdmin(QWidget):
         self.ui.PendienteText.mousePressEvent = lambda event: self.label_clicked(event,"PendienteText")
         self.ui.NuevaFactText.mousePressEvent = lambda event: self.label_clicked(event,"NuevaFactText")
         self.ui.menuOption7_2.mousePressEvent = lambda event: self.label_clicked(event, "menuOption7_2")
+
+        #self.ui.EnviarButton.clicked.connect(self.enviar_factura)
+        #self.ui.CancelarButton.clicked.connect(self.clear_fields)
 
     def label_clicked(self, event, label_name):
         # Determine the screen based on the label clicked
@@ -51,3 +55,39 @@ class PantallaFacturaPendienteAdmin(QWidget):
             self.change_screen(11)
         elif label_name == "menuOption7_2":
             self.logout()
+
+
+    def guardar_cliente(self):
+        # Get the input values from the UI
+        nombre = self.ui.NombreHolder.text()
+        telefono = self.ui.TelefonoHolder.text()
+
+        # Validate inputs
+        if not nombre or not telefono:
+            QMessageBox.warning(self, "Error", "Todos los campos son obligatorios.")
+            return
+
+        # Prepare the data for the API call
+        data = {
+            "nombre": nombre,
+            "telefono": telefono
+        }
+
+        # Make the API call
+        try:
+            response = self.session.post('http://127.0.0.1:5000/api/facturas', json=data)  # Replace with your actual API URL
+            if response.status_code == 201:
+                QMessageBox.information(self, "Éxito", "Factura creada exitosamente.")
+                self.clear_fields()  # Clear fields after successful creation
+            else:
+                error_message = response.json().get("error", "Error al crear la factura.")
+                QMessageBox.warning(self, "Error", error_message)
+        except requests.exceptions.RequestException as e:
+            QMessageBox.critical(self, "Error", f"No se pudo conectar al servidor: {str(e)}")
+
+
+
+    def clear_fields(self):
+        """Clears the input fields."""
+        self.ui.NombreHolder.clear()
+        self.ui.Telefono.clear()

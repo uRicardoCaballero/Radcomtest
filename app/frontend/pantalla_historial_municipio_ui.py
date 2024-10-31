@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'screens/pantalla_historial_municipio.ui'
+# Form implementation generated from reading ui file 'pantalla_historial_municipio.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -139,64 +139,42 @@ class Ui_Form(object):
 "         border-radius: 15px; \n"
 "}")
         self.GuardarButton.setObjectName("GuardarButton")
-        self.tableView = QtWidgets.QTableView(self.frame_white_grey)
-        self.tableView.setGeometry(QtCore.QRect(40, 250, 521, 291))
-        self.tableView.setStyleSheet("QTableView{\n"
-"    background: #FFFFFF;\n"
-"    border-radius: 20px; \n"
+        self.Table = QtWidgets.QTableWidget(self.frame_white_grey)
+        self.Table.setGeometry(QtCore.QRect(40, 220, 541, 341))
+        self.Table.setStyleSheet("QTableWidget{\n"
+"     background: #FFFFFF;\n"
 "    color: #37373d;\n"
+"    border-radius: 5px;\n"
+"    font-family: Montserrat; /* Type of font */\n"
+"    font-size: 16px;                /* Size of the text */\n"
 "}")
-        self.tableView.setObjectName("tableView")
-        self.Filtro = QtWidgets.QFontComboBox(self.frame_white_grey)
-        self.Filtro.setGeometry(QtCore.QRect(270, 161, 311, 41))
-        font = QtGui.QFont()
-        font.setPointSize(-1)
-        self.Filtro.setFont(font)
-        self.Filtro.setStyleSheet("QFontComboBox{\n"
-"    border: 1px solid #FFFFFF;\n"
-"    border-radius: 10px;\n"
-"    background: transparent;\n"
-"color: #FFFFFF;\n"
-"    font-size: 20px;\n"
-"}\n"
-"QComboBox::drop-down {\n"
-"    subcontrol-origin: padding;\n"
-"    subcontrol-position: top right;\n"
-"    width: 15px;\n"
-"    border-left-width: 1px;\n"
-"    border-left-color: darkgray;\n"
-"    border-left-style: solid;\n"
-"    border-top-right-radius: 3px;\n"
-"    border-bottom-right-radius: 3px;\n"
-"    background: transparent;  /* Fondo transparente */\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow {\n"
-"    image: url(none); /* Borra cualquier imagen personalizada */\n"
-"    width: 10px;  /* Tamaño predeterminado de la flecha */\n"
-"    height: 10px;\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow {\n"
-"    image: url(:/qt-project.org/styles/commonstyle/images/arrow-down-16.png);  /* Restaura la flecha predeterminada */\n"
-"}")
+        self.Table.setObjectName("Table")
+        self.Table.setColumnCount(0)
+        self.Table.setRowCount(0)
+        self.Select1 = QtWidgets.QComboBox(self.frame_white_grey)
+        self.Select1.setGeometry(QtCore.QRect(270, 150, 311, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
-        font.setPointSize(14)
-        font.setBold(False)
-        font.setWeight(50)
-        self.Filtro.setCurrentFont(font)
-        self.Filtro.setObjectName("Filtro")
+        font.setPointSize(-1)
+        self.Select1.setFont(font)
+        self.Select1.setStyleSheet("QComboBox{\n"
+"     background: #FFFFFF;\n"
+"    color: #37373d;\n"
+"    border-radius: 5px;\n"
+"    font-family: Montserrat; /* Type of font */\n"
+"    font-size: 16px;                /* Size of the text */\n"
+"}")
+        self.Select1.setObjectName("Select1")
         self.cliente = QtWidgets.QLabel(self.frame_white)
         self.cliente.setGeometry(QtCore.QRect(30, 60, 81, 81))
         self.cliente.setText("")
-        self.cliente.setPixmap(QtGui.QPixmap("app/frontend/assets/Profile.png"))
+        self.cliente.setPixmap(QtGui.QPixmap("Personal Projects/RADCOM/Radcomtest/app/assets/Profile.png"))
         self.cliente.setScaledContents(True)
         self.cliente.setObjectName("cliente")
         self.comunidad = QtWidgets.QLabel(self.frame_white)
         self.comunidad.setGeometry(QtCore.QRect(20, 210, 91, 61))
         self.comunidad.setText("")
-        self.comunidad.setPixmap(QtGui.QPixmap("app/frontend/assets/Comunidad.png"))
+        self.comunidad.setPixmap(QtGui.QPixmap("Personal Projects/RADCOM/Radcomtest/app/assets/Comunidad.png"))
         self.comunidad.setScaledContents(True)
         self.comunidad.setObjectName("comunidad")
         self.ClienteText = QtWidgets.QTextBrowser(self.frame_white)
@@ -262,7 +240,7 @@ class Ui_Form(object):
         self.municipio = QtWidgets.QLabel(self.frame_white)
         self.municipio.setGeometry(QtCore.QRect(40, 340, 71, 81))
         self.municipio.setText("")
-        self.municipio.setPixmap(QtGui.QPixmap("app/frontend/assets/Municipio.png"))
+        self.municipio.setPixmap(QtGui.QPixmap("Personal Projects/RADCOM/Radcomtest/app/assets/Municipio.png"))
         self.municipio.setScaledContents(True)
         self.municipio.setObjectName("municipio")
         self.frame_12 = QtWidgets.QFrame(self.frame_white)
@@ -317,7 +295,7 @@ class Ui_Form(object):
         self.antena = QtWidgets.QLabel(self.frame_white)
         self.antena.setGeometry(QtCore.QRect(30, 470, 81, 81))
         self.antena.setText("")
-        self.antena.setPixmap(QtGui.QPixmap("app/frontend/assets/Antena.png"))
+        self.antena.setPixmap(QtGui.QPixmap("Personal Projects/RADCOM/Radcomtest/app/assets/Antena.png"))
         self.antena.setScaledContents(True)
         self.antena.setObjectName("antena")
         self.frame_13 = QtWidgets.QFrame(self.frame_white)
@@ -334,7 +312,7 @@ class Ui_Form(object):
         self.globalimg = QtWidgets.QLabel(self.frame_white)
         self.globalimg.setGeometry(QtCore.QRect(30, 620, 81, 81))
         self.globalimg.setText("")
-        self.globalimg.setPixmap(QtGui.QPixmap("app/frontend/assets/Global.png"))
+        self.globalimg.setPixmap(QtGui.QPixmap("Personal Projects/RADCOM/Radcomtest/app/assets/Global.png"))
         self.globalimg.setScaledContents(True)
         self.globalimg.setObjectName("globalimg")
         self.globaltext = QtWidgets.QTextBrowser(self.frame_white)
@@ -359,7 +337,7 @@ class Ui_Form(object):
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("app/frontend/assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("Personal Projects/RADCOM/Radcomtest/app/assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.frame = QtWidgets.QFrame(Form)
@@ -847,7 +825,6 @@ class Ui_Form(object):
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.GuardarButton.setText(_translate("Form", "DESCARGAR"))
-        self.Filtro.setCurrentText(_translate("Form", "Municipio"))
         self.ClienteText.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -913,3 +890,13 @@ class Ui_Form(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt; font-weight:600;\">Cerrar Sesion</span></p></body></html>"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Form = QtWidgets.QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
+    sys.exit(app.exec_())

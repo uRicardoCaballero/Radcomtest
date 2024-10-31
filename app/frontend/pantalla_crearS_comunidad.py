@@ -34,6 +34,10 @@ class PantallaCrearSComunidad(QWidget):
         self.ui.GuardarButton.clicked.connect(self.save_comunidad)
         self.ui.CancelarButton.clicked.connect(self.clear_fields)
 
+        # Connect button clicks
+        #self.ui.GuardarButton.clicked.connect(self.guardar_antena)
+        #self.ui.CancelarButton.clicked.connect(self.clear_fields)
+
     def label_clicked(self, event, label_name):
         # Determine the screen based on the label clicked
         if label_name == "menuOption1":
@@ -62,51 +66,35 @@ class PantallaCrearSComunidad(QWidget):
             self.logout()
 
 
-
-    
-
-    def populate_dropdowns(self):
-        """Fetch antennas and municipios from API and populate the respective dropdowns."""
-        # Populate AntenaSelect
-        try:
-            response = self.session.get("http://127.0.0.1:5000/api/antenas")  # Replace with your actual API URL
-            if response.status_code == 200:
-                antennas = response.json()
-                for antenna in antennas:
-                    self.ui.AntenaSelect.addItem(antenna['nombre'], antenna['id'])
-            else:
-                print("Error fetching antennas:", response.status_code)
-        except Exception as e:
-            print("Exception occurred while fetching antennas:", e)
-
-        # Populate MunicipioSelect
+    def populate_municipio_dropdown(self):
+        """Fetch municipios from API and populate the AntenaSelect dropdown."""
         try:
             response = self.session.get("http://127.0.0.1:5000/api/municipios")  # Replace with your actual API URL
             if response.status_code == 200:
-                municipios = response.json()
-                for municipio in municipios:
-                    self.ui.MunicipioSelect.addItem(municipio['nombre'], municipio['id'])
+                municipio = response.json()
+                for municipio in municipio:
+                    self.ui.Select2.addItem(municipio['nombre'], municipio['id'])  # Use id as data for each item
             else:
-                print("Error fetching municipios:", response.status_code)
+                print("Error fetching municipio:", response.status_code)
         except Exception as e:
-            print("Exception occurred while fetching municipios:", e)
+            print("Exception occurred while fetching municipio:", e)
+
 
     def save_comunidad(self):
-        """Saves the comunidad by assigning it to the selected municipio and antenna."""
-        antena_id = self.ui.AntenaSelect.currentData()  # Get the selected antenna id
-        municipio_id = self.ui.MunicipioSelect.currentData()  # Get the selected municipio id
-        comunidad_name = self.ui.AntenaHolder.text()  # Get text from the input field
+        """Saves the comunidad by assigning a section to the selected antenna."""
+        municipio_id = self.ui.Select2.currentData()  # Get the antenna id from the dropdown
+        section_name = self.ui.NombreComunidadHolderHolder.text()  # Get text from the input field
 
-        if not comunidad_name:
-            print("Error: Community name is required.")
+        if not section_name:
+            print("Error: Section name is required.")
             return
 
         # Create the JSON payload for the POST request
         data = {
-            "antena_id": antena_id,
             "municipio_id": municipio_id,
-            "nombre": comunidad_name
+            "nombre": section_name
         }
+
 
         try:
             response = self.session.post("http://127.0.0.1:5000/api/zonas", json=data)  # Replace with your actual API URL
@@ -119,6 +107,5 @@ class PantallaCrearSComunidad(QWidget):
 
     def clear_fields(self):
         """Clears the input fields."""
-        self.ui.AntenaHolder.clear()
-        self.ui.AntenaSelect.setCurrentIndex(0)
         self.ui.MunicipioSelect.setCurrentIndex(0)
+        self.ui.NombreComunidadHolder.clear()

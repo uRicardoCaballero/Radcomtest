@@ -334,20 +334,22 @@ p, li { white-space: pre-wrap; }
       <string>DESCARGAR</string>
      </property>
     </widget>
-    <widget class="QTableView" name="tableView">
+    <widget class="QTableWidget" name="Table">
      <property name="geometry">
       <rect>
        <x>40</x>
-       <y>250</y>
-       <width>521</width>
-       <height>291</height>
+       <y>230</y>
+       <width>541</width>
+       <height>341</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">QTableView{
-	background: #FFFFFF;
-	border-radius: 20px; 
+      <string notr="true">QTableWidget{
+ 	background: #FFFFFF;
 	color: #37373d;
+	border-radius: 5px;
+	font-family: Montserrat; /* Type of font */
+    font-size: 16px;                /* Size of the text */
 }</string>
      </property>
     </widget>
@@ -365,7 +367,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../assets/Profile.png</pixmap>
+     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Profile.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -384,7 +386,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../assets/Comunidad.png</pixmap>
+     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Comunidad.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -535,7 +537,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../assets/Municipio.png</pixmap>
+     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Municipio.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -662,7 +664,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../assets/Antena.png</pixmap>
+     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Antena.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -705,7 +707,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>../assets/Global.png</pixmap>
+     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Global.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -767,7 +769,7 @@ p, li { white-space: pre-wrap; }
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../assets/LOGO_M.png</pixmap>
+    <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/LOGO_M.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

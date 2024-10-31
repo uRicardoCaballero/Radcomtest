@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'screens/pantalla_factura_pendiente_admin.ui'
+# Form implementation generated from reading ui file 'pantalla_factura_pendiente_admin.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -189,13 +189,13 @@ class Ui_Form(object):
         self.NuevaFacturaImg = QtWidgets.QLabel(self.frame_white)
         self.NuevaFacturaImg.setGeometry(QtCore.QRect(30, 500, 81, 111))
         self.NuevaFacturaImg.setText("")
-        self.NuevaFacturaImg.setPixmap(QtGui.QPixmap("app/frontend/assets/Pendientes.png"))
+        self.NuevaFacturaImg.setPixmap(QtGui.QPixmap("../assets/Pendientes.png"))
         self.NuevaFacturaImg.setScaledContents(True)
         self.NuevaFacturaImg.setObjectName("NuevaFacturaImg")
         self.NuevPendienteImg = QtWidgets.QLabel(self.frame_white)
         self.NuevPendienteImg.setGeometry(QtCore.QRect(30, 170, 101, 111))
         self.NuevPendienteImg.setText("")
-        self.NuevPendienteImg.setPixmap(QtGui.QPixmap("app/frontend/assets/RecadoFacturas.png"))
+        self.NuevPendienteImg.setPixmap(QtGui.QPixmap("../assets/RecadoFacturas.png"))
         self.NuevPendienteImg.setScaledContents(True)
         self.NuevPendienteImg.setObjectName("NuevPendienteImg")
         self.PendienteText = QtWidgets.QTextBrowser(self.frame_white)
@@ -250,7 +250,7 @@ class Ui_Form(object):
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("app/frontend/assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("../assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.frame = QtWidgets.QFrame(Form)
@@ -792,3 +792,13 @@ class Ui_Form(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt; font-weight:600;\">Cerrar Sesion</span></p></body></html>"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Form = QtWidgets.QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
+    sys.exit(app.exec_())

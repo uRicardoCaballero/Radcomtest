@@ -800,7 +800,7 @@ p, li { white-space: pre-wrap; }
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>30</x>
       <y>660</y>
       <width>231</width>
       <height>41</height>
@@ -832,59 +832,29 @@ p, li { white-space: pre-wrap; }
      <string>Buscar</string>
     </property>
    </widget>
-   <widget class="QFontComboBox" name="Filtro">
+   <widget class="QComboBox" name="Select1">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>610</y>
-      <width>221</width>
-      <height>22</height>
+      <x>20</x>
+      <y>590</y>
+      <width>251</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Montserrat</family>
-      <pointsize>14</pointsize>
+      <pointsize>-1</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">QFontComboBox{
-	border: 1px solid #37373d;
-	border-radius: 10px;
-	background: transparent;
-}
-QComboBox::drop-down {
-    subcontrol-origin: padding;
-    subcontrol-position: top right;
-    width: 15px;
-    border-left-width: 1px;
-    border-left-color: darkgray;
-    border-left-style: solid;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    background: transparent;  /* Fondo transparente */
-}
-
-QComboBox::down-arrow {
-    image: url(none); /* Borra cualquier imagen personalizada */
-    width: 10px;  /* Tamaño predeterminado de la flecha */
-    height: 10px;
-}
-
-QComboBox::down-arrow {
-    image: url(:/qt-project.org/styles/commonstyle/images/arrow-down-16.png);  /* Restaura la flecha predeterminada */
+     <string notr="true">QComboBox{
+ 	background: #FFFFFF;
+	color: #37373d;
+	border-radius: 5px;
+	font-family: Montserrat; /* Type of font */
+    font-size: 16px;                /* Size of the text */
 }</string>
-    </property>
-    <property name="currentText">
-     <string/>
-    </property>
-    <property name="currentFont">
-     <font>
-      <family>Montserrat</family>
-      <pointsize>14</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
     </property>
    </widget>
   </widget>
@@ -901,7 +871,7 @@ QComboBox::down-arrow {
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>../assets/LOGO_M.png</pixmap>
+    <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/LOGO_M.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

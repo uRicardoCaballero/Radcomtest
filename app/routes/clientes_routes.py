@@ -180,6 +180,19 @@ def actualizar_cliente(id_cliente):
 
     return jsonify({"message": "Cliente actualizado exitosamente"}), 200
 
+@clientes_bp.route('/clientes/<string:id_cliente>/pago', methods=['POST'])
+def registrar_pago(id_cliente):
+    cliente = Cliente.query.get_or_404(id_cliente)
+    data = request.get_json()
+    monto_pagado = float(data.get('monto_pagado', 0.0))
+
+    if cliente.tipo != 'libre' and monto_pagado > 0:
+        cliente.due_balance -= monto_pagado
+        cliente.monto_pagado += monto_pagado  # Track total payments
+        db.session.commit()
+
+    return jsonify({"message": "Pago registrado exitosamente", "due_balance": cliente.due_balance}), 200
+
 @clientes_bp.route('/clientes/<string:id_cliente>', methods=['DELETE'])
 @login_required
 def eliminar_cliente(id_cliente):
