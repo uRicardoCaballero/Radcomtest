@@ -71,7 +71,7 @@ class Ui_Form(object):
         self.lineEdit.setGeometry(QtCore.QRect(20, 280, 581, 91))
         font = QtGui.QFont()
         font.setFamily("Montserratl")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.lineEdit.setFont(font)
         self.lineEdit.setStyleSheet("QLineEdit {\n"
 "    background: transparent;    /* Quitar el fondo */\n"
@@ -147,7 +147,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.FechadeCobtoText.setFont(font)
-        self.FechadeCobtoText.setToolTipDuration(-1)
+        self.FechadeCobtoText.setToolTipDuration(1)
         self.FechadeCobtoText.setAutoFillBackground(False)
         self.FechadeCobtoText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"

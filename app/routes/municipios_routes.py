@@ -1,5 +1,5 @@
 from . import *
-from app.models import Antena,Municipio
+from app.models import Antena,Municipio,Zona,Cliente
 
 municipios_bp = Blueprint('municipios', __name__)
 @municipios_bp.route('/municipios', methods=['POST'])
@@ -75,6 +75,36 @@ def actualizar_municipio(municipio_id):
     db.session.commit()
 
     return jsonify({"message": "Municipio actualizado exitosamente"}), 200
+
+@municipios_bp.route('/municipioscli', methods=['GET'])
+def get_clientes_by_municipio():
+    municipio_name = request.args.get('nombre')
+    municipio = Municipio.query.filter_by(nombre=municipio_name).first()
+
+    if not municipio:
+        return jsonify({'error': f"Municipio '{municipio_name}' not found"}), 404
+
+    zonas = Zona.query.filter_by(municipio_id=municipio.id).all()
+    zona_ids = [zona.numero_zona for zona in zonas]
+
+    clientes = Cliente.query.filter(Cliente.zona_id.in_(zona_ids)).all()
+    client_data = [{
+        'id_cliente': client.id_cliente,
+        'nombre': client.nombre,
+        'telefono': client.telefono,
+        'ip': client.ip,
+        'tipo': client.tipo,
+        'estado_cobro': client.estado_cobro,
+        'estatus': client.estatus,
+        'folio_cobro': client.folio_cobro,
+        'estado_factura': client.estado_factura,
+        'fecha_cobro': client.fecha_cobro.strftime('%Y-%m-%d'),
+        'fecha_alerta': client.fecha_alerta.strftime('%Y-%m-%d'),
+        'plan_pago': client.plan_pago,
+        'monto_pagado': client.monto_pagado
+    } for client in clientes]
+
+    return jsonify(client_data)
 
 @municipios_bp.route('/municipios/<int:municipio_id>', methods=['DELETE'])
 @login_required

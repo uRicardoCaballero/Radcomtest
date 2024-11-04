@@ -55,9 +55,9 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
         self.pantalla_factura_facturador = PantallaFacturaFacturador(self.change_screen,self.logout, self)
         self.pantalla_hitorial_cliente = PantallaHistorialCliente(self.change_screen,self.logout, self)
         self.pantalla_historial_comunidad = PantallaHistorialComunidad(self.change_screen,self.logout, self)
-        self.pantalla_historial_municipio = PantallaHistorialMunicipio(self.change_screen,self.logout, self)
-        self.pantalla_historial_antena = PantallaHistorialAntena(self.change_screen,self.logout, self)
-        self.pantalla_historial_global = PantallaHistorialGlobal(self.change_screen,self.logout, self)
+        self.pantalla_historial_municipio = PantallaHistorialMunicipio(self.change_screen,self.logout, self.session, self)
+        self.pantalla_historial_antena = PantallaHistorialAntena(self.change_screen,self.logout, self.session, self)
+        self.pantalla_historial_global = PantallaHistorialGlobal(self.change_screen,self.logout, self.session, self)
         self.pantalla_modificar = PantallaModificar(self.change_screen,self.logout, self.session, self)
         self.pantalla_crearS_cliente = PantallaCrearSCliente(self.change_screen,self.logout, self)
         self.pantalla_crearS_comunidad = PantallaCrearSComunidad(self.change_screen,self.logout, self)
@@ -98,10 +98,20 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
             self.pantalla_cobro_admin.load_client_data()
         elif screen_number == 7:
             self.pantalla_adeudo_admin.load_client_data()
+        # elif screen_number == 13:
+        #     self.pantalla_historial_global.populate_table()
+        # elif screen_number == 14:
+        #     self.pantalla_historial_global.populate_table()
+        # elif screen_number == 15:
+        #     self.pantalla_historial_global.populate_table()
+        # elif screen_number == 15:
+        #     self.pantalla_historial_municipio.populate_combobox()
+        elif screen_number == 17:
+            self.pantalla_historial_global.populate_table()
         elif screen_number == 18:
             self.pantalla_modificar.load_client_data()
-        elif screen_number == 19:
-            self.pantalla_crearS_municipio.populate_antenna_dropdown()
+
+        
         
         # Añadir el QStackedWidget al layout de contenido en BaseScreen
         # main_layout = QVBoxLayout(self)

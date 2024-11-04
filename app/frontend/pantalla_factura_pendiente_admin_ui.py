@@ -106,7 +106,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.InfodelText.setFont(font)
-        self.InfodelText.setToolTipDuration(-1)
+        self.InfodelText.setToolTipDuration(1)
         self.InfodelText.setAutoFillBackground(False)
         self.InfodelText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -126,7 +126,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.NombreText.setFont(font)
-        self.NombreText.setToolTipDuration(-1)
+        self.NombreText.setToolTipDuration(1)
         self.NombreText.setAutoFillBackground(False)
         self.NombreText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -177,7 +177,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.TelefonoText.setFont(font)
-        self.TelefonoText.setToolTipDuration(-1)
+        self.TelefonoText.setToolTipDuration(1)
         self.TelefonoText.setAutoFillBackground(False)
         self.TelefonoText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -189,13 +189,13 @@ class Ui_Form(object):
         self.NuevaFacturaImg = QtWidgets.QLabel(self.frame_white)
         self.NuevaFacturaImg.setGeometry(QtCore.QRect(30, 500, 81, 111))
         self.NuevaFacturaImg.setText("")
-        self.NuevaFacturaImg.setPixmap(QtGui.QPixmap("../assets/Pendientes.png"))
+        self.NuevaFacturaImg.setPixmap(QtGui.QPixmap("app/frontend/assets/Pendientes.png"))
         self.NuevaFacturaImg.setScaledContents(True)
         self.NuevaFacturaImg.setObjectName("NuevaFacturaImg")
         self.NuevPendienteImg = QtWidgets.QLabel(self.frame_white)
         self.NuevPendienteImg.setGeometry(QtCore.QRect(30, 170, 101, 111))
         self.NuevPendienteImg.setText("")
-        self.NuevPendienteImg.setPixmap(QtGui.QPixmap("../assets/RecadoFacturas.png"))
+        self.NuevPendienteImg.setPixmap(QtGui.QPixmap("app/frontend/assets/RecadoFacturas.png"))
         self.NuevPendienteImg.setScaledContents(True)
         self.NuevPendienteImg.setObjectName("NuevPendienteImg")
         self.PendienteText = QtWidgets.QTextBrowser(self.frame_white)
@@ -208,7 +208,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.PendienteText.setFont(font)
-        self.PendienteText.setToolTipDuration(-1)
+        self.PendienteText.setToolTipDuration(1)
         self.PendienteText.setAutoFillBackground(False)
         self.PendienteText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -227,7 +227,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.NuevaFactText.setFont(font)
-        self.NuevaFactText.setToolTipDuration(-1)
+        self.NuevaFactText.setToolTipDuration(1)
         self.NuevaFactText.setAutoFillBackground(False)
         self.NuevaFactText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -250,7 +250,7 @@ class Ui_Form(object):
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("../assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("app/frontend/assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.frame = QtWidgets.QFrame(Form)

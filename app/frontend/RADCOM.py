@@ -140,7 +140,7 @@ class PantallaBase(QWidget):
         self.frame.setStyleSheet("""
             QFrame {
                 background-color: none;  /* Fondo transparente */
-                border: 2px solid white;  /* Marco blanco */
+                border: 2px solid #FFFFFF;  /* Marco blanco */
                 border-radius: 15px;  /* Esquinas redondeadas */
                 padding: 20px;  /* Espaciado interno */
             }
@@ -186,7 +186,7 @@ class PantallaBase(QWidget):
         self.login_button = QPushButton('INICIAR SESIÓN')
         self.login_button.setStyleSheet("""
             QPushButton {
-                background-color: white;
+                background-color: #FFFFFF;
                 font-size: 16px;
                 padding: 10px;
                 font-family: 'Montserrat';
@@ -213,11 +213,11 @@ class PantallaBase(QWidget):
         self.create_user_button.setStyleSheet("""
             QPushButton {
                 background-color: transparent;
-                border: 1px solid white;
+                border: 1px solid #FFFFFF;
                 font-size: 12px;
                 padding: 10px;
                 font-family: 'Montserrat';
-                color: white;
+                color: #FFFFFF;
                 width: 150px;  /* Ancho específico */
             }
             QPushButton:hover {

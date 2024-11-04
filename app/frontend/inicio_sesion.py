@@ -37,7 +37,7 @@ class PantallaInicioSesion(QWidget):
         self.frame.setStyleSheet(""" 
             QFrame {
                 background-color: none;  /* Fondo transparente */
-                border: 2px solid white;  /* Marco blanco */
+                border: 2px solid #FFFFFF;  /* Marco blanco */
                 border-radius: 15px;  /* Esquinas redondeadas */
                 padding: 20px;  /* Espaciado interno */
             }
@@ -81,7 +81,7 @@ class PantallaInicioSesion(QWidget):
         self.login_button = QPushButton('INICIAR SESIÓN')
         self.login_button.setStyleSheet(""" 
             QPushButton {
-                background-color: white;
+                background-color: #FFFFFF;
                 font-size: 16px;
                 padding: 10px;
                 font-family: 'Montserrat';

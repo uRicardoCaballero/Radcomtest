@@ -108,7 +108,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.InfodelText.setFont(font)
-        self.InfodelText.setToolTipDuration(-1)
+        self.InfodelText.setToolTipDuration(1)
         self.InfodelText.setAutoFillBackground(False)
         self.InfodelText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -128,7 +128,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.NombreText.setFont(font)
-        self.NombreText.setToolTipDuration(-1)
+        self.NombreText.setToolTipDuration(1)
         self.NombreText.setAutoFillBackground(False)
         self.NombreText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -165,7 +165,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.TelefonoText.setFont(font)
-        self.TelefonoText.setToolTipDuration(-1)
+        self.TelefonoText.setToolTipDuration(1)
         self.TelefonoText.setAutoFillBackground(False)
         self.TelefonoText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -212,7 +212,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.NuevaFactText.setFont(font)
-        self.NuevaFactText.setToolTipDuration(-1)
+        self.NuevaFactText.setToolTipDuration(1)
         self.NuevaFactText.setAutoFillBackground(False)
         self.NuevaFactText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"

@@ -106,7 +106,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.AntenaText_2.setFont(font)
-        self.AntenaText_2.setToolTipDuration(-1)
+        self.AntenaText_2.setToolTipDuration(1)
         self.AntenaText_2.setAutoFillBackground(False)
         self.AntenaText_2.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -126,7 +126,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.MunicipioText_2.setFont(font)
-        self.MunicipioText_2.setToolTipDuration(-1)
+        self.MunicipioText_2.setToolTipDuration(1)
         self.MunicipioText_2.setAutoFillBackground(False)
         self.MunicipioText_2.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -146,7 +146,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.NombreMText.setFont(font)
-        self.NombreMText.setToolTipDuration(-1)
+        self.NombreMText.setToolTipDuration(1)
         self.NombreMText.setAutoFillBackground(False)
         self.NombreMText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -175,7 +175,7 @@ class Ui_Form(object):
         self.Select1.setGeometry(QtCore.QRect(70, 240, 411, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.Select1.setFont(font)
         self.Select1.setStyleSheet("QComboBox{\n"
 "     background: #FFFFFF;\n"
@@ -188,13 +188,13 @@ class Ui_Form(object):
         self.cliente = QtWidgets.QLabel(self.frame_white)
         self.cliente.setGeometry(QtCore.QRect(30, 70, 81, 81))
         self.cliente.setText("")
-        self.cliente.setPixmap(QtGui.QPixmap("Personal Projects/RADCOM/Radcomtest/app/assets/Profile.png"))
+        self.cliente.setPixmap(QtGui.QPixmap("app/frontend/assets/Profile.png"))
         self.cliente.setScaledContents(True)
         self.cliente.setObjectName("cliente")
         self.comunidad = QtWidgets.QLabel(self.frame_white)
         self.comunidad.setGeometry(QtCore.QRect(20, 250, 91, 61))
         self.comunidad.setText("")
-        self.comunidad.setPixmap(QtGui.QPixmap("Personal Projects/RADCOM/Radcomtest/app/assets/Comunidad.png"))
+        self.comunidad.setPixmap(QtGui.QPixmap("app/frontend/assets/Comunidad.png"))
         self.comunidad.setScaledContents(True)
         self.comunidad.setObjectName("comunidad")
         self.ClienteText = QtWidgets.QTextBrowser(self.frame_white)
@@ -207,7 +207,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.ClienteText.setFont(font)
-        self.ClienteText.setToolTipDuration(-1)
+        self.ClienteText.setToolTipDuration(1)
         self.ClienteText.setAutoFillBackground(False)
         self.ClienteText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -226,7 +226,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.ComunidadText.setFont(font)
-        self.ComunidadText.setToolTipDuration(-1)
+        self.ComunidadText.setToolTipDuration(1)
         self.ComunidadText.setAutoFillBackground(False)
         self.ComunidadText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -260,7 +260,7 @@ class Ui_Form(object):
         self.municipio = QtWidgets.QLabel(self.frame_white)
         self.municipio.setGeometry(QtCore.QRect(30, 420, 71, 81))
         self.municipio.setText("")
-        self.municipio.setPixmap(QtGui.QPixmap("Personal Projects/RADCOM/Radcomtest/app/assets/Municipio.png"))
+        self.municipio.setPixmap(QtGui.QPixmap("app/frontend/assets/Municipio.png"))
         self.municipio.setScaledContents(True)
         self.municipio.setObjectName("municipio")
         self.frame_12 = QtWidgets.QFrame(self.frame_white)
@@ -284,7 +284,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.MunicipioText.setFont(font)
-        self.MunicipioText.setToolTipDuration(-1)
+        self.MunicipioText.setToolTipDuration(1)
         self.MunicipioText.setAutoFillBackground(False)
         self.MunicipioText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -303,7 +303,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.AntenaText.setFont(font)
-        self.AntenaText.setToolTipDuration(-1)
+        self.AntenaText.setToolTipDuration(1)
         self.AntenaText.setAutoFillBackground(False)
         self.AntenaText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -315,13 +315,13 @@ class Ui_Form(object):
         self.antena = QtWidgets.QLabel(self.frame_white)
         self.antena.setGeometry(QtCore.QRect(30, 590, 81, 81))
         self.antena.setText("")
-        self.antena.setPixmap(QtGui.QPixmap("Personal Projects/RADCOM/Radcomtest/app/assets/Antena.png"))
+        self.antena.setPixmap(QtGui.QPixmap("app/frontend/assets/Antena.png"))
         self.antena.setScaledContents(True)
         self.antena.setObjectName("antena")
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Personal Projects/RADCOM/Radcomtest/app/assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("app/frontend/assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.frame = QtWidgets.QFrame(Form)

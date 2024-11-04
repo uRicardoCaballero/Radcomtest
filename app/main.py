@@ -16,6 +16,8 @@ from app.models import Usuario
 from app.database import db
 from flask_cors import CORS
 from flask_session import Session
+import suppress_libpng_warning
+from PIL import Image
 
 
 app = create_app()
@@ -87,6 +89,8 @@ def main():
     main_window.setMaximumSize(1275, 725)
     main_window.show()
     sys.exit(app.exec_())
+    
+    
 
 
 # ------------------- Run the Flask App -------------------

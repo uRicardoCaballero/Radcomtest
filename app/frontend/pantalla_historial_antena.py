@@ -3,13 +3,13 @@ from app.frontend.pantalla_historial_antena_ui import Ui_Form  # Importa la clas
 import sys
 
 class PantallaHistorialAntena(QWidget):
-    def __init__(self, change_screen_func, logout, parent=None):
+    def __init__(self, change_screen_func, logout, session, parent=None):
         super().__init__(parent)
 
         # Instancia de la clase generada por Qt Designer
         self.ui = Ui_Form()
         self.ui.setupUi(self)  # Configura la UI
-
+        
         self.change_screen = change_screen_func
         self.logout = logout
 

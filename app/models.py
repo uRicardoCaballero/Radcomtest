@@ -37,8 +37,7 @@ class Cliente(db.Model):
     __tablename__ = 'clientes'
     id_cliente = db.Column(db.String(20), primary_key=True)  # Format: "XXzYYNNNNN"
     nombre = db.Column(db.String(100), nullable=False)
-    telefono = db.Column(db.String(13
-), nullable=False)
+    telefono = db.Column(db.String(13), nullable=False)
     ip = db.Column(db.String(50), nullable=False)
     zona_id = db.Column(db.Integer, db.ForeignKey('zonas.numero_zona'), nullable=False)
     tipo = db.Column(db.String(50), nullable=False)  # "libre", "mensual", "anual"
@@ -51,30 +50,30 @@ class Cliente(db.Model):
     fecha_creacion = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
     plan_pago = db.Column(db.String(50), nullable=False)  # '400', '350', '200', 'libre'
     monto_pagado = db.Column(db.Float, default=0.0)  # To track how much the client has paid
-    due_balance = db.Column(db.Float, default=0.0)
+    # due_balance = db.Column(db.Float, default=0.0)
 
 
     folios = db.relationship('Folio', backref='cliente', lazy=True)
 
-    def calculate_due_amount(self):
-        # Check for "libre" plan - if so, due is always 0
-        if self.plan_pago == 'libre':
-            return 0.0
+    # def calculate_due_amount(self):
+    #     # Check for "libre" plan - if so, due is always 0
+    #     if self.plan_pago == 'libre':
+    #         return 0.0
 
-        # Calculate how many months have passed since `fecha_creacion`
-        today = datetime.now().date()
-        months_elapsed = (today.year - self.fecha_creacion.year) * 12 + (today.month - self.fecha_creacion.month)
+    #     # Calculate how many months have passed since `fecha_creacion`
+    #     today = datetime.now().date()
+    #     months_elapsed = (today.year - self.fecha_creacion.year) * 12 + (today.month - self.fecha_creacion.month)
 
-        # Monthly plan amount
-        monthly_plan_amount = float(self.plan_pago)
+    #     # Monthly plan amount
+    #     monthly_plan_amount = float(self.plan_pago)
 
-        # Calculate total due amount by multiplying months elapsed with the plan amount
-        total_due = months_elapsed * monthly_plan_amount
+    #     # Calculate total due amount by multiplying months elapsed with the plan amount
+    #     total_due = months_elapsed * monthly_plan_amount
 
-        # Subtract any amount already paid
-        current_due = total_due - self.monto_pagado
+    #     # Subtract any amount already paid
+    #     current_due = total_due - self.monto_pagado
 
-        return max(0.0, current_due)
+    #     return max(0.0, current_due)
 
 # Folios table
 class Folio(db.Model):

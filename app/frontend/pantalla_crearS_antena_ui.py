@@ -106,7 +106,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.ModeloText.setFont(font)
-        self.ModeloText.setToolTipDuration(-1)
+        self.ModeloText.setToolTipDuration(1)
         self.ModeloText.setAutoFillBackground(False)
         self.ModeloText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -126,7 +126,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.NombreAText.setFont(font)
-        self.NombreAText.setToolTipDuration(-1)
+        self.NombreAText.setToolTipDuration(1)
         self.NombreAText.setAutoFillBackground(False)
         self.NombreAText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -146,7 +146,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.NombreDText_2.setFont(font)
-        self.NombreDText_2.setToolTipDuration(-1)
+        self.NombreDText_2.setToolTipDuration(1)
         self.NombreDText_2.setAutoFillBackground(False)
         self.NombreDText_2.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -166,7 +166,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.NombreDText.setFont(font)
-        self.NombreDText.setToolTipDuration(-1)
+        self.NombreDText.setToolTipDuration(1)
         self.NombreDText.setAutoFillBackground(False)
         self.NombreDText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -186,7 +186,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.NombreAText_2.setFont(font)
-        self.NombreAText_2.setToolTipDuration(-1)
+        self.NombreAText_2.setToolTipDuration(1)
         self.NombreAText_2.setAutoFillBackground(False)
         self.NombreAText_2.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -265,7 +265,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.ClienteText.setFont(font)
-        self.ClienteText.setToolTipDuration(-1)
+        self.ClienteText.setToolTipDuration(1)
         self.ClienteText.setAutoFillBackground(False)
         self.ClienteText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -284,7 +284,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.ComunidadText.setFont(font)
-        self.ComunidadText.setToolTipDuration(-1)
+        self.ComunidadText.setToolTipDuration(1)
         self.ComunidadText.setAutoFillBackground(False)
         self.ComunidadText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -342,7 +342,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.MunicipioText.setFont(font)
-        self.MunicipioText.setToolTipDuration(-1)
+        self.MunicipioText.setToolTipDuration(1)
         self.MunicipioText.setAutoFillBackground(False)
         self.MunicipioText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -361,7 +361,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.AntenaText.setFont(font)
-        self.AntenaText.setToolTipDuration(-1)
+        self.AntenaText.setToolTipDuration(1)
         self.AntenaText.setAutoFillBackground(False)
         self.AntenaText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"

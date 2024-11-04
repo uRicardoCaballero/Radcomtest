@@ -1,17 +1,26 @@
-from PyQt5.QtWidgets import QWidget, QApplication
+from PyQt5.QtWidgets import QWidget, QApplication, QTableWidgetItem
 from app.frontend.pantalla_historial_municipio_ui import Ui_Form  # Importa la clase generada por Qt Designer
+import os
+from datetime import datetime
+import pandas as pd
+from io import BytesIO
 import sys
+import requests
+
 
 class PantallaHistorialMunicipio(QWidget):
-    def __init__(self, change_screen_func, logout, parent=None):
+    def __init__(self, change_screen_func, logout, session, parent=None):
         super().__init__(parent)
 
         # Instancia de la clase generada por Qt Designer
         self.ui = Ui_Form()
         self.ui.setupUi(self)  # Configura la UI
-
+        self.session = session
         self.change_screen = change_screen_func
         self.logout = logout
+        self.excel_data = None
+        
+
 
         # Aquí puedes agregar más funcionalidades o conectores si es necesario
         self.setup_connections()
@@ -29,8 +38,10 @@ class PantallaHistorialMunicipio(QWidget):
         self.ui.ComunidadText.mousePressEvent = lambda event: self.label_clicked(event,"ComunidadText")
         self.ui.MunicipioText.mousePressEvent = lambda event: self.label_clicked(event,"MunicipioText")
         self.ui.AntenaText.mousePressEvent = lambda event: self.label_clicked(event,"AntenaText")
-        self.ui.globaltext.mousePressEvent = lambda eventwqe: self.label_clicked(event,"globaltext")
+        self.ui.globaltext.mousePressEvent = lambda event: self.label_clicked(event,"globaltext")
         self.ui.menuOption7_2.mousePressEvent = lambda event: self.label_clicked(event, "menuOption7_2")
+        #self.ui.GuardarButton.clicked.connect(self.excel_download)
+        #self.ui.Select1.currentIndexChanged.connect(self.filter_by_municipio)
 
     def label_clicked(self, event, label_name):
         # Determine the screen based on the label clicked
@@ -60,3 +71,4 @@ class PantallaHistorialMunicipio(QWidget):
             self.change_screen(17)
         elif label_name == "menuOption7_2":
             self.logout()
+    

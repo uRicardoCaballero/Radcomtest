@@ -98,7 +98,7 @@ class Ui_Form(object):
         self.CalleHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.CalleHolder.setStyleSheet("QLineEdit{\n"
 "        border: none;\n"
-"        color: white;\n"
+"        color: #FFFFFF;\n"
 "        background: transparent; \n"
 "}")
         self.CalleHolder.setInputMask("")
@@ -181,7 +181,7 @@ class Ui_Form(object):
 "}")
         self.GratuitoOption.setObjectName("GratuitoOption")
         self.IpText = QtWidgets.QTextBrowser(self.frame_white_grey)
-        self.IpText.setGeometry(QtCore.QRect(420, 120, 31, 31))
+        self.IpText.setGeometry(QtCore.QRect(420, 120, 41, 31))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -201,7 +201,7 @@ class Ui_Form(object):
 "}")
         self.IpText.setObjectName("IpText")
         self.TelHolder = QtWidgets.QTextBrowser(self.frame_white_grey)
-        self.TelHolder.setGeometry(QtCore.QRect(470, 160, 111, 31))
+        self.TelHolder.setGeometry(QtCore.QRect(470, 160, 41, 31))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -302,7 +302,7 @@ class Ui_Form(object):
         self.CalleHolder_2.setStyleSheet("QLineEdit{\n"
 "        border: none;\n"
 "        background: transparent; \n"
-"        color: #white;\n"
+"        color: #FFFFFF;\n"
 "}")
         self.CalleHolder_2.setInputMask("")
         self.CalleHolder_2.setAlignment(QtCore.Qt.AlignCenter)
@@ -551,7 +551,7 @@ class Ui_Form(object):
         self.Select1.setGeometry(QtCore.QRect(50, 470, 161, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.Select1.setFont(font)
         self.Select1.setStyleSheet("QComboBox{\n"
 "     background: #FFFFFF;\n"
@@ -565,7 +565,7 @@ class Ui_Form(object):
         self.Select2.setGeometry(QtCore.QRect(250, 470, 161, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.Select2.setFont(font)
         self.Select2.setStyleSheet("QComboBox{\n"
 "     background: #FFFFFF;\n"
@@ -579,7 +579,7 @@ class Ui_Form(object):
         self.Select3.setGeometry(QtCore.QRect(440, 470, 161, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.Select3.setFont(font)
         self.Select3.setStyleSheet("QComboBox{\n"
 "     background: #FFFFFF;\n"

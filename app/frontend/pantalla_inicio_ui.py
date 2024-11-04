@@ -56,7 +56,7 @@ class Ui_Form(object):
         self.Contrasena.setGeometry(QtCore.QRect(450, 480, 371, 41))
         font = QtGui.QFont()
         font.setFamily("Montserratl")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.Contrasena.setFont(font)
         self.Contrasena.setStyleSheet("QLineEdit {\n"
 "    background: transparent;    /* Quitar el fondo */\n"
@@ -74,7 +74,7 @@ class Ui_Form(object):
         self.Usuario.setGeometry(QtCore.QRect(450, 410, 371, 41))
         font = QtGui.QFont()
         font.setFamily("Montserratl")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.Usuario.setFont(font)
         self.Usuario.setStyleSheet("QLineEdit {\n"
 "    background: transparent;    /* Quitar el fondo */\n"
@@ -91,7 +91,7 @@ class Ui_Form(object):
         self.Usuario_2.setGeometry(QtCore.QRect(360, 370, 561, 291))
         font = QtGui.QFont()
         font.setFamily("Montserratl")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.Usuario_2.setFont(font)
         self.Usuario_2.setStyleSheet("QLineEdit {\n"
 "    background: transparent;    /* Quitar el fondo */\n"
