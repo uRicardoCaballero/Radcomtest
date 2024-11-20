@@ -18,7 +18,7 @@ class PantallaCrearSMunicipio(QWidget):
         self.change_screen = change_screen_func
         self.logout = logout
 
-
+        self.populate_antena_dropdown()
         self.setup_connections()
         
 
@@ -34,12 +34,15 @@ class PantallaCrearSMunicipio(QWidget):
         self.ui.menuOption5.mousePressEvent = lambda event: self.label_clicked(event, "menuOption5")
         self.ui.menuOption6.mousePressEvent = lambda event: self.label_clicked(event, "menuOption6")
         self.ui.menuOption7.mousePressEvent = lambda event: self.label_clicked(event, "menuOption7")
+        self.ui.menuOption8.mousePressEvent = lambda event: self.label_clicked(event, "menuOption8")
         self.ui.ClienteText.mousePressEvent = lambda event: self.label_clicked(event,"ClienteText")
         self.ui.ComunidadText.mousePressEvent = lambda event: self.label_clicked(event,"ComunidadText")
         self.ui.MunicipioText.mousePressEvent = lambda event: self.label_clicked(event,"MunicipioText")
         self.ui.AntenaText.mousePressEvent = lambda event: self.label_clicked(event,"AntenaText")
         self.ui.menuOption7_2.mousePressEvent = lambda event: self.label_clicked(event, "menuOption7_2")
         
+
+        self.ui.GuardarButton.clicked.connect(self.guardar_municipio)
     def label_clicked(self, event, label_name):
         # Determine the screen based on the label clicked
         if label_name == "menuOption1":
@@ -56,6 +59,8 @@ class PantallaCrearSMunicipio(QWidget):
             self.change_screen(18)
         elif label_name == "menuOption7":
             self.change_screen(19)
+        elif label_name == "menuOption8":
+            self.change_screen(23)
         elif label_name == "ClienteText":
             self.change_screen(19)
         elif label_name == "ComunidadText":
@@ -66,3 +71,51 @@ class PantallaCrearSMunicipio(QWidget):
             self.change_screen(22)
         elif label_name == "menuOption7_2":
             self.logout()
+
+    
+    def populate_antena_dropdown(self,):
+        """Fetch antena from API and populate the Select1 dropdown."""
+        try:
+            response = self.session.get("http://127.0.0.1:5000/api/antenas")  # Replace with your actual API URL
+            if response.status_code == 200:
+                antena = response.json()
+                for antena in antena:
+                    self.ui.Select1.addItem(antena['nombre'], antena['id'])  # Use id as data for each item
+            else:
+                print("Error fetching antena:", response.status_code)
+        except Exception as e:
+            print("Exception occurred while fetching antena:", e)
+
+
+
+    def guardar_municipio(self):
+        # Get the input values from the UI
+        antena = self.ui.Select1.currentData()
+        municipio = self.ui.AntenaHolder.text()
+
+
+        # Validate inputs
+        if not antena or not municipio:
+            QMessageBox.warning(self, "Error", "Todos los campos son obligatorios.")
+            return
+
+        # Prepare the data for the API call
+        data = {
+            "antena": antena,
+            "municipio": municipio
+        }
+
+        # Make the API call
+        try:
+            response = self.session.post('http://127.0.0.1:5000/api/municipios', json=data)  # Replace with your actual API URL
+            if response.status_code == 201:
+                QMessageBox.information(self, "Éxito", "Antena creada exitosamente.")
+
+            else:
+                error_message = response.json().get("error", "Error al crear la antena.")
+                QMessageBox.warning(self, "Error", error_message)
+        except requests.exceptions.RequestException as e:
+            QMessageBox.critical(self, "Error", f"No se pudo conectar al servidor: {str(e)}")
+
+
+

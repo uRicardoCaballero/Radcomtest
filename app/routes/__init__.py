@@ -16,7 +16,6 @@ from app.routes.login_route import login_bp
 from app.routes.municipios_routes import municipios_bp
 from app.routes.register_route import register_bp
 from app.routes.usuarios_routes import usuarios_bp
-from app.routes.zonas_routes import zonas_bp
 from app.routes.pagos_route import pagos_bp
 from app.routes.tests import tests_bp
 from app.routes.facturas_routes import facturas_bp
@@ -31,7 +30,6 @@ login_bp = login_bp
 municipios_bp = municipios_bp
 register_bp = register_bp
 usuarios_bp = usuarios_bp
-zonas_bp = zonas_bp
 pagos_bp = pagos_bp
 tests_bp = tests_bp
 facturas_bp = facturas_bp

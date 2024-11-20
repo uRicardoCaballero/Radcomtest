@@ -106,7 +106,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.AntenaText_2.setFont(font)
-        self.AntenaText_2.setToolTipDuration(1)
+        self.AntenaText_2.setToolTipDuration(-1)
         self.AntenaText_2.setAutoFillBackground(False)
         self.AntenaText_2.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -126,7 +126,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.MunicipioText_2.setFont(font)
-        self.MunicipioText_2.setToolTipDuration(1)
+        self.MunicipioText_2.setToolTipDuration(-1)
         self.MunicipioText_2.setAutoFillBackground(False)
         self.MunicipioText_2.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -146,7 +146,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.NombreMText.setFont(font)
-        self.NombreMText.setToolTipDuration(1)
+        self.NombreMText.setToolTipDuration(-1)
         self.NombreMText.setAutoFillBackground(False)
         self.NombreMText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -207,7 +207,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.ClienteText.setFont(font)
-        self.ClienteText.setToolTipDuration(1)
+        self.ClienteText.setToolTipDuration(-1)
         self.ClienteText.setAutoFillBackground(False)
         self.ClienteText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -226,7 +226,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.ComunidadText.setFont(font)
-        self.ComunidadText.setToolTipDuration(1)
+        self.ComunidadText.setToolTipDuration(-1)
         self.ComunidadText.setAutoFillBackground(False)
         self.ComunidadText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -284,7 +284,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.MunicipioText.setFont(font)
-        self.MunicipioText.setToolTipDuration(1)
+        self.MunicipioText.setToolTipDuration(-1)
         self.MunicipioText.setAutoFillBackground(False)
         self.MunicipioText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -303,7 +303,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.AntenaText.setFont(font)
-        self.AntenaText.setToolTipDuration(1)
+        self.AntenaText.setToolTipDuration(-1)
         self.AntenaText.setAutoFillBackground(False)
         self.AntenaText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -324,8 +324,59 @@ class Ui_Form(object):
         self.label.setPixmap(QtGui.QPixmap("app/frontend/assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
+        self.menuOption7_2 = QtWidgets.QTextBrowser(Form)
+        self.menuOption7_2.setGeometry(QtCore.QRect(30, 660, 271, 51))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.NoBrush)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.NoBrush)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.NoBrush)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
+        self.menuOption7_2.setPalette(palette)
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(10)
+        font.setKerning(True)
+        self.menuOption7_2.setFont(font)
+        self.menuOption7_2.setStyleSheet("QTextBrowser {\n"
+"    background: transparent;  /* Quitar el fondo */\n"
+"    border: none;             /* Quitar el borde */\n"
+"}")
+        self.menuOption7_2.setPlaceholderText("")
+        self.menuOption7_2.setObjectName("menuOption7_2")
         self.frame = QtWidgets.QFrame(Form)
-        self.frame.setGeometry(QtCore.QRect(30, 160, 271, 461))
+        self.frame.setGeometry(QtCore.QRect(30, 150, 271, 501))
         self.frame.setStyleSheet("QFrame {\n"
 "    background-color: #37373d;  /* Color de fondo semitransparente */\n"
 "    border-radius: 30px;                         /* Bordes redondeados */\n"
@@ -735,57 +786,65 @@ class Ui_Form(object):
         self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_7.setObjectName("frame_7")
-        self.menuOption7_2 = QtWidgets.QTextBrowser(Form)
-        self.menuOption7_2.setGeometry(QtCore.QRect(30, 660, 271, 51))
+        self.menuOption8 = QtWidgets.QTextBrowser(self.frame)
+        self.menuOption8.setGeometry(QtCore.QRect(20, 440, 231, 51))
         palette = QtGui.QPalette()
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 0))
+        brush = QtGui.QBrush(QtGui.QColor(55, 55, 61))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.NoBrush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 55, 61))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 0))
+        brush = QtGui.QBrush(QtGui.QColor(55, 55, 61))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 0))
+        brush = QtGui.QBrush(QtGui.QColor(55, 55, 61))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.NoBrush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 55, 61))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 0))
+        brush = QtGui.QBrush(QtGui.QColor(55, 55, 61))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 0))
+        brush = QtGui.QBrush(QtGui.QColor(55, 55, 61))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
-        brush.setStyle(QtCore.Qt.NoBrush)
+        brush = QtGui.QBrush(QtGui.QColor(55, 55, 61))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0, 0))
+        brush = QtGui.QBrush(QtGui.QColor(55, 55, 61))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
-        self.menuOption7_2.setPalette(palette)
+        self.menuOption8.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         font.setPointSize(10)
-        font.setKerning(True)
-        self.menuOption7_2.setFont(font)
-        self.menuOption7_2.setStyleSheet("QTextBrowser {\n"
-"    background: transparent;  /* Quitar el fondo */\n"
-"    border: none;             /* Quitar el borde */\n"
-"}")
-        self.menuOption7_2.setPlaceholderText("")
-        self.menuOption7_2.setObjectName("menuOption7_2")
+        self.menuOption8.setFont(font)
+        self.menuOption8.setObjectName("menuOption8")
+        self.frame_8 = QtWidgets.QFrame(self.frame)
+        self.frame_8.setGeometry(QtCore.QRect(20, 430, 230, 2))
+        self.frame_8.setStyleSheet("QFrame {\n"
+"    border: none;       /* Color y grosor del borde */\n"
+"    border-radius: 55px;          /* Radio de las esquinas */\n"
+"    background-color: #f0f0f0;    /* Color de fondo */\n"
+"    margin: 0px;                  /* Margen externo a 0 */\n"
+"    padding: 0px;                 /* Espaciado interno a 0 */\n"
+"}\n"
+"\n"
+"")
+        self.frame_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_8.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_8.setObjectName("frame_8")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -830,6 +889,11 @@ class Ui_Form(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:20pt; font-weight:600;\">Antena</span></p></body></html>"))
+        self.menuOption7_2.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'Montserrat\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt; font-weight:600;\">Cerrar Sesion</span></p></body></html>"))
         self.menuOption1.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -865,11 +929,11 @@ class Ui_Form(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt; font-weight:600;\">Crear Servicio</span></p></body></html>"))
-        self.menuOption7_2.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        self.menuOption8.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt; font-weight:600;\">Cerrar Sesion</span></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt; font-weight:600;\">Folios</span></p></body></html>"))
 
 
 if __name__ == "__main__":

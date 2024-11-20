@@ -25,6 +25,7 @@ from app.frontend.pantalla_crearS_comunidad import PantallaCrearSComunidad
 from app.frontend.pantalla_crearS_municipio import PantallaCrearSMunicipio
 from app.frontend.pantalla_crearS_antena import PantallaCrearSAntena
 from app.frontend.pantalla_inicio import PantallaInicio  # Asegúrate de que BaseScreen esté importado
+from app.frontend.pantalla_folio import PantallaFolio
 from app.main import *
 
 
@@ -45,24 +46,25 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
         self.pantalla_principal_facturador = PantallaPrincipalFacturador(self.change_screen,self.logout, self)
         self.pantalla_principal_cobrador = PantallaPrincipalCobrador(self.change_screen,self.logout, self)
         self.pantalla_cobro_admin = PantallaCobroAdmin(self.change_screen,self.logout, self.session, self)
-        self.pantalla_cobro_facturador = PantallaCobroFacturador(self.change_screen,self.logout, self)
-        self.pantalla_cobro_cobrador =  PantallaCobroCobrador(self.change_screen,self.logout, self)
+        self.pantalla_cobro_facturador = PantallaCobroFacturador(self.change_screen,self.logout, self.session, self)
+        self.pantalla_cobro_cobrador =  PantallaCobroCobrador(self.change_screen,self.logout, self.session, self)
         self.pantalla_adeudo_admin = PantallaAdeudoAdmin(self.change_screen,self.logout, self.session, self)
-        self.pantalla_adeudo_facturador = PantallaAdeudoFacturador(self.change_screen,self.logout, self)
-        self.pantalla_adeudo_cobrador = PantallaAdeudoCobrador(self.change_screen,self.logout, self)
-        self.pantalla_factura_pendiente_admin = PantallaFacturaPendienteAdmin(self.change_screen,self.logout, self)
-        self.pantalla_factura_nueva_admin = PantallaFacturaNuevaAdmin(self.change_screen,self.logout, self)
-        self.pantalla_factura_facturador = PantallaFacturaFacturador(self.change_screen,self.logout, self)
-        self.pantalla_hitorial_cliente = PantallaHistorialCliente(self.change_screen,self.logout, self)
-        self.pantalla_historial_comunidad = PantallaHistorialComunidad(self.change_screen,self.logout, self)
+        self.pantalla_adeudo_facturador = PantallaAdeudoFacturador(self.change_screen,self.logout, self.session, self)
+        self.pantalla_adeudo_cobrador = PantallaAdeudoCobrador(self.change_screen,self.logout, self.session, self)
+        self.pantalla_factura_pendiente_admin = PantallaFacturaPendienteAdmin(self.change_screen,self.logout, self.session, self)
+        self.pantalla_factura_nueva_admin = PantallaFacturaNuevaAdmin(self.change_screen,self.logout, self.session, self)
+        self.pantalla_factura_facturador = PantallaFacturaFacturador(self.change_screen,self.logout, self.session, self)
+        self.pantalla_historial_cliente = PantallaHistorialCliente(self.change_screen,self.logout,self.session, self)
+        self.pantalla_historial_comunidad = PantallaHistorialComunidad(self.change_screen,self.logout, self.session, self)
         self.pantalla_historial_municipio = PantallaHistorialMunicipio(self.change_screen,self.logout, self.session, self)
         self.pantalla_historial_antena = PantallaHistorialAntena(self.change_screen,self.logout, self.session, self)
         self.pantalla_historial_global = PantallaHistorialGlobal(self.change_screen,self.logout, self.session, self)
         self.pantalla_modificar = PantallaModificar(self.change_screen,self.logout, self.session, self)
-        self.pantalla_crearS_cliente = PantallaCrearSCliente(self.change_screen,self.logout, self)
-        self.pantalla_crearS_comunidad = PantallaCrearSComunidad(self.change_screen,self.logout, self)
+        self.pantalla_crearS_cliente = PantallaCrearSCliente(self.change_screen,self.logout, self.session, self)
+        self.pantalla_crearS_comunidad = PantallaCrearSComunidad(self.change_screen,self.logout, self.session, self)
         self.pantalla_crearS_municipio = PantallaCrearSMunicipio(self.change_screen,self.logout,self.session, self)
         self.pantalla_crearS_antena = PantallaCrearSAntena(self.change_screen,self.logout, self.session, self)
+        self.pantalla_folio = PantallaFolio(self.change_screen, self.logout, self.session, self)
         
 
         # Añadir las pantallas al QStackedWidget
@@ -79,7 +81,7 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
         self.stacked_widget.addWidget(self.pantalla_factura_pendiente_admin)
         self.stacked_widget.addWidget(self.pantalla_factura_nueva_admin)
         self.stacked_widget.addWidget(self.pantalla_factura_facturador)
-        self.stacked_widget.addWidget(self.pantalla_hitorial_cliente)
+        self.stacked_widget.addWidget(self.pantalla_historial_cliente)
         self.stacked_widget.addWidget(self.pantalla_historial_comunidad)
         self.stacked_widget.addWidget(self.pantalla_historial_municipio)
         self.stacked_widget.addWidget(self.pantalla_historial_antena)
@@ -89,6 +91,7 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
         self.stacked_widget.addWidget(self.pantalla_crearS_comunidad)
         self.stacked_widget.addWidget(self.pantalla_crearS_municipio)
         self.stacked_widget.addWidget(self.pantalla_crearS_antena)
+        self.stacked_widget.addWidget(self.pantalla_folio)
 
         self.stacked_widget.setCurrentWidget(self.pantalla_inicio)
 
@@ -96,20 +99,46 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
         self.stacked_widget.setCurrentIndex(screen_number)
         if screen_number == 4:
             self.pantalla_cobro_admin.load_client_data()
+        elif screen_number == 5:
+            self.pantalla_cobro_facturador.load_client_data()
+        elif screen_number == 6:
+             self.pantalla_cobro_cobrador.load_client_data()
         elif screen_number == 7:
-            self.pantalla_adeudo_admin.load_client_data()
-        # elif screen_number == 13:
-        #     self.pantalla_historial_global.populate_table()
+             self.pantalla_adeudo_admin.load_client_data() 
+        elif screen_number == 8:
+             self.pantalla_adeudo_facturador.load_client_data()
+        elif screen_number == 9:
+             self.pantalla_adeudo_cobrador.load_client_data()
         # elif screen_number == 14:
         #     self.pantalla_historial_global.populate_table()
         # elif screen_number == 15:
         #     self.pantalla_historial_global.populate_table()
-        # elif screen_number == 15:
-        #     self.pantalla_historial_municipio.populate_combobox()
+        elif screen_number == 11:
+             self.pantalla_factura_nueva_admin.get_next_pending_factura()
+        elif screen_number == 12:
+             self.pantalla_factura_facturador.get_next_pending_factura()
+        elif screen_number == 13:
+            client_id = 1
+            self.pantalla_historial_cliente.excel_read(client_id)
+        elif screen_number == 15:
+            self.pantalla_historial_municipio.excel_read()
+        elif screen_number == 16:
+            self.pantalla_historial_antena.excel_read()    
         elif screen_number == 17:
-            self.pantalla_historial_global.populate_table()
+            self.pantalla_historial_global.excel_read()
         elif screen_number == 18:
+            self.pantalla_modificar.populate_municipio_dropdown()
+            self.pantalla_modificar.populate_antena_dropdown()
             self.pantalla_modificar.load_client_data()
+        elif screen_number == 19:
+            self.pantalla_crearS_cliente.populate_municipio_dropdown()
+            self.pantalla_crearS_cliente.populate_antena_dropdown()
+        elif screen_number == 20:
+            self.pantalla_crearS_comunidad.populate_municipio_dropdown()
+        elif screen_number == 21:
+            self.pantalla_crearS_municipio.populate_antena_dropdown()
+        elif screen_number == 14:
+            self.pantalla_historial_comunidad.excel_read()
 
         
         

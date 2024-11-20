@@ -13,7 +13,7 @@
     <x>0</x>
     <y>0</y>
     <width>1275</width>
-    <height>725</height>
+    <height>729</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -144,51 +144,6 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QTextBrowser" name="NombreHolder">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>70</y>
-       <width>331</width>
-       <height>61</height>
-      </rect>
-     </property>
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <family>Montserrat</family>
-       <pointsize>5</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="toolTipDuration">
-      <number>-1</number>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QTextBrowser {
-    background: transparent;  /* Quitar el fondo */
-	color:#FFFFFF;
-    border: none;             /* Quitar el borde */
-	margin: 0;                /* Eliminar márgenes */
-}</string>
-     </property>
-     <property name="html">
-      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Montserrat'; font-size:5pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
     <widget class="QLineEdit" name="CalleHolder">
      <property name="geometry">
       <rect>
@@ -200,8 +155,8 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="font">
       <font>
-       <family>Montserrat</family>
-       <pointsize>18</pointsize>
+       <family>&quot;Montserratl&quot;</family>
+       <pointsize>-1</pointsize>
       </font>
      </property>
      <property name="layoutDirection">
@@ -209,6 +164,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="styleSheet">
       <string notr="true">QLineEdit{
+		color: #FFFFFF;
+		Font-family: \&quot;Montserratl\&quot;;
+		font-size: 28px;
 		border: none;
 		background: transparent; 
 }</string>
@@ -217,60 +175,17 @@ p, li { white-space: pre-wrap; }
       <string/>
      </property>
      <property name="alignment">
-      <set>Qt::AlignCenter</set>
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
      <property name="placeholderText">
       <string/>
-     </property>
-    </widget>
-    <widget class="QTextBrowser" name="IPHolder">
-     <property name="geometry">
-      <rect>
-       <x>470</x>
-       <y>120</y>
-       <width>111</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <family>Montserrat</family>
-       <pointsize>5</pointsize>
-      </font>
-     </property>
-     <property name="toolTipDuration">
-      <number>-1</number>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QTextBrowser {
-    background: transparent;  /* Quitar el fondo */
-	color:#FFFFFF;
-    border: none;             /* Quitar el borde */
-	margin: 0;                /* Eliminar márgenes */
-}</string>
-     </property>
-     <property name="html">
-      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Montserrat'; font-size:5pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QRadioButton" name="MensualOption">
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>600</y>
+       <y>590</y>
        <width>141</width>
        <height>31</height>
       </rect>
@@ -322,7 +237,7 @@ color: #FFFFFF;
      <property name="geometry">
       <rect>
        <x>420</x>
-       <y>160</y>
+       <y>180</y>
        <width>61</width>
        <height>31</height>
       </rect>
@@ -429,49 +344,6 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;IP:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QTextBrowser" name="TelHolder">
-     <property name="geometry">
-      <rect>
-       <x>470</x>
-       <y>160</y>
-       <width>111</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="font">
-      <font>
-       <family>Montserrat</family>
-       <pointsize>5</pointsize>
-      </font>
-     </property>
-     <property name="toolTipDuration">
-      <number>-1</number>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QTextBrowser {
-    background: transparent;  /* Quitar el fondo */
-	color:#FFFFFF;
-    border: none;             /* Quitar el borde */
-	margin: 0;                /* Eliminar márgenes */
-}</string>
-     </property>
-     <property name="html">
-      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Montserrat'; font-size:5pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
     <widget class="QTextBrowser" name="DomicilIoText">
      <property name="geometry">
       <rect>
@@ -560,10 +432,10 @@ p, li { white-space: pre-wrap; }
     <widget class="QFrame" name="frame_14">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>140</y>
-       <width>331</width>
-       <height>4</height>
+       <x>70</x>
+       <y>90</y>
+       <width>401</width>
+       <height>1</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -587,7 +459,7 @@ p, li { white-space: pre-wrap; }
        <x>470</x>
        <y>150</y>
        <width>111</width>
-       <height>4</height>
+       <height>1</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -611,7 +483,7 @@ p, li { white-space: pre-wrap; }
        <x>60</x>
        <y>320</y>
        <width>331</width>
-       <height>4</height>
+       <height>1</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -629,7 +501,7 @@ p, li { white-space: pre-wrap; }
       <enum>QFrame::Raised</enum>
      </property>
     </widget>
-    <widget class="QLineEdit" name="CalleHolder_2">
+    <widget class="QLineEdit" name="ColoniaHolder">
      <property name="geometry">
       <rect>
        <x>60</x>
@@ -640,8 +512,8 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="font">
       <font>
-       <family>Montserrat</family>
-       <pointsize>18</pointsize>
+       <family>&quot;Montserratl&quot;</family>
+       <pointsize>-1</pointsize>
       </font>
      </property>
      <property name="layoutDirection">
@@ -649,6 +521,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="styleSheet">
       <string notr="true">QLineEdit{
+		color: #FFFFFF;
+		Font-family: \&quot;Montserratl\&quot;;
+		font-size: 28px;
 		border: none;
 		background: transparent; 
 }</string>
@@ -656,8 +531,11 @@ p, li { white-space: pre-wrap; }
      <property name="inputMask">
       <string/>
      </property>
+     <property name="text">
+      <string/>
+     </property>
      <property name="alignment">
-      <set>Qt::AlignCenter</set>
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
      <property name="placeholderText">
       <string/>
@@ -717,8 +595,8 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="font">
       <font>
-       <family>Montserrat</family>
-       <pointsize>18</pointsize>
+       <family>&quot;Montserratl&quot;</family>
+       <pointsize>-1</pointsize>
       </font>
      </property>
      <property name="layoutDirection">
@@ -726,6 +604,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="styleSheet">
       <string notr="true">QLineEdit{
+		color: #FFFFFF;
+		Font-family: \&quot;Montserratl\&quot;;
+		font-size: 28px;
 		border: none;
 		background: transparent; 
 }</string>
@@ -734,7 +615,7 @@ p, li { white-space: pre-wrap; }
       <string/>
      </property>
      <property name="alignment">
-      <set>Qt::AlignCenter</set>
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
      <property name="placeholderText">
       <string/>
@@ -794,8 +675,8 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="font">
       <font>
-       <family>Montserrat</family>
-       <pointsize>18</pointsize>
+       <family>&quot;Montserratl&quot;</family>
+       <pointsize>-1</pointsize>
       </font>
      </property>
      <property name="layoutDirection">
@@ -803,6 +684,9 @@ p, li { white-space: pre-wrap; }
      </property>
      <property name="styleSheet">
       <string notr="true">QLineEdit{
+		color: #FFFFFF;
+		Font-family: \&quot;Montserratl\&quot;;
+		font-size: 28px;
 		border: none;
 		background: transparent; 
 }</string>
@@ -811,7 +695,7 @@ p, li { white-space: pre-wrap; }
       <string/>
      </property>
      <property name="alignment">
-      <set>Qt::AlignCenter</set>
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
      <property name="placeholderText">
       <string/>
@@ -866,7 +750,7 @@ p, li { white-space: pre-wrap; }
        <x>60</x>
        <y>380</y>
        <width>331</width>
-       <height>4</height>
+       <height>1</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -890,7 +774,7 @@ p, li { white-space: pre-wrap; }
        <x>450</x>
        <y>320</y>
        <width>111</width>
-       <height>4</height>
+       <height>1</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -914,7 +798,7 @@ p, li { white-space: pre-wrap; }
        <x>450</x>
        <y>380</y>
        <width>111</width>
-       <height>4</height>
+       <height>1</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -979,7 +863,7 @@ p, li { white-space: pre-wrap; }
       <rect>
        <x>60</x>
        <y>520</y>
-       <width>251</width>
+       <width>211</width>
        <height>41</height>
       </rect>
      </property>
@@ -1020,7 +904,7 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>640</y>
+       <y>620</y>
        <width>141</width>
        <height>31</height>
       </rect>
@@ -1045,9 +929,9 @@ color: #FFFFFF;
      <property name="geometry">
       <rect>
        <x>470</x>
-       <y>190</y>
+       <y>210</y>
        <width>111</width>
-       <height>4</height>
+       <height>1</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -1144,29 +1028,224 @@ color: #FFFFFF;
 }</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="Select3">
+    <widget class="QTextBrowser" name="CobroText">
      <property name="geometry">
       <rect>
-       <x>440</x>
-       <y>470</y>
-       <width>161</width>
-       <height>31</height>
+       <x>280</x>
+       <y>520</y>
+       <width>111</width>
+       <height>41</height>
       </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
      <property name="font">
       <font>
        <family>Montserrat</family>
+      </font>
+     </property>
+     <property name="toolTipDuration">
+      <number>-1</number>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTextBrowser {
+    background: transparent;  /* Quitar el fondo */
+	color:#FFFFFF;
+    border: none;             /* Quitar el borde */
+	margin: 0;                /* Eliminar márgenes */
+}</string>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Montserrat'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:14pt; font-weight:600;&quot;&gt;PAQUETE:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QFrame" name="frame_21">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>590</y>
+       <width>151</width>
+       <height>1</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame {
+    border: none;       /* Color y grosor del borde */
+    background-color: #FFFFFF;    /* Color de fondo */
+}
+
+</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="NombreHolder">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>50</y>
+       <width>331</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>&quot;Montserratl&quot;</family>
        <pointsize>-1</pointsize>
       </font>
      </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
      <property name="styleSheet">
-      <string notr="true">QComboBox{
- 	background: #FFFFFF;
-	color: #37373d;
-	border-radius: 5px;
-	font-family: Montserrat; /* Type of font */
-    font-size: 16px;                /* Size of the text */
+      <string notr="true">QLineEdit{
+		color: #FFFFFF;
+		Font-family: \&quot;Montserratl\&quot;;
+		font-size: 28px;
+		border: none;
+		background: transparent; 
 }</string>
+     </property>
+     <property name="inputMask">
+      <string/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="IPHolder">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>110</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>&quot;Montserratl&quot;</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+		color: #FFFFFF;
+		Font-family: \&quot;Montserratl\&quot;;
+		font-size: 18px;
+		border: none;
+		background: transparent; 
+}</string>
+     </property>
+     <property name="inputMask">
+      <string/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="TelHolder">
+     <property name="geometry">
+      <rect>
+       <x>470</x>
+       <y>170</y>
+       <width>111</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>&quot;Montserratl&quot;</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+		color: #FFFFFF;
+		Font-family: \&quot;Montserratl\&quot;;
+		font-size: 18px;
+		border: none;
+		background: transparent; 
+}</string>
+     </property>
+     <property name="inputMask">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="PaqueteHolder">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>550</y>
+       <width>151</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>&quot;Montserratl&quot;</family>
+       <pointsize>-1</pointsize>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+		color: #FFFFFF;
+		Font-family: \&quot;Montserratl\&quot;;
+		font-size: 28px;
+		border: none;
+		background: transparent; 
+}</string>
+     </property>
+     <property name="inputMask">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="placeholderText">
+      <string/>
      </property>
     </widget>
    </widget>
@@ -1183,7 +1262,7 @@ color: #FFFFFF;
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Profile.png</pixmap>
+     <pixmap>assets/Profile.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1202,7 +1281,7 @@ color: #FFFFFF;
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Comunidad.png</pixmap>
+     <pixmap>assets/Comunidad.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1353,7 +1432,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Municipio.png</pixmap>
+     <pixmap>assets/Municipio.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1480,7 +1559,7 @@ p, li { white-space: pre-wrap; }
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/Antena.png</pixmap>
+     <pixmap>assets/Antena.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -1500,19 +1579,170 @@ p, li { white-space: pre-wrap; }
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/LOGO_M.png</pixmap>
+    <pixmap>assets/LOGO_M.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="menuOption7_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>660</y>
+     <width>271</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="palette">
+    <palette>
+     <active>
+      <colorrole role="Button">
+       <brush brushstyle="SolidPattern">
+        <color alpha="0">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Text">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Base">
+       <brush brushstyle="NoBrush">
+        <color alpha="255">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="0">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </active>
+     <inactive>
+      <colorrole role="Button">
+       <brush brushstyle="SolidPattern">
+        <color alpha="0">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Text">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>255</red>
+         <green>255</green>
+         <blue>255</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Base">
+       <brush brushstyle="NoBrush">
+        <color alpha="255">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="0">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </inactive>
+     <disabled>
+      <colorrole role="Button">
+       <brush brushstyle="SolidPattern">
+        <color alpha="0">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Text">
+       <brush brushstyle="SolidPattern">
+        <color alpha="255">
+         <red>120</red>
+         <green>120</green>
+         <blue>120</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Base">
+       <brush brushstyle="NoBrush">
+        <color alpha="255">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+      <colorrole role="Window">
+       <brush brushstyle="SolidPattern">
+        <color alpha="0">
+         <red>0</red>
+         <green>0</green>
+         <blue>0</blue>
+        </color>
+       </brush>
+      </colorrole>
+     </disabled>
+    </palette>
+   </property>
+   <property name="font">
+    <font>
+     <family>Montserrat</family>
+     <pointsize>10</pointsize>
+     <kerning>true</kerning>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTextBrowser {
+    background: transparent;  /* Quitar el fondo */
+    border: none;             /* Quitar el borde */
+}</string>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Montserrat'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; font-weight:600;&quot;&gt;Cerrar Sesion&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="placeholderText">
+    <string/>
    </property>
   </widget>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>160</y>
+     <y>150</y>
      <width>271</width>
-     <height>461</height>
+     <height>501</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -2679,157 +2909,174 @@ p, li { white-space: pre-wrap; }
      <enum>QFrame::Raised</enum>
     </property>
    </widget>
-  </widget>
-  <widget class="QTextBrowser" name="menuOption7_2">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>660</y>
-     <width>271</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="palette">
-    <palette>
-     <active>
-      <colorrole role="Button">
-       <brush brushstyle="SolidPattern">
-        <color alpha="0">
-         <red>0</red>
-         <green>0</green>
-         <blue>0</blue>
-        </color>
-       </brush>
-      </colorrole>
-      <colorrole role="Text">
-       <brush brushstyle="SolidPattern">
-        <color alpha="255">
-         <red>255</red>
-         <green>255</green>
-         <blue>255</blue>
-        </color>
-       </brush>
-      </colorrole>
-      <colorrole role="Base">
-       <brush brushstyle="NoBrush">
-        <color alpha="255">
-         <red>0</red>
-         <green>0</green>
-         <blue>0</blue>
-        </color>
-       </brush>
-      </colorrole>
-      <colorrole role="Window">
-       <brush brushstyle="SolidPattern">
-        <color alpha="0">
-         <red>0</red>
-         <green>0</green>
-         <blue>0</blue>
-        </color>
-       </brush>
-      </colorrole>
-     </active>
-     <inactive>
-      <colorrole role="Button">
-       <brush brushstyle="SolidPattern">
-        <color alpha="0">
-         <red>0</red>
-         <green>0</green>
-         <blue>0</blue>
-        </color>
-       </brush>
-      </colorrole>
-      <colorrole role="Text">
-       <brush brushstyle="SolidPattern">
-        <color alpha="255">
-         <red>255</red>
-         <green>255</green>
-         <blue>255</blue>
-        </color>
-       </brush>
-      </colorrole>
-      <colorrole role="Base">
-       <brush brushstyle="NoBrush">
-        <color alpha="255">
-         <red>0</red>
-         <green>0</green>
-         <blue>0</blue>
-        </color>
-       </brush>
-      </colorrole>
-      <colorrole role="Window">
-       <brush brushstyle="SolidPattern">
-        <color alpha="0">
-         <red>0</red>
-         <green>0</green>
-         <blue>0</blue>
-        </color>
-       </brush>
-      </colorrole>
-     </inactive>
-     <disabled>
-      <colorrole role="Button">
-       <brush brushstyle="SolidPattern">
-        <color alpha="0">
-         <red>0</red>
-         <green>0</green>
-         <blue>0</blue>
-        </color>
-       </brush>
-      </colorrole>
-      <colorrole role="Text">
-       <brush brushstyle="SolidPattern">
-        <color alpha="255">
-         <red>120</red>
-         <green>120</green>
-         <blue>120</blue>
-        </color>
-       </brush>
-      </colorrole>
-      <colorrole role="Base">
-       <brush brushstyle="NoBrush">
-        <color alpha="255">
-         <red>0</red>
-         <green>0</green>
-         <blue>0</blue>
-        </color>
-       </brush>
-      </colorrole>
-      <colorrole role="Window">
-       <brush brushstyle="SolidPattern">
-        <color alpha="0">
-         <red>0</red>
-         <green>0</green>
-         <blue>0</blue>
-        </color>
-       </brush>
-      </colorrole>
-     </disabled>
-    </palette>
-   </property>
-   <property name="font">
-    <font>
-     <family>Montserrat</family>
-     <pointsize>10</pointsize>
-     <kerning>true</kerning>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QTextBrowser {
-    background: transparent;  /* Quitar el fondo */
-    border: none;             /* Quitar el borde */
-}</string>
-   </property>
-   <property name="html">
-    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+   <widget class="QTextBrowser" name="menuOption8">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>440</y>
+      <width>231</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="palette">
+     <palette>
+      <active>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>55</red>
+          <green>55</green>
+          <blue>61</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>55</red>
+          <green>55</green>
+          <blue>61</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>55</red>
+          <green>55</green>
+          <blue>61</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </active>
+      <inactive>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>55</red>
+          <green>55</green>
+          <blue>61</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>255</red>
+          <green>255</green>
+          <blue>255</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>55</red>
+          <green>55</green>
+          <blue>61</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>55</red>
+          <green>55</green>
+          <blue>61</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </inactive>
+      <disabled>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>55</red>
+          <green>55</green>
+          <blue>61</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Text">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>120</red>
+          <green>120</green>
+          <blue>120</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Base">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>55</red>
+          <green>55</green>
+          <blue>61</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>55</red>
+          <green>55</green>
+          <blue>61</blue>
+         </color>
+        </brush>
+       </colorrole>
+      </disabled>
+     </palette>
+    </property>
+    <property name="font">
+     <font>
+      <family>Montserrat</family>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="html">
+     <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Montserrat'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; font-weight:600;&quot;&gt;Cerrar Sesion&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-   <property name="placeholderText">
-    <string/>
-   </property>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:20pt; font-weight:600;&quot;&gt;Folios&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame_8">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>430</y>
+      <width>230</width>
+      <height>2</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame {
+    border: none;       /* Color y grosor del borde */
+    border-radius: 55px;          /* Radio de las esquinas */
+    background-color: #f0f0f0;    /* Color de fondo */
+    margin: 0px;                  /* Margen externo a 0 */
+    padding: 0px;                 /* Espaciado interno a 0 */
+}
+
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

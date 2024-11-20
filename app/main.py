@@ -1,10 +1,12 @@
 import sys
+from apscheduler.schedulers.background import BackgroundScheduler
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication
 import threading 
 from app import create_app
 from flask import Flask
 from app.routes import *
+from app.models import Cliente
 from app.frontend.main import *
 from flask_login import LoginManager
 from flask_migrate import Migrate
@@ -40,6 +42,22 @@ login_manager.login_view = 'login.login'
 
 
 
+def add_monthly_payments():
+    """Increment monthly payments for all clients."""
+    with app.app_context():  # Ensure this runs within the Flask app context
+        clients = Cliente.query.all()
+        for client in clients:
+            if client.plan_pago:  # Check if the client has a payment plan
+                client.monto_debido += client.plan_pago
+        db.session.commit()
+        print(f"Monthly payments updated at {datetime.now()}")
+
+# Initialize the scheduler
+scheduler = BackgroundScheduler()
+scheduler.add_job(add_monthly_payments, 'cron', day=1, hour=0, minute=0)  # Every 1st of the month at midnight
+scheduler.start()
+
+
 # Create directories if they don't exist
 os.makedirs(os.path.join(os.path.abspath(os.path.dirname(__file__)), '../ticket_images'), exist_ok=True)
 
@@ -70,7 +88,6 @@ app.register_blueprint(logout_bp, url_prefix='/api')
 app.register_blueprint(municipios_bp, url_prefix='/api')
 app.register_blueprint(register_bp, url_prefix='/api')
 app.register_blueprint(usuarios_bp, url_prefix='/api')
-app.register_blueprint(zonas_bp, url_prefix='/api')
 app.register_blueprint(tests_bp, url_prefix='/api')
 app.register_blueprint(facturas_bp, url_prefix='/api')
 

@@ -79,13 +79,14 @@ class Ui_Form(object):
 "    color: #FFFFFF;             /* Cambiar el color del texto (ejemplo: blanco) */\n"
 "    font-family: \"Montserratl\";       /* Cambiar el tipo de letra */\n"
 "    font-size: 70px;            /* Cambiar el tamaño de la fuente */\n"
+"    padding: 10px;            /* Optional: add padding */"
 "}")
         self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit.setReadOnly(True)
         self.lineEdit.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
         self.lineEdit.setObjectName("lineEdit")
         self.menuOption1_2 = QtWidgets.QTextBrowser(self.frame_white_grey)
-        self.menuOption1_2.setGeometry(QtCore.QRect(210, 400, 231, 51))
+        self.menuOption1_2.setGeometry(QtCore.QRect(210, 400, 231, 77))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(55, 55, 61))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -402,7 +403,7 @@ class Ui_Form(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:10pt; font-weight:600; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt;\">Limite de Pago</span></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; text-align: center;\"><span style=\" font-size:20pt;\">Limite de Pago: Dias 15</span></p></body></html>"))
         self.FechadeCobtoText.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

@@ -29,6 +29,7 @@ class PantallaCrearSAntena(QWidget):
         self.ui.menuOption5.mousePressEvent = lambda event: self.label_clicked(event, "menuOption5")
         self.ui.menuOption6.mousePressEvent = lambda event: self.label_clicked(event, "menuOption6")
         self.ui.menuOption7.mousePressEvent = lambda event: self.label_clicked(event, "menuOption7")
+        self.ui.menuOption8.mousePressEvent = lambda event: self.label_clicked(event, "menuOption8")
         self.ui.ClienteText.mousePressEvent = lambda event: self.label_clicked(event,"ClienteText")
         self.ui.ComunidadText.mousePressEvent = lambda event: self.label_clicked(event,"ComunidadText")
         self.ui.MunicipioText.mousePressEvent = lambda event: self.label_clicked(event,"MunicipioText")
@@ -55,6 +56,8 @@ class PantallaCrearSAntena(QWidget):
             self.change_screen(18)
         elif label_name == "menuOption7":
             self.change_screen(19)
+        elif label_name == "menuOption8":
+            self.change_screen(23)
         elif label_name == "ClienteText":
             self.change_screen(19)
         elif label_name == "ComunidadText":

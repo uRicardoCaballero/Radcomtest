@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QApplication
+from PyQt5.QtWidgets import QWidget, QApplication, QMessageBox
 from app.frontend.pantalla_crearS_comunidad_ui import Ui_Form  # Importa la clase generada por Qt Designer
 import sys
 import requests
@@ -26,13 +26,14 @@ class PantallaCrearSComunidad(QWidget):
         self.ui.menuOption5.mousePressEvent = lambda event: self.label_clicked(event, "menuOption5")
         self.ui.menuOption6.mousePressEvent = lambda event: self.label_clicked(event, "menuOption6")
         self.ui.menuOption7.mousePressEvent = lambda event: self.label_clicked(event, "menuOption7")
+        self.ui.menuOption8.mousePressEvent = lambda event: self.label_clicked(event, "menuOption8")
         self.ui.ClienteText.mousePressEvent = lambda event: self.label_clicked(event,"ClienteText")
         self.ui.ComunidadText.mousePressEvent = lambda event: self.label_clicked(event,"ComunidadText")
         self.ui.MunicipioText.mousePressEvent = lambda event: self.label_clicked(event,"MunicipioText")
         self.ui.AntenaText.mousePressEvent = lambda event: self.label_clicked(event,"AntenaText")
         self.ui.menuOption7_2.mousePressEvent = lambda event: self.label_clicked(event, "menuOption7_2")
         self.ui.GuardarButton.clicked.connect(self.save_comunidad)
-        self.ui.CancelarButton.clicked.connect(self.clear_fields)
+        #self.ui.CancelarButton.clicked.connect(self.clear_fields)
 
         # Connect button clicks
         #self.ui.GuardarButton.clicked.connect(self.guardar_antena)
@@ -54,6 +55,8 @@ class PantallaCrearSComunidad(QWidget):
             self.change_screen(18)
         elif label_name == "menuOption7":
             self.change_screen(19)
+        elif label_name == "menuOption8":
+            self.change_screen(23)
         elif label_name == "ClienteText":
             self.change_screen(19)
         elif label_name == "ComunidadText":
@@ -67,45 +70,34 @@ class PantallaCrearSComunidad(QWidget):
 
 
     def populate_municipio_dropdown(self):
-        """Fetch municipios from API and populate the AntenaSelect dropdown."""
         try:
-            response = self.session.get("http://127.0.0.1:5000/api/municipios")  # Replace with your actual API URL
+            response = self.session.get("http://127.0.0.1:5000/api/municipios")
             if response.status_code == 200:
-                municipio = response.json()
-                for municipio in municipio:
-                    self.ui.Select2.addItem(municipio['nombre'], municipio['id'])  # Use id as data for each item
+                municipios = response.json()
+                for municipio in municipios:
+                    # Add municipio name with municipio ID as data
+                    self.ui.Select2.addItem(municipio['nombre'], municipio['id'])
             else:
-                print("Error fetching municipio:", response.status_code)
+                print("Failed to fetch municipios:", response.status_code)
         except Exception as e:
-            print("Exception occurred while fetching municipio:", e)
-
-
+            print("Exception occurred while fetching municipios:", e)
+    
     def save_comunidad(self):
-        """Saves the comunidad by assigning a section to the selected antenna."""
-        municipio_id = self.ui.Select2.currentData()  # Get the antenna id from the dropdown
-        section_name = self.ui.NombreComunidadHolderHolder.text()  # Get text from the input field
-
-        if not section_name:
-            print("Error: Section name is required.")
-            return
-
-        # Create the JSON payload for the POST request
+        municipio_id = self.ui.Select2.currentData()  # Get municipio ID from dropdown selection
+        nombre_comunidad = self.ui.NombreComunidadHolder.text()
         data = {
-            "municipio_id": municipio_id,
-            "nombre": section_name
+            'nombre_comunidad': nombre_comunidad,
+            'id_municipio': municipio_id
         }
-
-
+       
         try:
-            response = self.session.post("http://127.0.0.1:5000/api/zonas", json=data)  # Replace with your actual API URL
-            if response.status_code == 201:
-                print("Comunidad created successfully!")
+            # Send POST request to create a community in the municipio
+            response = self.session.post("http://127.0.0.1:5000/api/create_community",json=data)
+            
+            if response.status_code == 200:
+                QMessageBox.information(self, "Success", "Comunidad assigned to Municipio successfully!")
             else:
-                print("Error creating comunidad:", response.json())
+                QMessageBox.warning(self, "Error", "Failed to assign comunidad.")
         except Exception as e:
-            print("Exception occurred while creating comunidad:", e)
-
-    def clear_fields(self):
-        """Clears the input fields."""
-        self.ui.MunicipioSelect.setCurrentIndex(0)
-        self.ui.NombreComunidadHolder.clear()
+            print("Exception occurred while assigning comunidad:", e)
+            QMessageBox.warning(self, "Error", "Failed to assign comunidad.")

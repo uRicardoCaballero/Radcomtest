@@ -21,6 +21,9 @@ class PantallaAdeudoAdmin(QWidget):
         self.client_model = QStandardItemModel(self.ui.listViewClients)
         self.ui.listViewClients.setModel(self.client_model)
 
+        self.client_data = []  # This will store the client data
+        self.selected_client_data = None
+
     def setup_connections(self):
         # Connect each QLabel's mousePressEvent to the same slot function
         self.ui.menuOption1.mousePressEvent = lambda event: self.label_clicked(event, "menuOption1")
@@ -30,7 +33,14 @@ class PantallaAdeudoAdmin(QWidget):
         self.ui.menuOption5.mousePressEvent = lambda event: self.label_clicked(event, "menuOption5")
         self.ui.menuOption6.mousePressEvent = lambda event: self.label_clicked(event, "menuOption6")
         self.ui.menuOption7.mousePressEvent = lambda event: self.label_clicked(event, "menuOption7")
+        self.ui.menuOption8.mousePressEvent = lambda event: self.label_clicked(event, "menuOption8")
         self.ui.menuOption7_2.mousePressEvent = lambda event: self.label_clicked(event, "menuOption7_2")
+
+        self.ui.lineEdit.textChanged.connect(self.search_clients)
+
+        self.ui.listViewClients.clicked.connect(self.client_selected)
+        self.ui.GuardarButton.clicked.connect(self.add_service)
+
 
     def label_clicked(self, event, label_name):
         # Determine the screen based on the label clicked
@@ -48,8 +58,20 @@ class PantallaAdeudoAdmin(QWidget):
             self.change_screen(18)
         elif label_name == "menuOption7":
             self.change_screen(19)
+        elif label_name == "menuOption8":
+            self.change_screen(23)
         elif label_name == "menuOption7_2":
             self.logout()
+
+    def search_clients(self):
+        search_text = self.ui.lineEdit.text().lower()  # Get the search text from QLineEdit
+        if self.client_data and search_text:
+            # Filter the client data based on the name
+            filtered_data = [client for client in self.client_data if search_text in client['nombre'].lower()]
+            self.populate_client_list(filtered_data)  # Populate the table with filtered data
+        else:
+            # If search text is empty or no client data, populate with all data
+            self.populate_client_list(self.client_data)
 
 
     def load_client_data(self):
@@ -58,6 +80,7 @@ class PantallaAdeudoAdmin(QWidget):
             response = self.session.get("http://127.0.0.1:5000/api/clientes")
             if response.status_code == 200:
                 clients = response.json()
+                self.client_data = clients
                 self.populate_client_list(clients)
             else:
                 print("Failed to load clients:", response.status_code)
@@ -72,13 +95,57 @@ class PantallaAdeudoAdmin(QWidget):
             item.setEditable(False)
             self.client_model.appendRow(item)
 
-    def filter_clients(self, text):
-        for row in range(self.client_model.rowCount()):
-            item = self.client_model.item(row)
-            item.setHidden(text.lower() not in item.text().lower())
 
     def client_selected(self, index):
         client_data = self.client_model.itemFromIndex(index).data()
-        print("Selected client data:", client_data)
+        self.selected_client_data = client_data
+        if 'nombre' in client_data:
+            self.ui.NombreHolder.setText(client_data['nombre'])
 
+        if 'telefono' in client_data:
+            self.ui.TelHolder.setText(client_data['telefono'])
+        
+        if 'ip' in client_data:
+            self.ui.IPHolder.setText(client_data['ip'])
+
+
+
+        
+    def add_service(self):
+        if not self.selected_client_data:
+            QMessageBox.warning(self, "Warning", "Porfavor, Selecciona un cliente")
+            return
+
+        cliente_id = self.selected_client_data.get("id_cliente")
+        tipo_servicio = self.ui.ServicioHolder.text()
+        materiales = self.ui.MaterialHolder.text()
+        tecnico = self.ui.TecnicoHolder.text()
+        precio_text  = self.ui.MontoHolder.text().strip()
+
+        if not precio_text.replace('.', '', 1).isdigit():
+            print("Invalid price input. Please enter a valid number.")
+            return  # Exit or show an error message to the user
+
+        # Convert the validated input to a float
+        precio = float(precio_text)
+
+        # Prepare service data
+        data = {
+            "cliente_id": cliente_id,
+            "tipo_servicio": tipo_servicio,
+            "materiales": materiales,
+            "tecnico": tecnico,
+            "precio": float(precio)
+        }
+
+        try:
+            response = self.session.post("http://127.0.0.1:5000/api/service", json=data)
+            if response.status_code == 201:
+                QMessageBox.information(self, "Success", "Servicio agregado correctamente.")
+                # Optionally reload client data here if needed
+            else:
+                error_message = response.json().get("error", "Fallo al agregar servicio, intenta mas tarde.")
+                QMessageBox.warning(self, "Error", error_message)
+        except requests.RequestException as e:
+            QMessageBox.critical(self, "Error", f"Could not connect to server: {str(e)}")
 

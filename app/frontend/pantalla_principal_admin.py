@@ -37,6 +37,7 @@ class PantallaPrincipalAdmin(QWidget):
         self.ui.menuOption5.mousePressEvent = lambda event: self.label_clicked(event, "menuOption5")
         self.ui.menuOption6.mousePressEvent = lambda event: self.label_clicked(event, "menuOption6")
         self.ui.menuOption7.mousePressEvent = lambda event: self.label_clicked(event, "menuOption7")
+        self.ui.menuOption8.mousePressEvent = lambda event: self.label_clicked(event, "menuOption8")
         self.ui.menuOption7_2.mousePressEvent = lambda event: self.label_clicked(event, "menuOption7_2")
         self.ui.pushButton.mousePressEvent = lambda event: self.create_user()
 
@@ -54,6 +55,8 @@ class PantallaPrincipalAdmin(QWidget):
             self.change_screen(18)
         elif label_name == "menuOption7":
             self.change_screen(19)
+        elif label_name == "menuOption8":
+            self.change_screen(23)
         elif label_name == "menuOption7_2":
             self.logout()
 

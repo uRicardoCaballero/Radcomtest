@@ -107,22 +107,6 @@ class Ui_Form(object):
 "         border-radius: 15px; \n"
 "}")
         self.GuardarButton.setObjectName("GuardarButton")
-        self.MetodoHolder = QtWidgets.QLineEdit(self.frame_white_grey)
-        self.MetodoHolder.setGeometry(QtCore.QRect(60, 560, 521, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(18)
-        self.MetodoHolder.setFont(font)
-        self.MetodoHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.MetodoHolder.setStyleSheet("QLineEdit{\n"
-"    border: 1px solid  #37373d;\n"
-"        background: #FFFFFF; \n"
-"         border-radius: 20px; \n"
-"}")
-        self.MetodoHolder.setInputMask("")
-        self.MetodoHolder.setAlignment(QtCore.Qt.AlignCenter)
-        self.MetodoHolder.setPlaceholderText("")
-        self.MetodoHolder.setObjectName("MetodoHolder")
         self.NoPagadoButton = QtWidgets.QPushButton(self.frame_white_grey)
         self.NoPagadoButton.setGeometry(QtCore.QRect(240, 660, 151, 31))
         font = QtGui.QFont()
@@ -136,22 +120,22 @@ class Ui_Form(object):
 "         border-radius: 15px; \n"
 "}")
         self.NoPagadoButton.setObjectName("NoPagadoButton")
-        self.ImagenButton = QtWidgets.QPushButton(self.frame_white_grey)
-        self.ImagenButton.setGeometry(QtCore.QRect(50, 660, 141, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(13)
-        font.setBold(True)
-        font.setWeight(75)
-        self.ImagenButton.setFont(font)
-        self.ImagenButton.setStyleSheet("QPushButton{\n"
-"    background: transparent;  /* Quitar el fondo */\n"
-"    color: #FFFFFF;\n"
-"    border: 1px solid  #FFFFFF;\n"
-"        background: transparent; \n"
-"         border-radius: 15px; \n"
-"}")
-        self.ImagenButton.setObjectName("ImagenButton")
+#         self.ImagenButton = QtWidgets.QPushButton(self.frame_white_grey)
+#         self.ImagenButton.setGeometry(QtCore.QRect(50, 660, 141, 31))
+#         font = QtGui.QFont()
+#         font.setFamily("Montserrat")
+#         font.setPointSize(13)
+#         font.setBold(True)
+#         font.setWeight(75)
+#         self.ImagenButton.setFont(font)
+#         self.ImagenButton.setStyleSheet("QPushButton{\n"
+# "    background: transparent;  /* Quitar el fondo */\n"
+# "    color: #FFFFFF;\n"
+# "    border: 1px solid  #FFFFFF;\n"
+# "        background: transparent; \n"
+# "         border-radius: 15px; \n"
+# "}")
+#         self.ImagenButton.setObjectName("ImagenButton")
         self.MetodoPago = QtWidgets.QTextBrowser(self.frame_white_grey)
         self.MetodoPago.setGeometry(QtCore.QRect(60, 420, 291, 41))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -162,7 +146,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.MetodoPago.setFont(font)
-        self.MetodoPago.setToolTipDuration(1)
+        self.MetodoPago.setToolTipDuration(-1)
         self.MetodoPago.setAutoFillBackground(False)
         self.MetodoPago.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -181,7 +165,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.InfoPago.setFont(font)
-        self.InfoPago.setToolTipDuration(1)
+        self.InfoPago.setToolTipDuration(-1)
         self.InfoPago.setAutoFillBackground(False)
         self.InfoPago.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -217,7 +201,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.NumCuenta.setFont(font)
-        self.NumCuenta.setToolTipDuration(1)
+        self.NumCuenta.setToolTipDuration(-1)
         self.NumCuenta.setAutoFillBackground(False)
         self.NumCuenta.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -253,7 +237,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.Folio.setFont(font)
-        self.Folio.setToolTipDuration(1)
+        self.Folio.setToolTipDuration(-1)
         self.Folio.setAutoFillBackground(False)
         self.Folio.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -273,7 +257,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.MontoText_2.setFont(font)
-        self.MontoText_2.setToolTipDuration(1)
+        self.MontoText_2.setToolTipDuration(-1)
         self.MontoText_2.setAutoFillBackground(False)
         self.MontoText_2.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -298,26 +282,6 @@ class Ui_Form(object):
         self.MontoHolder.setAlignment(QtCore.Qt.AlignCenter)
         self.MontoHolder.setPlaceholderText("")
         self.MontoHolder.setObjectName("MontoHolder")
-        self.Adeudo = QtWidgets.QTextBrowser(self.frame_white_grey)
-        self.Adeudo.setGeometry(QtCore.QRect(60, 150, 181, 41))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.Adeudo.sizePolicy().hasHeightForWidth())
-        self.Adeudo.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(5)
-        self.Adeudo.setFont(font)
-        self.Adeudo.setToolTipDuration(1)
-        self.Adeudo.setAutoFillBackground(False)
-        self.Adeudo.setStyleSheet("QTextBrowser {\n"
-"    background: transparent;  /* Quitar el fondo */\n"
-"    color:#FFFFFF;\n"
-"    border: none;             /* Quitar el borde */\n"
-"    margin: 0;                /* Eliminar márgenes */\n"
-"}")
-        self.Adeudo.setObjectName("Adeudo")
         self.MontoText = QtWidgets.QTextBrowser(self.frame_white_grey)
         self.MontoText.setGeometry(QtCore.QRect(240, 170, 81, 41))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -329,7 +293,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.MontoText.setFont(font)
-        self.MontoText.setToolTipDuration(1)
+        self.MontoText.setToolTipDuration(-1)
         self.MontoText.setAutoFillBackground(False)
         self.MontoText.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -338,28 +302,46 @@ class Ui_Form(object):
 "    margin: 0;                /* Eliminar márgenes */\n"
 "}")
         self.MontoText.setObjectName("MontoText")
-        self.Adeudo_2 = QtWidgets.QTextBrowser(self.frame_white_grey)
-        self.Adeudo_2.setGeometry(QtCore.QRect(60, 70, 331, 61))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.Adeudo_2.sizePolicy().hasHeightForWidth())
-        self.Adeudo_2.setSizePolicy(sizePolicy)
+        self.NombreHolder = QtWidgets.QLineEdit(self.frame_white_grey)
+        self.NombreHolder.setGeometry(QtCore.QRect(70, 50, 411, 51))
         font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(5)
-        font.setBold(False)
-        font.setWeight(50)
-        self.Adeudo_2.setFont(font)
-        self.Adeudo_2.setToolTipDuration(1)
-        self.Adeudo_2.setAutoFillBackground(False)
-        self.Adeudo_2.setStyleSheet("QTextBrowser {\n"
-"    background: transparent;  /* Quitar el fondo */\n"
-"    color:#FFFFFF;\n"
-"    border: none;             /* Quitar el borde */\n"
-"    margin: 0;                /* Eliminar márgenes */\n"
+        font.setFamily("\"Montserratl\"")
+        font.setPointSize(1)
+        self.NombreHolder.setFont(font)
+        self.NombreHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.NombreHolder.setStyleSheet("QLineEdit{\n"
+"        color: #FFFFFF;\n"
+"        Font-family: \\\"Montserratl\\\";\n"
+"        font-size: 36px;\n"
+"        border: none;\n"
+"        background: transparent; \n"
 "}")
-        self.Adeudo_2.setObjectName("Adeudo_2")
+        self.NombreHolder.setInputMask("")
+        self.NombreHolder.setText("")
+        self.NombreHolder.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft)
+        self.NombreHolder.setReadOnly(True)
+        self.NombreHolder.setPlaceholderText("")
+        self.NombreHolder.setObjectName("NombreHolder")
+        self.CobroHolder = QtWidgets.QLineEdit(self.frame_white_grey)
+        self.CobroHolder.setGeometry(QtCore.QRect(60, 140, 181, 51))
+        font = QtGui.QFont()
+        font.setFamily("\"Montserratl\"")
+        font.setPointSize(1)
+        self.CobroHolder.setFont(font)
+        self.CobroHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.CobroHolder.setStyleSheet("QLineEdit{\n"
+"        color: #FFFFFF;\n"
+"        Font-family: \\\"Montserratl\\\";\n"
+"        font-size: 36px;\n"
+"        border: none;\n"
+"        background: transparent; \n"
+"}")
+        self.CobroHolder.setInputMask("")
+        self.CobroHolder.setText("")
+        self.CobroHolder.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing)
+        self.CobroHolder.setReadOnly(True)
+        self.CobroHolder.setPlaceholderText("")
+        self.CobroHolder.setObjectName("CobroHolder")
         self.Clientes = QtWidgets.QTextBrowser(self.frame_white)
         self.Clientes.setGeometry(QtCore.QRect(90, 70, 131, 41))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -370,7 +352,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         self.Clientes.setFont(font)
-        self.Clientes.setToolTipDuration(1)
+        self.Clientes.setToolTipDuration(-1)
         self.Clientes.setAutoFillBackground(False)
         self.Clientes.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
@@ -387,7 +369,7 @@ class Ui_Form(object):
         self.listViewClients.setFont(font)
         self.listViewClients.setObjectName("listViewClients")
         self.lineEdit = QtWidgets.QLineEdit(self.frame_white)
-        self.lineEdit.setGeometry(QtCore.QRect(30, 660, 231, 41))
+        self.lineEdit.setGeometry(QtCore.QRect(40, 660, 231, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         font.setPointSize(18)
@@ -402,7 +384,7 @@ class Ui_Form(object):
         self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit.setObjectName("lineEdit")
         self.Select1 = QtWidgets.QComboBox(self.frame_white)
-        self.Select1.setGeometry(QtCore.QRect(30, 600, 241, 31))
+        self.Select1.setGeometry(QtCore.QRect(40, 600, 241, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         font.setPointSize(1)
@@ -717,7 +699,7 @@ class Ui_Form(object):
         self.DeptTransfOption.setText(_translate("Form", "Dep./Transf."))
         self.GuardarButton.setText(_translate("Form", "GUARDAR"))
         self.NoPagadoButton.setText(_translate("Form", "NO PAGADO"))
-        self.ImagenButton.setText(_translate("Form", "IMAGEN"))
+        #self.ImagenButton.setText(_translate("Form", "IMAGEN"))
         self.MetodoPago.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -743,21 +725,11 @@ class Ui_Form(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Monto</span></p></body></html>"))
-        self.Adeudo.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.MontoText.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt;\">Monto</span></p></body></html>"))
-        self.Adeudo_2.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.Clientes.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

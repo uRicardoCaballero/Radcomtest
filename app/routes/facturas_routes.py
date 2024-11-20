@@ -20,14 +20,11 @@ def crear_factura():
     if not nombre or not numero:
         return jsonify({"error": "Nombre y número son obligatorios"}), 400
 
-    # Check if the factura number already exists
-    if Factura.query.filter_by(numero=numero).first():
-        return jsonify({"error": "El número de factura ya existe"}), 400
-
     # Create a new Factura instance
     nueva_factura = Factura(
         nombre=nombre,
-        numero=numero
+        numero=numero,
+        pendiente="true"
     )
 
     # Add to the session and commit
@@ -44,7 +41,8 @@ def obtener_facturas():
         {
             "id": factura.id,
             "nombre": factura.nombre,
-            "numero": factura.numero
+            "numero": factura.numero,
+            "pendiente": factura.pendiente,
         }
         for factura in facturas
     ]
@@ -57,40 +55,35 @@ def obtener_factura(factura_id):
     factura_data = {
         "id": factura.id,
         "nombre": factura.nombre,
-        "numero": factura.numero
+        "numero": factura.numero,
+        "pendiente": factura.pendiente,
     }
     return jsonify(factura_data), 200
 
-@facturas_bp.route('/facturas/<int:factura_id>', methods=['PUT'])
-@login_required
-def actualizar_factura(factura_id):
-    if current_user.tipo_usuario != 'Administrador':
-        return jsonify({"error": "Acceso denegado"}), 403
+@facturas_bp.route('/factura/<int:id>', methods=['PUT'])
+def update_factura_pendiente(id):
+    factura = Factura.query.get(id)
+    if not factura:
+        return jsonify({'error': 'Factura not found'}), 404
 
-    factura = Factura.query.get_or_404(factura_id)
-    data = request.get_json()
-
-    # Update fields if provided in the request
-    factura.nombre = data.get('nombre', factura.nombre)
-    nuevo_numero = data.get('numero')
-    if nuevo_numero and nuevo_numero != factura.numero:
-        # Check if the new number is already in use
-        if Factura.query.filter_by(numero=nuevo_numero).first():
-            return jsonify({"error": "El nuevo número de factura ya existe"}), 400
-        factura.numero = nuevo_numero
-
+    # Update pendiente to "false"
+    factura.pendiente = "false"
     db.session.commit()
 
     return jsonify({"message": "Factura actualizada exitosamente"}), 200
 
-@facturas_bp.route('/facturas/<int:factura_id>', methods=['DELETE'])
-@login_required
-def eliminar_factura(factura_id):
-    if current_user.tipo_usuario != 'Administrador':
-        return jsonify({"error": "Acceso denegado"}), 403
-
-    factura = Factura.query.get_or_404(factura_id)
-    db.session.delete(factura)
-    db.session.commit()
-
-    return jsonify({"message": "Factura eliminada exitosamente"}), 200
+@facturas_bp.route('/factura/pendiente', methods=['GET'])
+def get_first_pending_factura():
+    # Query for the first factura with pendiente = 'true'
+    factura = Factura.query.filter_by(pendiente='true').first()
+    
+    # Check if a factura was found
+    if factura:
+        return jsonify({
+            'id': factura.id,
+            'nombre': factura.nombre,
+            'numero': factura.numero,
+            'pendiente': factura.pendiente
+        }), 200
+    else:
+        return jsonify({'error': 'No pending factura found'}), 404

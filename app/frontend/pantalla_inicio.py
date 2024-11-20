@@ -26,6 +26,8 @@ class PantallaInicio(QWidget):
         try:
             response = self.session.post(url, json=data)
             if response.status_code == 200:
+                self.ui.Usuario.clear()
+                self.ui.Contrasena.clear()
                 user_data = response.json()
                 role = user_data.get("tipo_usuario")
 
