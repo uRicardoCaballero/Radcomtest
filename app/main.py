@@ -20,13 +20,16 @@ from flask_cors import CORS
 from flask_session import Session
 import suppress_libpng_warning
 from PIL import Image
+from pyupdater.client import Client
 
 
 app = create_app()
 
 CORS(app, supports_credentials=True)
-
+UPDATE_URL = "https://github.com/uRicardoCaballero/Radcomtest/archive/refs/tags/mainrelease.zip"
 shutdown_flag = False
+client = Client(__name__)
+
 # Flask-Login setup
 
 # set SECRET_KEY=mysecretkeyvalue

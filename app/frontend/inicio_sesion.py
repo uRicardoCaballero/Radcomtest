@@ -17,7 +17,7 @@ class PantallaInicioSesion(QWidget):
         
         # Crear un QLabel para el logo
         self.logo = QLabel(self)
-        pixmap = QPixmap('app/frontend/assets/Logo_P.png')  # Asegúrate de la ruta
+        pixmap = QPixmap('frontend/assets/Logo_P.png')  # Asegúrate de la ruta
 
         # Establecer un tamaño máximo para el logo
         self.logo.setMinimumSize(300, 300)  # Tamaño máximo (ancho, alto)

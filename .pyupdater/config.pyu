@@ -1,0 +1,20 @@
+{
+  "config_dir": "C:\\Users\\rcagt\\OneDrive\\Documents\\radcom\\.pyupdater",
+  "filename": "C:\\Users\\rcagt\\OneDrive\\Documents\\radcom\\.pyupdater\\config.pyu",
+  "count": 0,
+  "app_config": {
+    "APP_NAME": "radcom",
+    "CLIENT_CONFIG_PATH": [
+      "client_config.py"
+    ],
+    "COMPANY_NAME": "radcom",
+    "PLUGIN_CONFIGS": {},
+    "UPDATE_PATCHES": true,
+    "MAX_DOWNLOAD_RETRIES": 3,
+    "HTTP_TIMEOUT": 30,
+    "UPDATE_URLS": [
+      "https://github.com/uRicardoCaballero/Radcomtest/archive/refs/tags/mainrelease.zip"
+    ],
+    "DATA_DIR": "C:\\Users\\rcagt\\OneDrive\\Documents\\radcom"
+  }
+}
