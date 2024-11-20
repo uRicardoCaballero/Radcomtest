@@ -91,7 +91,7 @@ class PantallaHistorialCliente(QWidget):
 
     def excel_read(self, client_id):
     # Send a GET request to fetch the client's history and total payments for the current month
-        url = f'http://127.0.0.1:5000/api/historial/{client_id}'  # Update with your correct endpoint
+        url = f'http://192.168.200.5:5000/api/historial/{client_id}'  # Update with your correct endpoint
         response = self.session.get(url)
 
         if response.status_code == 200:
@@ -166,7 +166,7 @@ class PantallaHistorialCliente(QWidget):
 
         try:
             # Fetch client history data from the API
-            response = self.session.get(f"http://127.0.0.1:5000/api/historial/{client_id}")
+            response = self.session.get(f"http://192.168.200.5:5000/api/historial/{client_id}")
             if response.status_code == 200:
                 historial_data = response.json()  # Parse the JSON data
 

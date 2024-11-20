@@ -71,7 +71,7 @@ class PantallaCrearSComunidad(QWidget):
 
     def populate_municipio_dropdown(self):
         try:
-            response = self.session.get("http://127.0.0.1:5000/api/municipios")
+            response = self.session.get("http://192.168.200.5:5000/api/municipios")
             if response.status_code == 200:
                 municipios = response.json()
                 for municipio in municipios:
@@ -92,7 +92,7 @@ class PantallaCrearSComunidad(QWidget):
        
         try:
             # Send POST request to create a community in the municipio
-            response = self.session.post("http://127.0.0.1:5000/api/create_community",json=data)
+            response = self.session.post("http://192.168.200.5:5000/api/create_community",json=data)
             
             if response.status_code == 200:
                 QMessageBox.information(self, "Success", "Comunidad assigned to Municipio successfully!")

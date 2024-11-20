@@ -91,7 +91,7 @@ class PantallaCrearSAntena(QWidget):
 
         # Make the API call
         try:
-            response = self.session.post('http://127.0.0.1:5000/api/antenas', json=data)  # Replace with your actual API URL
+            response = self.session.post('http://192.168.200.5:5000/api/antenas', json=data)  # Replace with your actual API URL
             if response.status_code == 201:
                 QMessageBox.information(self, "Éxito", "Antena creada exitosamente.")
                 self.clear_fields()  # Clear fields after successful creation

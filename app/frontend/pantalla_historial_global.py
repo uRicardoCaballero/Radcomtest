@@ -77,7 +77,7 @@ class PantallaHistorialGlobal(QWidget):
     def excel_read(self):
         # Fetch client data from the API when this screen is displayed
         try:
-            response = self.session.get("http://127.0.0.1:5000/api/export/excel")
+            response = self.session.get("http://192.168.200.5:5000/api/export/excel")
             
             if response.status_code == 200:
                 # Read the Excel file into a DataFrame without saving it

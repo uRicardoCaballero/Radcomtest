@@ -76,7 +76,7 @@ class PantallaCrearSMunicipio(QWidget):
     def populate_antena_dropdown(self,):
         """Fetch antena from API and populate the Select1 dropdown."""
         try:
-            response = self.session.get("http://127.0.0.1:5000/api/antenas")  # Replace with your actual API URL
+            response = self.session.get("http://192.168.200.5:5000/api/antenas")  # Replace with your actual API URL
             if response.status_code == 200:
                 antena = response.json()
                 for antena in antena:
@@ -107,7 +107,7 @@ class PantallaCrearSMunicipio(QWidget):
 
         # Make the API call
         try:
-            response = self.session.post('http://127.0.0.1:5000/api/municipios', json=data)  # Replace with your actual API URL
+            response = self.session.post('http://192.168.200.5:5000/api/municipios', json=data)  # Replace with your actual API URL
             if response.status_code == 201:
                 QMessageBox.information(self, "Éxito", "Antena creada exitosamente.")
 

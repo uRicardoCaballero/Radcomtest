@@ -84,7 +84,7 @@ class PantallaCobroCobrador(QWidget):
     def load_client_data(self):
         # Fetch client data from the API when this screen is displayed
         try:
-            response = self.session.get("http://127.0.0.1:5000/api/clientes")
+            response = self.session.get("http://192.168.200.5:5000/api/clientes")
             if response.status_code == 200:
                 clients = response.json()
                 self.client_data = clients  # Store the client data in an attribute
@@ -164,7 +164,7 @@ class PantallaCobroCobrador(QWidget):
             "folio": folio,
         }
         try:
-            response = self.session.post("http://127.0.0.1:5000/api/folios", json=data2)
+            response = self.session.post("http://192.168.200.5:5000/api/folios", json=data2)
             if response.status_code == 201:  
                 QMessageBox.information(self, "Success", "Ticket Creado Correctamente")
                 data = {
@@ -173,7 +173,7 @@ class PantallaCobroCobrador(QWidget):
                     "metodo_pago": metodo_pago
                 }
                 try:
-                    update_response = self.session.put(f'http://127.0.0.1:5000/api/cobro/{cobro_id}', json=data)
+                    update_response = self.session.put(f'http://192.168.200.5:5000/api/cobro/{cobro_id}', json=data)
                     
                     if update_response.status_code == 200:
                         QMessageBox.information(self, "Éxito", "Cobro Agregado.")

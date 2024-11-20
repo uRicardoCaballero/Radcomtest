@@ -76,7 +76,7 @@ class PantallaFacturaPendienteAdmin(QWidget):
 
         # Make the API call
         try:
-            response = self.session.post('http://127.0.0.1:5000/api/facturas', json=data)  # Replace with your actual API URL
+            response = self.session.post('http://192.168.200.5:5000/api/facturas', json=data)  # Replace with your actual API URL
             if response.status_code == 201:
                 QMessageBox.information(self, "Éxito", "Factura Capturada exitosamente.")
                 self.clear_fields()  # Clear fields after successful creation

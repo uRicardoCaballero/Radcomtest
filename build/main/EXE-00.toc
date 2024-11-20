@@ -79,7 +79,7 @@
  [],
  False,
  False,
- 1732128317,
+ 1732131845,
  [('run.exe',
    'C:\\Users\\rcagt\\OneDrive\\Documents\\radcom\\venv\\Lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit-intel\\run.exe',
    'EXECUTABLE')],

@@ -148,7 +148,7 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
         
         #self.stacked_widget.setCurrentIndex(numberscreen)
     def logout(self):
-        url = "http://127.0.0.1:5000/api/logout"
+        url = "http://192.168.200.5:5000/api/logout"
         try:
             response = self.session.post(url)  # Use stored session for logout
             if response.status_code == 200:

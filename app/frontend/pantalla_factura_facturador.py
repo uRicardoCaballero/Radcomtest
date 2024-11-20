@@ -50,7 +50,7 @@ class PantallaFacturaFacturador(QWidget):
     def mark_factura_as_completed(self, factura_id):
     # Update the current factura to pendiente = "false"
         try:
-            update_response = self.session.put(f'http://127.0.0.1:5000/api/factura/{factura_id}')
+            update_response = self.session.put(f'http://192.168.200.5:5000/api/factura/{factura_id}')
             
             if update_response.status_code == 200:
                 QMessageBox.information(self, "Éxito", "Factura completada.")
@@ -65,7 +65,7 @@ class PantallaFacturaFacturador(QWidget):
     def get_next_pending_factura(self):
         # Fetch the next factura with pendiente = "true"
         try:
-            response = self.session.get('http://127.0.0.1:5000/api/factura/pendiente')
+            response = self.session.get('http://192.168.200.5:5000/api/factura/pendiente')
             if response.status_code == 200:
                 factura = response.json()
                 self.display_factura(factura)

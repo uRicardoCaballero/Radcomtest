@@ -20,7 +20,7 @@ class PantallaInicio(QWidget):
         username = self.ui.Usuario.text()
         password = self.ui.Contrasena.text()
 
-        url = "http://127.0.0.1:5000/api/login"
+        url = "http://192.168.200.5:5000/api/login"
         data = {"username": username, "password": password}
 
         try:

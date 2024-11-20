@@ -85,7 +85,7 @@ class PantallaPrincipalAdmin(QWidget):
 
         # Send the POST request to the API
         try:
-            response = requests.post("http://127.0.0.1:5000/api/usuarios", json=data)
+            response = requests.post("http://192.168.200.5:5000/api/usuarios", json=data)
             if response.status_code == 201:  # Assuming 201 is the status code for successful creation
                 QMessageBox.information(self, "Success", "User created successfully.")
                 # Optionally clear input fields after successful creation

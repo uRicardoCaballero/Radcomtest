@@ -80,7 +80,7 @@ class PantallaCrearSCliente(QWidget):
         municipio_actual = self.ui.Select2.currentData()
         try:
             # Fetch comunidades (optionally with municipio filter)
-            base_url = f"http://127.0.0.1:5000/api/comunidades/{municipio_actual}"
+            base_url = f"http://192.168.200.5:5000/api/comunidades/{municipio_actual}"
             response = self.session.get(base_url)
             if response.status_code == 200:
                 comunidades = response.json()
@@ -98,7 +98,7 @@ class PantallaCrearSCliente(QWidget):
 
     def populate_municipio_dropdown(self):
         try:
-            response = self.session.get("http://127.0.0.1:5000/api/municipios")
+            response = self.session.get("http://192.168.200.5:5000/api/municipios")
             if response.status_code == 200:
                 municipios = response.json()
                 for municipio in municipios:
@@ -169,7 +169,7 @@ class PantallaCrearSCliente(QWidget):
             msg_box.setWindowTitle("Client Data")
             msg_box.setText(f"Data received:\n{data}")
             msg_box.exec_()
-            response = self.session.post('http://127.0.0.1:5000/api/clientes', json=data)  # Replace with your actual API URL
+            response = self.session.post('http://192.168.200.5:5000/api/clientes', json=data)  # Replace with your actual API URL
             if response.status_code == 201:
                 QMessageBox.information(self, "Éxito", "Cliente creado exitosamente.")
                 self.clear_fields()  # Clear fields after successful creation

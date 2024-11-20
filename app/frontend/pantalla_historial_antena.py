@@ -22,7 +22,7 @@ class PantallaHistorialAntena(QWidget):
 
     def excel_read(self):
         try:
-            response = self.session.get("http://127.0.0.1:5000/api/export/excel")
+            response = self.session.get("http://192.168.200.5:5000/api/export/excel")
                 
             if response.status_code == 200:
                     # Load Excel data directly into a DataFrame

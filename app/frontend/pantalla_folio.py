@@ -69,7 +69,7 @@ class PantallaFolio(QWidget):
 
         # Send the POST request to the API
         try:
-            response = self.session.post("http://127.0.0.1:5000/api/folios", json=data)
+            response = self.session.post("http://192.168.200.5:5000/api/folios", json=data)
             if response.status_code == 201:  # Assuming 201 is the status code for successful creation
                 QMessageBox.information(self, "Success", "Ticket Creado Correctamente")
                 # Optionally clear input fields after successful creation

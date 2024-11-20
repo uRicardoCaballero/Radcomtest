@@ -88,7 +88,7 @@ class PantallaModificar(QWidget):
     def load_client_data(self):
         # Fetch client data from the API when this screen is displayed
         try:
-            response = self.session.get("http://127.0.0.1:5000/api/clientes")
+            response = self.session.get("http://192.168.200.5:5000/api/clientes")
             if response.status_code == 200:
                 clients = response.json()
                 self.client_data = clients  # Store the client data in an attribute
@@ -136,7 +136,7 @@ class PantallaModificar(QWidget):
         municipio_actual = self.ui.Select2.currentData()
         try:
             # Fetch comunidades (optionally with municipio filter)
-            base_url = f"http://127.0.0.1:5000/api/comunidades/{municipio_actual}"
+            base_url = f"http://192.168.200.5:5000/api/comunidades/{municipio_actual}"
             response = self.session.get(base_url)
             if response.status_code == 200:
                 comunidades = response.json()
@@ -154,7 +154,7 @@ class PantallaModificar(QWidget):
 
     def populate_municipio_dropdown(self):
         try:
-            response = self.session.get("http://127.0.0.1:5000/api/municipios")
+            response = self.session.get("http://192.168.200.5:5000/api/municipios")
             if response.status_code == 200:
                 municipios = response.json()
                 for municipio in municipios:
@@ -233,7 +233,7 @@ class PantallaModificar(QWidget):
 
         try:
             # Send the update request
-            response = self.session.put(f"http://127.0.0.1:5000/api/clientes/{client_id}", json=updated_data)
+            response = self.session.put(f"http://192.168.200.5:5000/api/clientes/{client_id}", json=updated_data)
             
             if response.status_code == 200:
                 QMessageBox.information(self, "Éxito", "El cliente ha sido actualizado correctamente.")
