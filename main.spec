@@ -5,7 +5,7 @@ a = Analysis(
     ['app\\main.py'],
     pathex=[],
     binaries=[],
-    datas=[('Radcomtest/app/frontend/assets/*', 'frontend/assets')],
+    datas=[('app/frontend/assets/*', 'frontend/assets')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

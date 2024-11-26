@@ -111,7 +111,7 @@ class Ui_Form(object):
         self.LOGO = QtWidgets.QLabel(Form)
         self.LOGO.setGeometry(QtCore.QRect(490, 50, 291, 271))
         self.LOGO.setText("")
-        self.LOGO.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/Logo_P.png"))
+        self.LOGO.setPixmap(QtGui.QPixmap("app/frontend/assets/Logo_P.png"))
         self.LOGO.setScaledContents(True)
         self.LOGO.setObjectName("LOGO")
         self.Usuario_2.raise_()

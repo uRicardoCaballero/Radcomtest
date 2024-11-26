@@ -697,7 +697,7 @@ p, li { white-space: pre-wrap; }
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>Personal Projects/RADCOM/Radcomtest/app/assets/LOGO_M.png</pixmap>
+    <pixmap>Personal Projects/RADCOM/app/assets/LOGO_M.png</pixmap>
    </property>
    <property name="scaledContents">
     <bool>true</bool>

@@ -144,6 +144,41 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+        <widget class="QLineEdit" name="lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>160</y>
+       <width>311</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Montserrat</family>
+       <pointsize>18</pointsize>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+	border: 1px solid  #37373d;
+		background: #FFFFFF; 
+		 border-radius: 20px; 
+}</string>
+     </property>
+     <property name="inputMask">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="placeholderText">
+      <string>Buscar</string>
+     </property>
+    </widget>
     <widget class="QTextBrowser" name="InfoPago">
      <property name="geometry">
       <rect>

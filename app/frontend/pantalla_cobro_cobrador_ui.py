@@ -107,6 +107,22 @@ class Ui_Form(object):
 "         border-radius: 15px; \n"
 "}")
         self.GuardarButton.setObjectName("GuardarButton")
+        self.MetodoHolder = QtWidgets.QLineEdit(self.frame_white_grey)
+        self.MetodoHolder.setGeometry(QtCore.QRect(60, 560, 521, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(18)
+        self.MetodoHolder.setFont(font)
+        self.MetodoHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.MetodoHolder.setStyleSheet("QLineEdit{\n"
+"    border: 1px solid  #37373d;\n"
+"        background: #FFFFFF; \n"
+"         border-radius: 20px; \n"
+"}")
+        self.MetodoHolder.setInputMask("")
+        self.MetodoHolder.setAlignment(QtCore.Qt.AlignCenter)
+        self.MetodoHolder.setPlaceholderText("")
+        self.MetodoHolder.setObjectName("MetodoHolder")
         self.NoPagadoButton = QtWidgets.QPushButton(self.frame_white_grey)
         self.NoPagadoButton.setGeometry(QtCore.QRect(240, 660, 151, 31))
         font = QtGui.QFont()
@@ -120,22 +136,22 @@ class Ui_Form(object):
 "         border-radius: 15px; \n"
 "}")
         self.NoPagadoButton.setObjectName("NoPagadoButton")
-#         self.ImagenButton = QtWidgets.QPushButton(self.frame_white_grey)
-#         self.ImagenButton.setGeometry(QtCore.QRect(50, 660, 141, 31))
-#         font = QtGui.QFont()
-#         font.setFamily("Montserrat")
-#         font.setPointSize(13)
-#         font.setBold(True)
-#         font.setWeight(75)
-#         self.ImagenButton.setFont(font)
-#         self.ImagenButton.setStyleSheet("QPushButton{\n"
-# "    background: transparent;  /* Quitar el fondo */\n"
-# "    color: #FFFFFF;\n"
-# "    border: 1px solid  #FFFFFF;\n"
-# "        background: transparent; \n"
-# "         border-radius: 15px; \n"
-# "}")
-#         self.ImagenButton.setObjectName("ImagenButton")
+        self.ImagenButton = QtWidgets.QPushButton(self.frame_white_grey)
+        self.ImagenButton.setGeometry(QtCore.QRect(50, 660, 141, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(13)
+        font.setBold(True)
+        font.setWeight(75)
+        self.ImagenButton.setFont(font)
+        self.ImagenButton.setStyleSheet("QPushButton{\n"
+"    background: transparent;  /* Quitar el fondo */\n"
+"    color: #FFFFFF;\n"
+"    border: 1px solid  #FFFFFF;\n"
+"        background: transparent; \n"
+"         border-radius: 15px; \n"
+"}")
+        self.ImagenButton.setObjectName("ImagenButton")
         self.MetodoPago = QtWidgets.QTextBrowser(self.frame_white_grey)
         self.MetodoPago.setGeometry(QtCore.QRect(60, 420, 291, 41))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -306,7 +322,7 @@ class Ui_Form(object):
         self.NombreHolder.setGeometry(QtCore.QRect(70, 50, 411, 51))
         font = QtGui.QFont()
         font.setFamily("\"Montserratl\"")
-        font.setPointSize(1)
+        font.setPointSize(-1)
         self.NombreHolder.setFont(font)
         self.NombreHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.NombreHolder.setStyleSheet("QLineEdit{\n"
@@ -326,7 +342,7 @@ class Ui_Form(object):
         self.CobroHolder.setGeometry(QtCore.QRect(60, 140, 181, 51))
         font = QtGui.QFont()
         font.setFamily("\"Montserratl\"")
-        font.setPointSize(1)
+        font.setPointSize(-1)
         self.CobroHolder.setFont(font)
         self.CobroHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.CobroHolder.setStyleSheet("QLineEdit{\n"
@@ -384,10 +400,10 @@ class Ui_Form(object):
         self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit.setObjectName("lineEdit")
         self.Select1 = QtWidgets.QComboBox(self.frame_white)
-        self.Select1.setGeometry(QtCore.QRect(20, 590, 251, 41))
+        self.Select1.setGeometry(QtCore.QRect(40, 600, 231, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
-        font.setPointSize(1)
+        font.setPointSize(-1)
         self.Select1.setFont(font)
         self.Select1.setStyleSheet("QComboBox{\n"
 "     background: #FFFFFF;\n"
@@ -400,7 +416,7 @@ class Ui_Form(object):
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("Personal Projects/RADCOM/app/assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.frame = QtWidgets.QFrame(Form)
@@ -640,7 +656,7 @@ class Ui_Form(object):
         self.DeptTransfOption.setText(_translate("Form", "Dep./Transf."))
         self.GuardarButton.setText(_translate("Form", "GUARDAR"))
         self.NoPagadoButton.setText(_translate("Form", "NO PAGADO"))
-        #self.ImagenButton.setText(_translate("Form", "IMAGEN"))
+        self.ImagenButton.setText(_translate("Form", "IMAGEN"))
         self.MetodoPago.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -697,13 +713,3 @@ class Ui_Form(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:10pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:20pt; font-weight:600;\">Cerrar Sesion</span></p></body></html>"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())

@@ -19,21 +19,22 @@ def export_excel():
         Cliente.num_cuenta,
         Cliente.estatus,
         Cliente.estado_cobro,
-        Cliente.tipo_cuenta,
+        #Cliente.tipo_cuenta,
         Cliente.fecha_cobro,
         Cliente.fecha_alerta,
         Cliente.fecha_creacion,
         Comunidad.nombre_comunidad,
         Municipio.nombre.label("nombre_municipio"),
         Antena.nombre.label("nombre_antena"),
-        HistorialMovimientos.descripcion.label("Movimiento")
+        HistorialMovimientos.descripcion.label("Movimiento"),
+        HistorialMovimientos.tipo_cuenta.label("Tipo_Cuenta")
     ).join(
         Comunidad, Cliente.comunidad_id == Comunidad.id_comunidad
     ).join(
         Municipio, Comunidad.id_municipio == Municipio.id
     ).join(
         Antena, Municipio.antena_id == Antena.id
-    ).outerjoin(
+    ).join(
         HistorialMovimientos, HistorialMovimientos.cliente_id == Cliente.id_cliente
     )
     clientes = db.session.execute(statement).fetchall()
@@ -50,7 +51,7 @@ def export_excel():
             "Numero de cuenta": cliente.num_cuenta,
             'Tipo': cliente.tipo,
             'Ip': cliente.ip,
-            'Tipo de cuenta': cliente.tipo_cuenta,
+            'Tipo de cuenta': cliente.Tipo_Cuenta,
             'Monto': cliente.monto_pagado,
             'Monto Debido': cliente.monto_debido,
             'Estado Cobro': cliente.estado_cobro,

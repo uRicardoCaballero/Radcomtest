@@ -95,26 +95,26 @@ class Ui_Form(object):
 "        border: 2px solid #ffffff;\n"
 "}")
         self.CancelarButton.setObjectName("CancelarButton")
-        self.ModeloText = QtWidgets.QTextBrowser(self.frame_white_grey)
-        self.ModeloText.setGeometry(QtCore.QRect(70, 390, 261, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.ModeloText.sizePolicy().hasHeightForWidth())
-        self.ModeloText.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(5)
-        self.ModeloText.setFont(font)
-        self.ModeloText.setToolTipDuration(-1)
-        self.ModeloText.setAutoFillBackground(False)
-        self.ModeloText.setStyleSheet("QTextBrowser {\n"
-"    background: transparent;  /* Quitar el fondo */\n"
-"    color:#FFFFFF;\n"
-"    border: none;             /* Quitar el borde */\n"
-"    margin: 0;                /* Eliminar márgenes */\n"
-"}")
-        self.ModeloText.setObjectName("ModeloText")
+#         self.ModeloText = QtWidgets.QTextBrowser(self.frame_white_grey)
+#         self.ModeloText.setGeometry(QtCore.QRect(70, 390, 261, 31))
+#         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+#         sizePolicy.setHorizontalStretch(0)
+#         sizePolicy.setVerticalStretch(0)
+#         sizePolicy.setHeightForWidth(self.ModeloText.sizePolicy().hasHeightForWidth())
+#         self.ModeloText.setSizePolicy(sizePolicy)
+#         font = QtGui.QFont()
+#         font.setFamily("Montserrat")
+#         font.setPointSize(5)
+#         self.ModeloText.setFont(font)
+#         self.ModeloText.setToolTipDuration(-1)
+#         self.ModeloText.setAutoFillBackground(False)
+#         self.ModeloText.setStyleSheet("QTextBrowser {\n"
+# "    background: transparent;  /* Quitar el fondo */\n"
+# "    color:#FFFFFF;\n"
+# "    border: none;             /* Quitar el borde */\n"
+# "    margin: 0;                /* Eliminar márgenes */\n"
+# "}")
+#         self.ModeloText.setObjectName("ModeloText")
         self.NombreAText = QtWidgets.QTextBrowser(self.frame_white_grey)
         self.NombreAText.setGeometry(QtCore.QRect(70, 210, 211, 31))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -135,26 +135,26 @@ class Ui_Form(object):
 "    margin: 0;                /* Eliminar márgenes */\n"
 "}")
         self.NombreAText.setObjectName("NombreAText")
-        self.NombreDText_2 = QtWidgets.QTextBrowser(self.frame_white_grey)
-        self.NombreDText_2.setGeometry(QtCore.QRect(70, 480, 231, 31))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.NombreDText_2.sizePolicy().hasHeightForWidth())
-        self.NombreDText_2.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(5)
-        self.NombreDText_2.setFont(font)
-        self.NombreDText_2.setToolTipDuration(-1)
-        self.NombreDText_2.setAutoFillBackground(False)
-        self.NombreDText_2.setStyleSheet("QTextBrowser {\n"
-"    background: transparent;  /* Quitar el fondo */\n"
-"    color:#FFFFFF;\n"
-"    border: none;             /* Quitar el borde */\n"
-"    margin: 0;                /* Eliminar márgenes */\n"
-"}")
-        self.NombreDText_2.setObjectName("NombreDText_2")
+#         self.NombreDText_2 = QtWidgets.QTextBrowser(self.frame_white_grey)
+#         self.NombreDText_2.setGeometry(QtCore.QRect(70, 480, 231, 31))
+#         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+#         sizePolicy.setHorizontalStretch(0)
+#         sizePolicy.setVerticalStretch(0)
+#         sizePolicy.setHeightForWidth(self.NombreDText_2.sizePolicy().hasHeightForWidth())
+#         self.NombreDText_2.setSizePolicy(sizePolicy)
+#         font = QtGui.QFont()
+#         font.setFamily("Montserrat")
+#         font.setPointSize(5)
+#         self.NombreDText_2.setFont(font)
+#         self.NombreDText_2.setToolTipDuration(-1)
+#         self.NombreDText_2.setAutoFillBackground(False)
+#         self.NombreDText_2.setStyleSheet("QTextBrowser {\n"
+# "    background: transparent;  /* Quitar el fondo */\n"
+# "    color:#FFFFFF;\n"
+# "    border: none;             /* Quitar el borde */\n"
+# "    margin: 0;                /* Eliminar márgenes */\n"
+# "}")
+#         self.NombreDText_2.setObjectName("NombreDText_2")
         self.NombreDText = QtWidgets.QTextBrowser(self.frame_white_grey)
         self.NombreDText.setGeometry(QtCore.QRect(70, 300, 231, 31))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -211,64 +211,64 @@ class Ui_Form(object):
         self.NombreAHolder.setAlignment(QtCore.Qt.AlignCenter)
         self.NombreAHolder.setPlaceholderText("")
         self.NombreAHolder.setObjectName("NombreAHolder")
-        self.NombreAHolder_2 = QtWidgets.QLineEdit(self.frame_white_grey)
-        self.NombreAHolder_2.setGeometry(QtCore.QRect(70, 330, 491, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(18)
-        self.NombreAHolder_2.setFont(font)
-        self.NombreAHolder_2.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.NombreAHolder_2.setStyleSheet("QLineEdit{\n"
-"    border: 1px solid  #37373d;\n"
-"        background: #FFFFFF; \n"
-"         border-radius: 20px; \n"
-"}")
-        self.NombreAHolder_2.setInputMask("")
-        self.NombreAHolder_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.NombreAHolder_2.setPlaceholderText("")
-        self.NombreAHolder_2.setObjectName("NombreAHolder_2")
-        self.NombreAHolder_4 = QtWidgets.QLineEdit(self.frame_white_grey)
-        self.NombreAHolder_4.setGeometry(QtCore.QRect(70, 510, 491, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(18)
-        self.NombreAHolder_4.setFont(font)
-        self.NombreAHolder_4.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.NombreAHolder_4.setStyleSheet("QLineEdit{\n"
-"    border: 1px solid  #37373d;\n"
-"        background: #FFFFFF; \n"
-"         border-radius: 20px; \n"
-"}")
-        self.NombreAHolder_4.setInputMask("")
-        self.NombreAHolder_4.setAlignment(QtCore.Qt.AlignCenter)
-        self.NombreAHolder_4.setPlaceholderText("")
-        self.NombreAHolder_4.setObjectName("NombreAHolder_4")
-        self.NombreAHolder_3 = QtWidgets.QLineEdit(self.frame_white_grey)
-        self.NombreAHolder_3.setGeometry(QtCore.QRect(70, 420, 491, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(18)
-        self.NombreAHolder_3.setFont(font)
-        self.NombreAHolder_3.setLayoutDirection(QtCore.Qt.LeftToRight)
-        self.NombreAHolder_3.setStyleSheet("QLineEdit{\n"
-"    border: 1px solid  #37373d;\n"
-"        background: #FFFFFF; \n"
-"         border-radius: 20px; \n"
-"}")
-        self.NombreAHolder_3.setInputMask("")
-        self.NombreAHolder_3.setAlignment(QtCore.Qt.AlignCenter)
-        self.NombreAHolder_3.setPlaceholderText("")
-        self.NombreAHolder_3.setObjectName("NombreAHolder_3")
+#         self.NombreAHolder_2 = QtWidgets.QLineEdit(self.frame_white_grey)
+#         self.NombreAHolder_2.setGeometry(QtCore.QRect(70, 330, 491, 41))
+#         font = QtGui.QFont()
+#         font.setFamily("Montserrat")
+#         font.setPointSize(18)
+#         self.NombreAHolder_2.setFont(font)
+#         self.NombreAHolder_2.setLayoutDirection(QtCore.Qt.LeftToRight)
+#         self.NombreAHolder_2.setStyleSheet("QLineEdit{\n"
+# "    border: 1px solid  #37373d;\n"
+# "        background: #FFFFFF; \n"
+# "         border-radius: 20px; \n"
+# "}")
+#         self.NombreAHolder_2.setInputMask("")
+#         self.NombreAHolder_2.setAlignment(QtCore.Qt.AlignCenter)
+#         self.NombreAHolder_2.setPlaceholderText("")
+#         self.NombreAHolder_2.setObjectName("NombreAHolder_2")
+#         self.NombreAHolder_4 = QtWidgets.QLineEdit(self.frame_white_grey)
+#         self.NombreAHolder_4.setGeometry(QtCore.QRect(70, 510, 491, 41))
+#         font = QtGui.QFont()
+#         font.setFamily("Montserrat")
+#         font.setPointSize(18)
+#         self.NombreAHolder_4.setFont(font)
+#         self.NombreAHolder_4.setLayoutDirection(QtCore.Qt.LeftToRight)
+#         self.NombreAHolder_4.setStyleSheet("QLineEdit{\n"
+# "    border: 1px solid  #37373d;\n"
+# "        background: #FFFFFF; \n"
+# "         border-radius: 20px; \n"
+# "}")
+#         self.NombreAHolder_4.setInputMask("")
+#         self.NombreAHolder_4.setAlignment(QtCore.Qt.AlignCenter)
+#         self.NombreAHolder_4.setPlaceholderText("")
+#         self.NombreAHolder_4.setObjectName("NombreAHolder_4")
+#         self.NombreAHolder_3 = QtWidgets.QLineEdit(self.frame_white_grey)
+#         self.NombreAHolder_3.setGeometry(QtCore.QRect(70, 420, 491, 41))
+#         font = QtGui.QFont()
+#         font.setFamily("Montserrat")
+#         font.setPointSize(18)
+#         self.NombreAHolder_3.setFont(font)
+#         self.NombreAHolder_3.setLayoutDirection(QtCore.Qt.LeftToRight)
+#         self.NombreAHolder_3.setStyleSheet("QLineEdit{\n"
+# "    border: 1px solid  #37373d;\n"
+# "        background: #FFFFFF; \n"
+# "         border-radius: 20px; \n"
+# "}")
+#         self.NombreAHolder_3.setInputMask("")
+#         self.NombreAHolder_3.setAlignment(QtCore.Qt.AlignCenter)
+#         self.NombreAHolder_3.setPlaceholderText("")
+#         self.NombreAHolder_3.setObjectName("NombreAHolder_3")
         self.cliente = QtWidgets.QLabel(self.frame_white)
         self.cliente.setGeometry(QtCore.QRect(30, 70, 81, 81))
         self.cliente.setText("")
-        self.cliente.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/Profile.png"))
+        self.cliente.setPixmap(QtGui.QPixmap("app/frontend/assets/Profile.png"))
         self.cliente.setScaledContents(True)
         self.cliente.setObjectName("cliente")
         self.comunidad = QtWidgets.QLabel(self.frame_white)
         self.comunidad.setGeometry(QtCore.QRect(20, 250, 91, 61))
         self.comunidad.setText("")
-        self.comunidad.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/Comunidad.png"))
+        self.comunidad.setPixmap(QtGui.QPixmap("app/frontend/assets/Comunidad.png"))
         self.comunidad.setScaledContents(True)
         self.comunidad.setObjectName("comunidad")
         self.ClienteText = QtWidgets.QTextBrowser(self.frame_white)
@@ -334,7 +334,7 @@ class Ui_Form(object):
         self.municipio = QtWidgets.QLabel(self.frame_white)
         self.municipio.setGeometry(QtCore.QRect(30, 420, 71, 81))
         self.municipio.setText("")
-        self.municipio.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/Municipio.png"))
+        self.municipio.setPixmap(QtGui.QPixmap("app/frontend/assets/Municipio.png"))
         self.municipio.setScaledContents(True)
         self.municipio.setObjectName("municipio")
         self.frame_12 = QtWidgets.QFrame(self.frame_white)
@@ -389,13 +389,13 @@ class Ui_Form(object):
         self.antena = QtWidgets.QLabel(self.frame_white)
         self.antena.setGeometry(QtCore.QRect(30, 590, 81, 81))
         self.antena.setText("")
-        self.antena.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/Antena.png"))
+        self.antena.setPixmap(QtGui.QPixmap("app/frontend/assets/Antena.png"))
         self.antena.setScaledContents(True)
         self.antena.setObjectName("antena")
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("app/frontend/assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.menuOption7_2 = QtWidgets.QTextBrowser(Form)
@@ -927,27 +927,27 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.GuardarButton.setText(_translate("Form", "GUARDAR"))
-        self.CancelarButton.setText(_translate("Form", "CANCELAR"))
-        self.ModeloText.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Modelo del Dispositivo:</span></p></body></html>"))
+        self.CancelarButton.setText(_translate("Form", "LIMPIAR"))
+#         self.ModeloText.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+# "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+# "p, li { white-space: pre-wrap; }\n"
+# "</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
+# "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Modelo del Dispositivo:</span></p></body></html>"))
         self.NombreAText.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Nombre de la Antena:</span></p></body></html>"))
-        self.NombreDText_2.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">SSID</span></p></body></html>"))
-        self.NombreDText.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Nombre del Dipositivo:</span></p></body></html>"))
+#         self.NombreDText_2.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+# "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+# "p, li { white-space: pre-wrap; }\n"
+# "</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
+# "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">SSID</span></p></body></html>"))
+#         self.NombreDText.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+# "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+# "p, li { white-space: pre-wrap; }\n"
+# "</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
+# "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Nombre del Dipositivo:</span></p></body></html>"))
         self.NombreAText_2.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

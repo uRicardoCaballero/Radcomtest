@@ -16,8 +16,7 @@ def crear_folio():
         return jsonify({"error": "El folio ya existe"}), 400
 
     nuevo_folio = Folio(
-        folio=folio,
-
+        folio=folio
     )
 
     db.session.add(nuevo_folio)

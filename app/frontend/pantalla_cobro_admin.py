@@ -150,9 +150,9 @@ class PantallaCobroAdmin(QWidget):
     def guardar_cobro(self):
 
         responseerror = {"error": "El folio ya existe"}
-        num_cuenta = self.ui.NumCuentaHolder.text()
+        num_cuenta = self.ui.MetodoHolder.text()
         folio = self.ui.FolioHolder.text()
-
+        tipo_cuenta = self.ui.NumCuentaHolder.text()
         precio_text  = self.ui.MontoHolder.text().strip()
 
         if not precio_text.replace('.', '', 1).isdigit():
@@ -176,7 +176,8 @@ class PantallaCobroAdmin(QWidget):
     
         cobro_id = self.selected_client_data.get("id_cliente")
         data2 = {
-            "folio": folio,
+            "folio": folio
+           
         }
         try:
             response = self.session.post("http://127.0.0.1:5000/api/folios", json=data2)
@@ -185,7 +186,9 @@ class PantallaCobroAdmin(QWidget):
                 data = {
                     "num_cuenta": num_cuenta,
                     "monto_pagado": float(monto),
-                    "metodo_pago": metodo_pago
+                    "metodo_pago": metodo_pago,
+                    "tipo_cuenta": tipo_cuenta
+                    
                 }
                 try:
                     update_response = self.session.put(f'http://127.0.0.1:5000/api/cobro/{cobro_id}', json=data)

@@ -86,8 +86,23 @@ class Ui_Form(object):
 "    margin: 0;                /* Eliminar márgenes */\n"
 "}")
         self.InfoPago.setObjectName("InfoPago")
+        self.lineEdit = QtWidgets.QLineEdit(self.frame_white_grey)
+        self.lineEdit.setGeometry(QtCore.QRect(280, 160, 311, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(18)
+        self.lineEdit.setFont(font)
+        self.lineEdit.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.lineEdit.setStyleSheet("QLineEdit{\n"
+"    border: 1px solid  #37373d;\n"
+"        background: #FFFFFF; \n"
+"         border-radius: 20px; \n"
+"}")
+        self.lineEdit.setInputMask("")
+        self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
+        self.lineEdit.setObjectName("lineEdit")
         self.Adeudo = QtWidgets.QTextBrowser(self.frame_white_grey)
-        self.Adeudo.setGeometry(QtCore.QRect(50, 570, 181, 41))
+        self.Adeudo.setGeometry(QtCore.QRect(50, 570, 551, 61))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -155,13 +170,13 @@ class Ui_Form(object):
         self.cliente = QtWidgets.QLabel(self.frame_white)
         self.cliente.setGeometry(QtCore.QRect(30, 60, 81, 81))
         self.cliente.setText("")
-        self.cliente.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/Profile.png"))
+        self.cliente.setPixmap(QtGui.QPixmap("app/frontend/assets/Profile.png"))
         self.cliente.setScaledContents(True)
         self.cliente.setObjectName("cliente")
         self.comunidad = QtWidgets.QLabel(self.frame_white)
         self.comunidad.setGeometry(QtCore.QRect(20, 210, 91, 61))
         self.comunidad.setText("")
-        self.comunidad.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/Comunidad.png"))
+        self.comunidad.setPixmap(QtGui.QPixmap("app/frontend/assets/Comunidad.png"))
         self.comunidad.setScaledContents(True)
         self.comunidad.setObjectName("comunidad")
         self.ClienteText = QtWidgets.QTextBrowser(self.frame_white)
@@ -227,7 +242,7 @@ class Ui_Form(object):
         self.municipio = QtWidgets.QLabel(self.frame_white)
         self.municipio.setGeometry(QtCore.QRect(40, 340, 71, 81))
         self.municipio.setText("")
-        self.municipio.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/Municipio.png"))
+        self.municipio.setPixmap(QtGui.QPixmap("app/frontend/assets/Municipio.png"))
         self.municipio.setScaledContents(True)
         self.municipio.setObjectName("municipio")
         self.frame_12 = QtWidgets.QFrame(self.frame_white)
@@ -282,7 +297,7 @@ class Ui_Form(object):
         self.antena = QtWidgets.QLabel(self.frame_white)
         self.antena.setGeometry(QtCore.QRect(30, 470, 81, 81))
         self.antena.setText("")
-        self.antena.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/Antena.png"))
+        self.antena.setPixmap(QtGui.QPixmap("app/frontend/assets/Antena.png"))
         self.antena.setScaledContents(True)
         self.antena.setObjectName("antena")
         self.frame_13 = QtWidgets.QFrame(self.frame_white)
@@ -299,7 +314,7 @@ class Ui_Form(object):
         self.globalimg = QtWidgets.QLabel(self.frame_white)
         self.globalimg.setGeometry(QtCore.QRect(30, 620, 81, 81))
         self.globalimg.setText("")
-        self.globalimg.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/Global.png"))
+        self.globalimg.setPixmap(QtGui.QPixmap("app/frontend/assets/Global.png"))
         self.globalimg.setScaledContents(True)
         self.globalimg.setObjectName("globalimg")
         self.globaltext = QtWidgets.QTextBrowser(self.frame_white)
@@ -324,7 +339,7 @@ class Ui_Form(object):
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("app/frontend/assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.menuOption7_2 = QtWidgets.QTextBrowser(Form)
@@ -860,6 +875,7 @@ class Ui_Form(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:20pt; font-weight:600;\">HISTORIAL GLOBAL:</span></p></body></html>"))
+        self.lineEdit.setPlaceholderText(_translate("Form", "Buscar"))
         self.Adeudo.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

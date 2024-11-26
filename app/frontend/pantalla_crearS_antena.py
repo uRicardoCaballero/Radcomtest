@@ -72,9 +72,9 @@ class PantallaCrearSAntena(QWidget):
     def guardar_antena(self):
         # Get the input values from the UI
         nombre = self.ui.NombreAHolder.text()
-        nombre_dispositivo = self.ui.NombreAHolder_2.text()
-        modelo = self.ui.NombreAHolder_3.text() 
-        ssid= self.ui.NombreAHolder_4.text()
+        # nombre_dispositivo = self.ui.NombreAHolder_2.text()
+        # modelo = self.ui.NombreAHolder_3.text() 
+        # ssid= self.ui.NombreAHolder_4.text()
 
         # Validate inputs
         if not nombre or not ssid or not modelo or not nombre_dispositivo:
@@ -84,9 +84,9 @@ class PantallaCrearSAntena(QWidget):
         # Prepare the data for the API call
         data = {
             "nombre": nombre,
-            "ssid": ssid,
-            "modelo": modelo,
-            "nombreDispositivo": nombre_dispositivo
+            # "ssid": ssid,
+            # "modelo": modelo,
+            # "nombreDispositivo": nombre_dispositivo
         }
 
         # Make the API call
@@ -104,7 +104,7 @@ class PantallaCrearSAntena(QWidget):
     def clear_fields(self):
         # Clear the input fields
         self.ui.NombreAHolder.clear()
-        self.ui.NombreAHolder_4.clear()
-        self.ui.NombreAHolder_2.clear()
-        self.ui.NombreAHolder_3.clear()
+        # self.ui.NombreAHolder_4.clear()
+        # self.ui.NombreAHolder_2.clear()
+        # self.ui.NombreAHolder_3.clear()
 

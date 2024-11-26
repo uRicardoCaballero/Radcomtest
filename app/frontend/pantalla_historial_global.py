@@ -6,7 +6,6 @@ import os
 import pandas as pd
 import requests
 from datetime import datetime
-import Qt
 
 class PantallaHistorialGlobal(QWidget):
     def __init__(self, change_screen_func, logout, session, parent=None):
@@ -20,9 +19,7 @@ class PantallaHistorialGlobal(QWidget):
         self.logout = logout
         self.session = session
 
-        # Conexión con las funcionalidades de búsqueda
         self.ui.lineEdit.textChanged.connect(self.filter_table_by_name)
-
         # Aquí puedes agregar más funcionalidades o conectores si es necesario
         self.setup_connections()
 
@@ -76,30 +73,35 @@ class PantallaHistorialGlobal(QWidget):
         elif label_name == "menuOption7_2":
             self.logout()
 
-
     def filter_table_by_name(self):
         search_text = self.ui.lineEdit.text().lower()  # Get the search text from QLineEdit
-        if self.excel_data is not None and search_text:
-            # Filter the DataFrame based on the name column
-            filtered_data = self.excel_data[self.excel_data['Tipo de cuenta'].str.contains(search_text, case=False, na=False)]
+        self.filtered_data = pd.DataFrame()
 
-            self.populate_table(filtered_data)  # Populate the table with filtered data
+        if self.excel_data is not None and not self.excel_data.empty and search_text:
+            # Filter the DataFrame based on the name column
+            self.filtered_data = self.excel_data[
+                self.excel_data['Tipo de cuenta'].str.contains(search_text, case=False, na=False)
+            ]
+            
+            # Reset the index to start from 0
+            self.filtered_data.reset_index(drop=True, inplace=True)
+
+            self.populate_table(self.filtered_data)
+
         else:
             # If search text is empty or data is unavailable, populate with the full data
             self.populate_table(self.excel_data)
 
-
     def excel_read(self):
         # Fetch client data from the API when this screen is displayed
         try:
-            response = self.session.get("http://192.168.200.5:5000/api/export/excel")
+            response = self.session.get("http://127.0.0.1:5000/api/export/excel")
             
             if response.status_code == 200:
                 # Read the Excel file into a DataFrame without saving it
                 self.excel_data = pd.read_excel(BytesIO(response.content))
-                print("Excel data loaded into memory.")
                 
-                self.populate_table()
+                self.populate_table(self.excel_data)
                 
             else:
                 print("Failed to load clients:", response.status_code)
@@ -123,29 +125,28 @@ class PantallaHistorialGlobal(QWidget):
         else:
             print("No Excel data available to download.")
 
-
-
+            
     def populate_table(self, data):
         if data is not None and not data.empty:
-            # Exclude the 'id' column from being displayed
             headers = [col for col in data.columns if col != "id"]
             self.ui.Table.setColumnCount(len(headers))
             self.ui.Table.setHorizontalHeaderLabels(headers)
 
-            # Populate the table rows
+            # Clear previous data and set the row count to match new data
             self.ui.Table.setRowCount(len(data))
+            
             for row_index, row_data in data.iterrows():
                 for col_index, column in enumerate(headers):
-                    value = row_data[column]
-                    item = QTableWidgetItem(str(value) if pd.notna(value) else "")
+                    value = row_data[column] if pd.notna(row_data[column]) else ""  # Handle NaN as empty string
+                    item = QTableWidgetItem(str(value))
 
-                    if column == "id":  # Store `id` as hidden data
+                    if column == "id":
                         item.setData(Qt.UserRole, row_data["id"])
                     else:
                         self.ui.Table.setItem(row_index, col_index, item)
-
-            print("Table populated successfully.")
         else:
             self.ui.Table.setRowCount(0)  # Clear the table if no data
             print("No data available to populate the table.")
+
+
         

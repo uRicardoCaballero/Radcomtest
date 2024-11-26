@@ -98,7 +98,6 @@ def crear_cliente():
         telefono=telefono,
         ip=ip,
         comunidad_id=comunidad_id,
-        #zona_id=zona_id,
         calle = calle,
         colonia = colonia,
         numero = numero,
@@ -234,7 +233,6 @@ def update_cobro(id):
         return jsonify({'error': 'Monto de pago debe ser mayor que 0'}), 400
     
     # Update the client details
-    cliente.num_cuenta = data.get('num_cuenta')
     cliente.monto_pagado += monto_pagado  # Accumulate the total paid amount
     cliente.monto_debido -= monto_pagado  # Subtract from the amount due
     
@@ -243,7 +241,8 @@ def update_cobro(id):
         cliente_id=cliente.id_cliente,
         descripcion=f"Pago de ${monto_pagado} registrado",
         monto=monto_pagado,
-        tipo_movimiento="pago"
+        tipo_movimiento="pago",
+        tipo_cuenta = data.get("tipo_cuenta")
     )
     
     # Add and commit the new movement
