@@ -115,11 +115,9 @@ class PantallaInicioSesion(QWidget):
                 'password': password
             }
             try:
-                print("usuario: "+username+ " contraseña:"+password)
                 response = requests.post('http://localhost:5000/api/login', json=data)
                 if response.status_code == 200:
                     #change to another window
-                    print("Login successful!")
                     self.ui = PantallaAdeudoAdmin()
                     self.main_window.show()
                     self.close()

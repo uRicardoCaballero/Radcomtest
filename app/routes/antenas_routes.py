@@ -22,6 +22,11 @@ def crear_antena():
     if not nombre or not nombreDispositivo or not modelo or not ssid:
         return jsonify({"error": "Todos los campos son obligatorios"}), 400
 
+    # Check if folio is unique
+    if Antena.query.filter_by(nombre=nombre).first():
+        return jsonify({"error": "la antena ya existe"}), 400
+    
+
     # Create a new Antena instance
     nueva_antena = Antena(
         nombre=nombre,

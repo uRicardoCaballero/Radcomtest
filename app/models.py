@@ -58,6 +58,7 @@ class Cliente(db.Model):
     fecha_cobro = db.Column(db.Date, nullable=False)
     fecha_alerta = db.Column(db.Date, nullable=False)
     fecha_creacion = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
+    tipo_cuenta = db.Column(db.String(50), nullable=True)
     plan_pago = db.Column(db.String(50), nullable=False)  # '400', '350', '200', 'libre'
     monto_pagado = db.Column(db.Float, default=0.0)  # To track how much the client has paid
     monto_debido = db.Column(db.Float, default=0.0)

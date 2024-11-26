@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QApplication, QMessageBox
+from PyQt5.QtWidgets import QWidget, QApplication, QMessageBox, QButtonGroup
 from PyQt5.QtGui import QStandardItem, QStandardItemModel
 from app.frontend.pantalla_modificar_ui import Ui_Form  # Importa la clase generada por Qt Designer
 import sys
@@ -15,8 +15,8 @@ class PantallaModificar(QWidget):
         self.change_screen = change_screen_func
         self.logout = logout
 
-        self.populate_municipio_dropdown()
         self.populate_antena_dropdown()
+        self.populate_municipio_dropdown()
         # Aquí puedes agregar más funcionalidades o conectores si es necesario
         self.setup_connections()
         
@@ -131,8 +131,10 @@ class PantallaModificar(QWidget):
         if 'codigo_postal' in client_data:
             self.ui.CPHolder.setText(client_data["codigo_postal"])
 
+        if 'plan_pago' in client_data:
+            self.ui.PaqueteHolder.setText(client_data["plan_pago"])
+
     def populate_antena_dropdown(self):
-        self.ui.Select1.clear()
         municipio_actual = self.ui.Select2.currentData()
         try:
             # Fetch comunidades (optionally with municipio filter)
@@ -166,7 +168,7 @@ class PantallaModificar(QWidget):
             print("Exception occurred while fetching municipios:", e)
 
     def guardar_cliente(self):
-        # Collect updated client data from the input fields
+    # Collect updated client data from the input fields
         nombre = self.ui.NombreHolder.text()
         telefono = self.ui.TelHolder.text()
         ip = self.ui.IPHolder.text()
@@ -175,7 +177,17 @@ class PantallaModificar(QWidget):
         colonia = self.ui.ColoniaHolder.text()
         codigo_postal = self.ui.CPHolder.text()
         comunidad_id = self.ui.Select1.currentData()  
-        municipio_id = self.ui.Select2.currentData() 
+        municipio_id = self.ui.Select2.currentData()
+        plan_pago = self.ui.PaqueteHolder.text()
+
+        self.tipo_group = QButtonGroup(self)
+        self.tipo_group.addButton(self.ui.GratuitoOption)
+        self.tipo_group.addButton(self.ui.MensualOption)
+        self.tipo_group.addButton(self.ui.AnualOption)
+
+        self.status_group = QButtonGroup(self)
+        self.status_group.addButton(self.ui.EnLineaOption)
+        self.status_group.addButton(self.ui.BajaTemporalOption_2)
 
         if self.ui.GratuitoOption.isChecked():
             tipo = "Gratuito"
@@ -188,11 +200,11 @@ class PantallaModificar(QWidget):
             return
         
         if self.ui.EnLineaOption.isChecked():
-            status = "Gratuito"
-        elif self.ui.BajaTemporalOption.isChecked():
-            status = "Mensual"
+            status = "En Línea"
+        elif self.ui.BajaTemporalOption_2.isChecked():
+            status = "Baja Temporal"
         else:
-            QMessageBox.warning(self, "Error", "Please select a user type.")
+            QMessageBox.warning(self, "Error", "Please select a user status.")
             return
 
 
@@ -216,6 +228,7 @@ class PantallaModificar(QWidget):
             "numero": numero,
             "colonia": colonia,
             "status": status,
+            "plan_pago" : plan_pago,
             "codigo_postal": codigo_postal,
             "comunidad_id": comunidad_id,
             "municipio_id": municipio_id,
@@ -229,12 +242,14 @@ class PantallaModificar(QWidget):
 
         # Get client ID from the selected item
         selected_client = self.client_model.itemFromIndex(selected_index).data()
-        client_id = selected_client.get('id_cleinte') 
-
+        client_id = selected_client.get('id_cliente')
+        
         try:
-            # Send the update request
-            response = self.session.put(f"http://127.0.0.1:5000/api/clientes/{client_id}", json=updated_data)
+            # Send the update request with the data in the body as JSON
+            response = self.session.put(f'http://127.0.0.1:5000/api/clientes/{client_id}', json=updated_data)
             
+            #QMessageBox.warning(self, "Respuesta del servidor", response.text)
+
             if response.status_code == 200:
                 QMessageBox.information(self, "Éxito", "El cliente ha sido actualizado correctamente.")
                 self.load_client_data()  # Refresh client list to reflect changes
@@ -242,3 +257,8 @@ class PantallaModificar(QWidget):
                 QMessageBox.warning(self, "Error", f"No se pudo actualizar el cliente: {response.status_code}")
         except requests.RequestException as e:
             QMessageBox.critical(self, "Error", f"Error en la solicitud: {e}")
+
+
+    def clearfields(self):
+        self.ui.Select1.clear()
+        self.ui.Select2.clear()

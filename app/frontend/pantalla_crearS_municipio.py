@@ -119,3 +119,5 @@ class PantallaCrearSMunicipio(QWidget):
 
 
 
+    def clearfields(self):
+        self.ui.Select1.clear()

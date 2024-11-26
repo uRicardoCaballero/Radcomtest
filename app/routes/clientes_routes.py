@@ -15,6 +15,7 @@ def crear_cliente():
     telefono = data.get('telefono')
     ip = data.get('ip')
     comunidad_id = data.get('comunidad_id')
+    municipios_id = data.get("municipio_id")
     #zona_id = data.get('zona_id')
     calle = data.get('calle')
     colonia = data.get('colonia')
@@ -81,6 +82,9 @@ def crear_cliente():
     if not monto_pagado:
         return jsonify({"error": "Falta el monto pagado"}), 404
     
+    if Cliente.query.filter_by(nombre=nombre).first():
+        return jsonify({"error": "El cliente ya existe"}), 400
+    
 
     # # Check if zona exists
     # zona = Zona.query.get(zona_id)
@@ -142,6 +146,13 @@ def obtener_clientes():
         })
     return jsonify(clientes_data), 200
 
+@clientes_bp.route('/clientesid', methods=['GET'])
+@login_required
+def obtener_clientes_all():
+    # Fetch all client IDs
+    clientes = Cliente.query.all()
+    return jsonify([{"id_cliente": cliente.id_cliente, "nombre": cliente.nombre} for cliente in clientes]), 200
+
 @clientes_bp.route('/clientes/<string:id_cliente>', methods=['GET'])
 @login_required
 def obtener_cliente(id_cliente):
@@ -164,14 +175,17 @@ def obtener_cliente(id_cliente):
 @clientes_bp.route('/clientes/<string:id_cliente>', methods=['PUT'])
 @login_required
 def actualizar_cliente(id_cliente):
-    if current_user.tipo_usuario != 'Administrador' or current_user.tipo_usuario != 'Cobrador':
-        return jsonify({"error": "Acceso denegado"}), 403
 
     cliente = Cliente.query.get_or_404(id_cliente)
     data = request.get_json()
 
     cliente.nombre = data.get('nombre', cliente.nombre)
     cliente.telefono = data.get('telefono', cliente.telefono)
+    cliente.ip = data.get ('ip', cliente.ip)
+    cliente.calle = data.get ('calle', cliente.calle)
+    cliente.numero = data.get ('numero', cliente.numero)
+    cliente.colonia = data.get ('colonia', cliente.colonia)
+    cliente.codigo_postal = data.get ('codigo_postal', cliente.codigo_postal)
     cliente.tipo = data.get('tipo', cliente.tipo)
     cliente.estatus = data.get('status', cliente.estatus)
     cliente.estado_cobro = data.get('estado_cobro', cliente.estado_cobro)

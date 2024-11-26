@@ -18,7 +18,6 @@ from app.models import Usuario
 from app.database import db
 from flask_cors import CORS
 from flask_session import Session
-import suppress_libpng_warning
 from PIL import Image
 from pyupdater.client import Client
 
@@ -53,7 +52,6 @@ def add_monthly_payments():
             if client.plan_pago:  # Check if the client has a payment plan
                 client.monto_debido += client.plan_pago
         db.session.commit()
-        print(f"Monthly payments updated at {datetime.now()}")
 
 # Initialize the scheduler
 scheduler = BackgroundScheduler()
@@ -100,6 +98,7 @@ def run_flask():
     app.run(debug=True, use_reloader=False)
 
 def main():
+    
     flask_thread = threading.Thread(target=run_flask)
     flask_thread.start()
     app = QApplication(sys.argv)

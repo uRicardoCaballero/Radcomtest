@@ -4,6 +4,8 @@ import sys
 import pandas as pd
 import requests
 from io import BytesIO
+import asyncio
+
 class PantallaHistorialAntena(QWidget):
     def __init__(self, change_screen_func, logout, session, parent=None):
         super().__init__(parent)
@@ -21,19 +23,19 @@ class PantallaHistorialAntena(QWidget):
         self.setup_connections()
 
     def excel_read(self):
+        """Fetch client data in Excel format from the API and load it into the table."""
         try:
             response = self.session.get("http://127.0.0.1:5000/api/export/excel")
-                
+            
             if response.status_code == 200:
-                    # Load Excel data directly into a DataFrame
                 self.excel_data = pd.read_excel(BytesIO(response.content))
-                    
-                    # Populate the table with the fetched data
+                
+                # Populate the table with fetched data and populate ComboBox
                 self.populate_table()
                 self.populate_combobox()
             else:
                 QMessageBox.critical(self, "Error", f"Failed to load data: {response.status_code}")
-            
+        
         except requests.RequestException as e:
             QMessageBox.critical(self, "Error", f"Request error: {e}")
 
@@ -53,7 +55,7 @@ class PantallaHistorialAntena(QWidget):
         self.ui.AntenaText.mousePressEvent = lambda event: self.label_clicked(event,"AntenaText")
         self.ui.globaltext.mousePressEvent = lambda event: self.label_clicked(event,"globaltext")
         self.ui.menuOption7_2.mousePressEvent = lambda event: self.label_clicked(event, "menuOption7_2")
-
+        self.select1.currentIndexChanged.connect(self.filter_by_comunidad)
     def label_clicked(self, event, label_name):
         # Determine the screen based on the label clicked
         if label_name == "menuOption1":
@@ -98,26 +100,27 @@ class PantallaHistorialAntena(QWidget):
     
         # Match the selected comunidad_name with comunidad_id in the data
         filtered_data = self.excel_data[self.excel_data['Antena'] == selected_antena]
-        
+        filtered_data.reset_index(drop=True, inplace=True)
+
         self.display_table_data(filtered_data)
 
 
 
     def populate_table(self):
+        """Populate the table with Excel data."""
         if self.excel_data is not None:
             self.ui.Table.setColumnCount(len(self.excel_data.columns))
             self.ui.Table.setHorizontalHeaderLabels(self.excel_data.columns.tolist())  # Set column headers
                 
-            self.ui.Table.setRowCount(len(self.excel_data))  # Set the number of rows
+            self.ui.Table.setRowCount(len(self.excel_data))
             for row in range(len(self.excel_data)):
                 for column in range(len(self.excel_data.columns)):
                     self.ui.Table.setItem(row, column, QTableWidgetItem(str(self.excel_data.iat[row, column])))
+
         else:
             QMessageBox.critical(self, "Error", "No Excel data available to populate the table.")
 
 
-
-    
     def display_table_data(self, data):
 
         self.ui.Table.setRowCount(0)  # This line is necessary to clear previous data
@@ -128,17 +131,17 @@ class PantallaHistorialAntena(QWidget):
         
         # Insert new rows
         for row_num, row_data in data.iterrows():
-            self.ui.Table.insertRow(0)
+            self.ui.Table.insertRow(row_num)
             for col_num, value in enumerate(row_data):
-                self.ui.Table.setItem(0, col_num, QTableWidgetItem(str(value)))
+                self.ui.Table.setItem(row_num, col_num, QTableWidgetItem(str(value)))
 
 
     def populate_combobox(self):
         if self.excel_data is not None and "Antena" in self.excel_data.columns:
             # Ensure all values are treated as strings
-            comunidades = self.excel_data["Antena"].dropna().astype(str).unique()  # Convert to string
+            antenas = self.excel_data["Antena"].dropna().astype(str).unique()  # Convert to string
             self.ui.Select1.clear()
             self.ui.Select1.addItem("Seleccionar Antena")  # Add a blank item for showing all data
-            self.ui.Select1.addItems(sorted(comunidades, key=str))  # Sort as strings explicitly
+            self.ui.Select1.addItems(sorted(antenas))  # Sort as strings explicitly
         else:
             QMessageBox.critical(self, "Error", "No Antena data found or 'Antena' column missing.")

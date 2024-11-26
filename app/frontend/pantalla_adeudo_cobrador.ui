@@ -683,31 +683,6 @@ p, li { white-space: pre-wrap; }
      <string>Buscar</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="Select1">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>590</y>
-      <width>251</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Montserrat</family>
-      <pointsize>-1</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QComboBox{
- 	background: #FFFFFF;
-	color: #37373d;
-	border-radius: 5px;
-	font-family: Montserrat; /* Type of font */
-    font-size: 16px;                /* Size of the text */
-}</string>
-    </property>
-   </widget>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">

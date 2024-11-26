@@ -1,13 +1,13 @@
 from . import *
 import json
 from app.models import Antena,Municipio,Cliente,Comunidad
+from sqlalchemy import and_,func
 
 municipios_bp = Blueprint('municipios', __name__)
 @municipios_bp.route('/municipios', methods=['POST'])
 @login_required
 def crear_municipio():
-    if current_user.tipo_usuario != 'Administrador':
-        return jsonify({"error": "Acceso denegado"}), 403
+
 
     data = request.get_json()
     nombre = data.get('municipio')
@@ -25,6 +25,9 @@ def crear_municipio():
     antena = Antena.query.get(antena_id)
     if not antena:
         return jsonify({"error": "Antena no encontrada"}), 404
+    
+    if Municipio.query.filter_by(nombre=nombre).first():
+        return jsonify({"error": "El municipio ya existe"}), 400
 
     nuevo_municipio = Municipio(
         nombre=nombre,
@@ -98,7 +101,11 @@ def create_community():
         return jsonify({"error": "Missing community name"}), 409
     elif not id_municipio:
         return jsonify({"error": "Missing city id"}), 409
-
+    
+    id_municipio = int(id_municipio)
+    comunidades = db.session.query(Comunidad).filter(and_(func.lower(Comunidad.nombre_comunidad) == nombre_comunidad.lower(), Comunidad.id_municipio == id_municipio)).all()
+    if len(comunidades) >  0:
+        return jsonify({"error": "Esa comunidad ya existe"}), 400
     try:
         new_community = Comunidad(
             nombre_comunidad=nombre_comunidad,
@@ -109,7 +116,7 @@ def create_community():
         return jsonify({"message": "Comunidad updated successfully"}), 200
     except Exception as e:
         db.session.rollback()
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error": "Hubo un error en base de datos"}), 500
 
 
 
@@ -127,8 +134,7 @@ def obtener_municipio(municipio_id):
 @municipios_bp.route('/municipios/<int:municipio_id>', methods=['PUT'])
 @login_required
 def actualizar_municipio(municipio_id):
-    if current_user.tipo_usuario != 'Administrador':
-        return jsonify({"error": "Acceso denegado"}), 403
+
 
     municipio = Municipio.query.get_or_404(municipio_id)
     data = request.get_json()
@@ -150,8 +156,6 @@ def actualizar_municipio(municipio_id):
 @municipios_bp.route('/municipios/<int:municipio_id>', methods=['DELETE'])
 @login_required
 def eliminar_municipio(municipio_id):
-    if current_user.tipo_usuario != 'Administrador':
-        return jsonify({"error": "Acceso denegado"}), 403
 
     municipio = Municipio.query.get_or_404(municipio_id)
     db.session.delete(municipio)

@@ -4,6 +4,7 @@ import sys
 from io import BytesIO
 import requests
 import pandas as pd
+import asyncio
 
 class PantallaHistorialMunicipio(QWidget):
     def __init__(self, change_screen_func, logout, session, parent=None):
@@ -28,8 +29,7 @@ class PantallaHistorialMunicipio(QWidget):
             
             if response.status_code == 200:
                 self.excel_data = pd.read_excel(BytesIO(response.content))
-                print(self.excel_data)
-
+                
                 # Populate the table with fetched data and populate ComboBox
                 self.populate_table()
                 self.populate_combobox()
@@ -76,46 +76,47 @@ class PantallaHistorialMunicipio(QWidget):
         """Filter table rows based on the selected municipio in the ComboBox."""
         selected_municipio = self.select1.currentText()
         if selected_municipio == "Seleccionar Municipio":
-            self.table.clearContents()
-            self.table.setRowCount(0)
+            self.ui.Table.clearContents()
+            self.ui.Table.setRowCount(0)
             return
         
         filtered_data = self.excel_data[self.excel_data['Municipio'] == selected_municipio]
+        filtered_data.reset_index(drop=True, inplace=True)
+
         self.display_table_data(filtered_data)
 
     def populate_table(self):
         """Populate the table with Excel data."""
         if self.excel_data is not None:
-            self.table.setColumnCount(len(self.excel_data.columns))
-            self.table.setHorizontalHeaderLabels(self.excel_data.columns.tolist())  # Set column headers
+            self.ui.Table.setColumnCount(len(self.excel_data.columns))
+            self.ui.Table.setHorizontalHeaderLabels(self.excel_data.columns.tolist())  # Set column headers
                 
-            self.table.setRowCount(len(self.excel_data))
+            self.ui.Table.setRowCount(len(self.excel_data))
             for row in range(len(self.excel_data)):
                 for column in range(len(self.excel_data.columns)):
-                    self.table.setItem(row, column, QTableWidgetItem(str(self.excel_data.iat[row, column])))
+                    self.ui.Table.setItem(row, column, QTableWidgetItem(str(self.excel_data.iat[row, column])))
 
         else:
             QMessageBox.critical(self, "Error", "No Excel data available to populate the table.")
 
     def display_table_data(self, data):
         """Populate the table with filtered data."""
-        self.table.setRowCount(0)  # Clear previous data
+        self.ui.Table.setRowCount(0)  # Clear previous data
         
         if data.empty:
             return  # Exit if there's no data to display
         
         for row_num, row_data in data.iterrows():
-            self.table.insertRow(row_num)
+            self.ui.Table.insertRow(row_num)
             for col_num, value in enumerate(row_data):
-                self.table.setItem(row_num, col_num, QTableWidgetItem(str(value)))
+                self.ui.Table.setItem(row_num, col_num, QTableWidgetItem(str(value)))
 
     def populate_combobox(self):
         """Populate combobox with unique 'Municipio' values from the DataFrame."""
         if self.excel_data is not None and "Municipio" in self.excel_data.columns:
             municipios = self.excel_data["Municipio"].dropna().astype(str).unique()
-            print(f"Municipios found: {municipios}")
-            self.select1.clear()
-            self.select1.addItem("Seleccionar Municipio")  # Blank item for all data
-            self.select1.addItems(sorted(municipios))
+            self.ui.Select1.clear()
+            self.ui.Select1.addItem("Seleccionar Municipio")  # Blank item for all data
+            self.ui.Select1.addItems(sorted(municipios))
         else:
-            QMessageBox.critical(self, "Error", "No Municipio data found or 'Municipio' column missing.")
+            QMessageBox.critical(self, "Error", "No Municipio data found or 'nombre_municipio' column missing.")

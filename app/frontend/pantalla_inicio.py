@@ -6,14 +6,12 @@ import sys
 class PantallaInicio(QWidget):
     def __init__(self, session, parent=None):
         super().__init__(parent)
-        # Instancia de la clase generada por Qt Designer
         self.ui = Ui_Form()
-        self.ui.setupUi(self)  # Configura la UI
+        self.ui.setupUi(self) 
         self.session = session
 
         self.parent = parent
 
-        # Aquí puedes agregar más funcionalidades o conectores si es necesario
         self.ui.pushButton.clicked.connect(self.handle_login)
 
     def handle_login(self):

@@ -193,17 +193,6 @@ class Ui_Form(object):
 "        border: 2px solid #ffffff;\n"
 "}")
         self.CancelarButton.setObjectName("CancelarButton")
-        self.BajaTemporalOption = QtWidgets.QRadioButton(self.frame_white_grey)
-        self.BajaTemporalOption.setGeometry(QtCore.QRect(290, 600, 141, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(12)
-        self.BajaTemporalOption.setFont(font)
-        self.BajaTemporalOption.setStyleSheet("QRadioButton{\n"
-" background: transparent; \n"
-"color: #FFFFFF;\n"
-"}")
-        self.BajaTemporalOption.setObjectName("BajaTemporalOption")
         self.EstatusText = QtWidgets.QTextBrowser(self.frame_white_grey)
         self.EstatusText.setGeometry(QtCore.QRect(290, 520, 251, 41))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -223,45 +212,56 @@ class Ui_Form(object):
 "    margin: 0;                /* Eliminar márgenes */\n"
 "}")
         self.EstatusText.setObjectName("EstatusText")
-        self.EnLineaOption = QtWidgets.QRadioButton(self.frame_white_grey)
-        self.EnLineaOption.setGeometry(QtCore.QRect(290, 560, 141, 31))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(12)
-        self.EnLineaOption.setFont(font)
-        self.EnLineaOption.setStyleSheet("QRadioButton{\n"
-" background: transparent; \n"
-"color: #FFFFFF;\n"
-"}")
-        self.EnLineaOption.setObjectName("EnLineaOption")
-        self.Select1 = QtWidgets.QComboBox(self.frame_white_grey)
-        self.Select1.setGeometry(QtCore.QRect(50, 470, 161, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(1)
-        self.Select1.setFont(font)
-        self.Select1.setStyleSheet("QComboBox{\n"
-"     background: #FFFFFF;\n"
-"    color: #37373d;\n"
-"    border-radius: 5px;\n"
-"    font-family: Montserrat; /* Type of font */\n"
-"    font-size: 16px;                /* Size of the text */\n"
-"}")
-        self.Select1.setObjectName("Select1")
         self.Select2 = QtWidgets.QComboBox(self.frame_white_grey)
-        self.Select2.setGeometry(QtCore.QRect(250, 470, 161, 41))
+        self.Select2.setGeometry(QtCore.QRect(50, 470, 161, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
         font.setPointSize(1)
         self.Select2.setFont(font)
-        self.Select2.setStyleSheet("QComboBox{\n"
-"     background: #FFFFFF;\n"
-"    color: #37373d;\n"
-"    border-radius: 5px;\n"
-"    font-family: Montserrat; /* Type of font */\n"
-"    font-size: 16px;                /* Size of the text */\n"
+        self.Select2.setStyleSheet("QComboBox {"
+"    background: #FFFFFF;"
+"    color: #37373d;"
+"    border-radius: 5px;"
+"    font-family: Montserrat;"
+"    font-size: 16px;"
+"}"
+"QComboBox::drop-down {"
+"    background: #FFFFFF;"
+"    border: none;"
+"}"
+"QComboBox QAbstractItemView {"
+"    background: #FFFFFF;"
+"    color: #37373d;"
+"    border-radius: 5px;"
+"    padding: 5px;"
 "}")
         self.Select2.setObjectName("Select2")
+
+
+        self.Select1 = QtWidgets.QComboBox(self.frame_white_grey)
+        self.Select1.setGeometry(QtCore.QRect(250, 470, 161, 41))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(1)
+        self.Select1.setFont(font)
+        self.Select1.setStyleSheet("QComboBox {"
+"    background: #FFFFFF;"
+"    color: #37373d;"
+"    border-radius: 5px;"
+"    font-family: Montserrat;"
+"    font-size: 16px;"
+"}"
+"QComboBox::drop-down {"
+"    background: #FFFFFF;"
+"    border: none;"
+"}"
+"QComboBox QAbstractItemView {"
+"    background: #FFFFFF;"
+"    color: #37373d;"
+"    border-radius: 5px;"
+"    padding: 5px;"
+"}")
+        self.Select1.setObjectName("Select1")
         self.PaqueteHolder = QtWidgets.QLineEdit(self.frame_white_grey)
         self.PaqueteHolder.setGeometry(QtCore.QRect(430, 550, 151, 41))
         font = QtGui.QFont()
@@ -653,6 +653,33 @@ class Ui_Form(object):
 "    margin: 0;                /* Eliminar márgenes */\n"
 "}")
         self.CalleText_2.setObjectName("CalleText_2")
+        self.EstatusFrame = QtWidgets.QFrame(self.frame_white_grey)
+        self.EstatusFrame.setGeometry(QtCore.QRect(280, 560, 141, 80))
+        self.EstatusFrame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.EstatusFrame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.EstatusFrame.setObjectName("EstatusFrame")
+        self.EnLineaOption = QtWidgets.QRadioButton(self.EstatusFrame)
+        self.EnLineaOption.setGeometry(QtCore.QRect(0, 0, 141, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(12)
+        self.EnLineaOption.setFont(font)
+        self.EnLineaOption.setStyleSheet("QRadioButton{\n"
+" background: transparent; \n"
+"color: #FFFFFF;\n"
+"}")
+        self.EnLineaOption.setObjectName("EnLineaOption")
+        self.BajaTemporalOption_2 = QtWidgets.QRadioButton(self.EstatusFrame)
+        self.BajaTemporalOption_2.setGeometry(QtCore.QRect(0, 30, 141, 31))
+        font = QtGui.QFont()
+        font.setFamily("Montserrat")
+        font.setPointSize(12)
+        self.BajaTemporalOption_2.setFont(font)
+        self.BajaTemporalOption_2.setStyleSheet("QRadioButton{\n"
+" background: transparent; \n"
+"color: #FFFFFF;\n"
+"}")
+        self.BajaTemporalOption_2.setObjectName("BajaTemporalOption_2")
         self.BuscarHolder = QtWidgets.QLineEdit(self.frame_white)
         self.BuscarHolder.setGeometry(QtCore.QRect(40, 669, 231, 41))
         font = QtGui.QFont()
@@ -697,7 +724,7 @@ class Ui_Form(object):
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("frontend/assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.menuOption7_2 = QtWidgets.QTextBrowser(Form)
@@ -1243,13 +1270,11 @@ class Ui_Form(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:14pt; font-weight:600;\">TIPO DE CLIENTE:</span></p></body></html>"))
         self.AnualOption.setText(_translate("Form", "Anual"))
         self.CancelarButton.setText(_translate("Form", "CANCELAR"))
-        self.BajaTemporalOption.setText(_translate("Form", "Baja Temporal"))
         self.EstatusText.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:14pt; font-weight:600;\">ESTATUS:</span></p></body></html>"))
-        self.EnLineaOption.setText(_translate("Form", "En Liena"))
         self.DomicilIoText.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -1290,6 +1315,8 @@ class Ui_Form(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Montserrat\'; font-size:5pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:11pt;\">Col.</span></p></body></html>"))
+        self.EnLineaOption.setText(_translate("Form", "En Liena"))
+        self.BajaTemporalOption_2.setText(_translate("Form", "Baja Temporal"))
         self.BuscarHolder.setPlaceholderText(_translate("Form", "Buscar"))
         self.Clientes.setHtml(_translate("Form", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"

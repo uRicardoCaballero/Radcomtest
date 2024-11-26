@@ -97,8 +97,8 @@ class PantallaHistorialComunidad(QWidget):
         
         # If no comunidad is selected, clear the table and return
         if selected_comunidad == "Seleccionar Comunidad":
-            self.table.clearContents()
-            self.table.setRowCount(0)
+            self.ui.Table.clearContents()
+            self.ui.Table.setRowCount(0)
             return
     
         # Match the selected comunidad_name with comunidad_id in the data

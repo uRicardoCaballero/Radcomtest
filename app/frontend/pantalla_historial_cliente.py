@@ -21,11 +21,13 @@ class PantallaHistorialCliente(QWidget):
         self.logout = logout
         self.session = session
 
+
         # Conexión con las funcionalidades de búsqueda
         self.ui.lineEdit.textChanged.connect(self.filter_table_by_name)
 
         # Aquí puedes agregar más funcionalidades o conectores si es necesario
         self.setup_connections()
+
 
     def setup_connections(self):
         # Connect each QLabel's mousePressEvent to the same slot function
@@ -79,35 +81,50 @@ class PantallaHistorialCliente(QWidget):
 
     def filter_table_by_name(self):
         search_text = self.ui.lineEdit.text().lower()  # Get the search text from QLineEdit
-        if self.excel_data is not None and search_text:
-            # Filter the DataFrame based on the name column
-            filtered_data = self.excel_data[self.excel_data['Nombre'].str.contains(search_text, case=False, na=False)]
+        self.filtered_data = pd.DataFrame()
 
-            self.populate_table(filtered_data)  # Populate the table with filtered data
+        if self.excel_data is not None and not self.excel_data.empty and search_text:
+            # Filter the DataFrame based on the name column
+            self.filtered_data = self.excel_data[
+                self.excel_data['nombre_cliente'].str.contains(search_text, case=False, na=False)
+            ]
+            
+            # Reset the index to start from 0
+            self.filtered_data.reset_index(drop=True, inplace=True)
+
+            self.populate_table(self.filtered_data)
+
         else:
             # If search text is empty or data is unavailable, populate with the full data
             self.populate_table(self.excel_data)
 
 
-    def excel_read(self, client_id):
-    # Send a GET request to fetch the client's history and total payments for the current month
-        url = f'http://127.0.0.1:5000/api/historial/{client_id}'  # Update with your correct endpoint
-        response = self.session.get(url)
 
-        if response.status_code == 200:
-        # Unpack the data: historial_data is a list, and total_pago_mes is the total sum
-            historial_data, total_pago_mes = response.json()  # Get the historial data and total payment
 
-            # Create a DataFrame only with the historial data
-            df = pd.DataFrame(historial_data)
+    def excel_read_all_clients(self):
+    # Fetch all client IDs
+        client_ids_url = 'http://127.0.0.1:5000/api/clientesid'
+        client_ids_response = self.session.get(client_ids_url)
 
-            # Now populate the table with the DataFrame
+        if client_ids_response.status_code == 200:
+            all_client_ids = client_ids_response.json()  # [{"id_cliente": 1, "nombre": "John"}, ...]
+
+            all_data = []
+            for client in all_client_ids:
+                client_id = client["id_cliente"]
+                url = f'http://127.0.0.1:5000/api/historial/{client_id}'
+                response = self.session.get(url)
+                if response.status_code == 200:
+                    historial_data, _ = response.json()
+                    all_data.extend(historial_data)
+
+            # Combine all data into a DataFrame and populate the table
+            df = pd.DataFrame(all_data)
+            self.excel_data = df
+            self.ui.Table.clear()
             self.populate_table(df)
-
-            # Set the total payment amount in the QTextBrowser 'adeudos'
-            self.ui.Adeudo.setPlainText(f"Total mes actual: ${total_pago_mes:.2f}")
         else:
-            print(f"Failed to fetch data: {response.status_code}")
+            print(f"Failed to fetch client IDs: {client_ids_response.status_code}")
 
     
 
@@ -129,24 +146,22 @@ class PantallaHistorialCliente(QWidget):
     
     def populate_table(self, data):
         if data is not None and not data.empty:
-            # Exclude the 'id' column from being displayed
             headers = [col for col in data.columns if col != "id"]
             self.ui.Table.setColumnCount(len(headers))
             self.ui.Table.setHorizontalHeaderLabels(headers)
 
-            # Populate the table rows
+            # Clear previous data and set the row count to match new data
             self.ui.Table.setRowCount(len(data))
+            
             for row_index, row_data in data.iterrows():
                 for col_index, column in enumerate(headers):
-                    value = row_data[column]
-                    item = QTableWidgetItem(str(value) if pd.notna(value) else "")
+                    value = row_data[column] if pd.notna(row_data[column]) else ""  # Handle NaN as empty string
+                    item = QTableWidgetItem(str(value))
 
-                    if column == "id":  # Store `id` as hidden data
+                    if column == "id":
                         item.setData(Qt.UserRole, row_data["id"])
                     else:
                         self.ui.Table.setItem(row_index, col_index, item)
-
-            print("Table populated successfully.")
         else:
             self.ui.Table.setRowCount(0)  # Clear the table if no data
             print("No data available to populate the table.")
@@ -156,7 +171,6 @@ class PantallaHistorialCliente(QWidget):
         selected_row = self.ui.Table.currentRow()
         if selected_row != -1:
             hidden_id = self.ui.Table.item(selected_row, 0).data(Qt.UserRole)  # Retrieve hidden ID
-            print(f"Hidden ID: {hidden_id}")
 
     def load_client_monthly_payments(self, client_id):
         # Get the current month and year
@@ -183,8 +197,7 @@ class PantallaHistorialCliente(QWidget):
                     if movimiento['tipo_movimiento'] == 'pago'  # Ensure it's a payment type
                 )
 
-                # Print or display the result
-                print(f"Total payments for this month: {total_payments}")
+               
                 self.show_monthly_payments(total_payments)  # Optional: Display in UI
             else:
                 print(f"Failed to fetch client history: {response.status_code}")

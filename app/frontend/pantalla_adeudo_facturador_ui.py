@@ -314,24 +314,10 @@ class Ui_Form(object):
         self.lineEdit.setInputMask("")
         self.lineEdit.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit.setObjectName("lineEdit")
-        self.Select1 = QtWidgets.QComboBox(self.frame_white)
-        self.Select1.setGeometry(QtCore.QRect(40, 600, 241, 41))
-        font = QtGui.QFont()
-        font.setFamily("Montserrat")
-        font.setPointSize(1)
-        self.Select1.setFont(font)
-        self.Select1.setStyleSheet("QComboBox{\n"
-"     background: #FFFFFF;\n"
-"    color: #37373d;\n"
-"    border-radius: 5px;\n"
-"    font-family: Montserrat; /* Type of font */\n"
-"    font-size: 16px;                /* Size of the text */\n"
-"}")
-        self.Select1.setObjectName("Select1")
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("frontend/assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.frame = QtWidgets.QFrame(Form)

@@ -37,24 +37,23 @@ class PantallaCobroFacturador(QWidget):
         self.ui.Select1.addItem("Con deuda")  # Clients with adeudo > 0
         self.ui.Select1.addItem("Sin deuda")  # Clients with adeudo == 0
 
+        self.ui.Select1.currentIndexChanged.connect(self.search_clients)
 
-        # Connect the live search input to the search function
+
+            # Connect the live search input to the search function
         self.ui.lineEdit.textChanged.connect(self.search_clients)
 
         # Connect client selection event
         self.ui.listViewClients.clicked.connect(self.client_selected)
 
-    
     def label_clicked(self, event, label_name):
         # Determine the screen based on the label clicked
         if label_name == "menuOption1":
-            self.change_screen(2)
+            self.change_screen(3)
         elif label_name == "menuOption2":
-            self.change_screen(5)
+            self.change_screen(6)
         elif label_name == "menuOption3":
-            self.change_screen(8)
-        elif label_name == "menuOption4":
-            self.change_screen(12)
+            self.change_screen(9)
         elif label_name == "menuOption7_2":
             self.logout()
 
@@ -80,7 +79,7 @@ class PantallaCobroFacturador(QWidget):
         else:
             # If no client data, display all data
             self.populate_client_list(self.client_data)
-
+            
     def load_client_data(self):
         # Fetch client data from the API when this screen is displayed
         try:
@@ -113,7 +112,6 @@ class PantallaCobroFacturador(QWidget):
 
         if 'monto_debido' in client_data:
             monto_debido = client_data['monto_debido']
-            print("Monto debido:", monto_debido)  # Debug line
 
             if monto_debido < 0:
                 monto_debido_display = abs(monto_debido)  # Use absolute value to remove the negative sign
@@ -132,6 +130,7 @@ class PantallaCobroFacturador(QWidget):
 
 
     def guardar_cobro(self):
+
         responseerror = {"error": "El folio ya existe"}
         num_cuenta = self.ui.NumCuentaHolder.text()
         folio = self.ui.FolioHolder.text()

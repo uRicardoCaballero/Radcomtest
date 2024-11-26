@@ -130,7 +130,6 @@ class PantallaCobroAdmin(QWidget):
 
         if 'monto_debido' in client_data:
             monto_debido = client_data['monto_debido']
-            print("Monto debido:", monto_debido)  # Debug line
 
             if monto_debido < 0:
                 monto_debido_display = abs(monto_debido)  # Use absolute value to remove the negative sign

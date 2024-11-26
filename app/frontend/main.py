@@ -109,17 +109,15 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
              self.pantalla_adeudo_facturador.load_client_data()
         elif screen_number == 9:
              self.pantalla_adeudo_cobrador.load_client_data()
-        # elif screen_number == 14:
-        #     self.pantalla_historial_global.populate_table()
-        # elif screen_number == 15:
-        #     self.pantalla_historial_global.populate_table()
         elif screen_number == 11:
              self.pantalla_factura_nueva_admin.get_next_pending_factura()
         elif screen_number == 12:
              self.pantalla_factura_facturador.get_next_pending_factura()
         elif screen_number == 13:
             client_id = 1
-            self.pantalla_historial_cliente.excel_read(client_id)
+            self.pantalla_historial_cliente.excel_read_all_clients()
+        elif screen_number == 14:
+            self.pantalla_historial_comunidad.excel_read()
         elif screen_number == 15:
             self.pantalla_historial_municipio.excel_read()
         elif screen_number == 16:
@@ -127,38 +125,32 @@ class MainWindow(QMainWindow):  # Hereda de BaseScreen para utilizar la barra pe
         elif screen_number == 17:
             self.pantalla_historial_global.excel_read()
         elif screen_number == 18:
+            self.pantalla_modificar.clearfields()
             self.pantalla_modificar.populate_municipio_dropdown()
             self.pantalla_modificar.populate_antena_dropdown()
             self.pantalla_modificar.load_client_data()
         elif screen_number == 19:
+            self.pantalla_crearS_cliente.clearfields()
             self.pantalla_crearS_cliente.populate_municipio_dropdown()
             self.pantalla_crearS_cliente.populate_antena_dropdown()
         elif screen_number == 20:
+            self.pantalla_crearS_comunidad.clearfields()
             self.pantalla_crearS_comunidad.populate_municipio_dropdown()
         elif screen_number == 21:
+            self.pantalla_crearS_municipio.clearfields()
             self.pantalla_crearS_municipio.populate_antena_dropdown()
-        elif screen_number == 14:
-            self.pantalla_historial_comunidad.excel_read()
+        
 
-        
-        
-        # Añadir el QStackedWidget al layout de contenido en BaseScreen
-        # main_layout = QVBoxLayout(self)
-        # main_layout.addWidget(self.stacked_widget)
-        
-        #self.stacked_widget.setCurrentIndex(numberscreen)
     def logout(self):
         url = "http://127.0.0.1:5000/api/logout"
         try:
-            response = self.session.post(url)  # Use stored session for logout
+            response = self.session.post(url)
             if response.status_code == 200:
-                self.change_screen(0)  # Redirect to login screen
-                print("Logged out successfully")
+                self.change_screen(0)
             else:
                 QMessageBox.warning(self, "Error", "Logout failed. Please try again.")
         except requests.RequestException as e:
             QMessageBox.critical(self, "Network Error", f"Request failed: {e}")
-            print("Logout request failed:", e)
 
         
 

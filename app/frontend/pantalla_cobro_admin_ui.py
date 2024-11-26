@@ -459,7 +459,7 @@ class Ui_Form(object):
         font.setPointSize(1)
         self.Select1.setFont(font)
         self.Select1.setStyleSheet("QComboBox{\n"
-"     background: #FFFFFF;\n"
+"    background: #FFFFFF;\n"
 "    color: #37373d;\n"
 "    border-radius: 5px;\n"
 "    font-family: Montserrat; /* Type of font */\n"
@@ -469,7 +469,7 @@ class Ui_Form(object):
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("frontend/assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.menuOption7_2 = QtWidgets.QTextBrowser(Form)

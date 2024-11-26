@@ -16,8 +16,10 @@ def export_excel():
         Cliente.ip,
         Cliente.monto_pagado,
         Cliente.monto_debido,
+        Cliente.num_cuenta,
         Cliente.estatus,
         Cliente.estado_cobro,
+        Cliente.tipo_cuenta,
         Cliente.fecha_cobro,
         Cliente.fecha_alerta,
         Cliente.fecha_creacion,
@@ -45,8 +47,10 @@ def export_excel():
             'Comunidad': cliente.nombre_comunidad,
             "Municipio": cliente.nombre_municipio,
             "Antena": cliente.nombre_antena,
+            "Numero de cuenta": cliente.num_cuenta,
             'Tipo': cliente.tipo,
             'Ip': cliente.ip,
+            'Tipo de cuenta': cliente.tipo_cuenta,
             'Monto': cliente.monto_pagado,
             'Monto Debido': cliente.monto_debido,
             'Estado Cobro': cliente.estado_cobro,
@@ -76,29 +80,33 @@ def export_excel():
 @excel_bp.route('/historial/<int:cliente_id>', methods=['GET'])
 @login_required
 def obtener_historial(cliente_id):
+    # Clear the session to ensure no cached data is used
+    db.session.remove()  # Clears the session cache
+    
     # Get the current year and month
     current_month = datetime.now().month
     current_year = datetime.now().year
 
-    # Query the HistorialMovimientos table for the given cliente_id and filter by the current month and year
-    movimientos = HistorialMovimientos.query.filter(
+    # Use an explicit join to fetch client details along with movements
+    movimientos = db.session.query(
+        HistorialMovimientos,
+        Cliente.nombre.label("nombre_cliente")
+    ).join(
+        Cliente, HistorialMovimientos.cliente_id == Cliente.id_cliente
+    ).filter(
         HistorialMovimientos.cliente_id == cliente_id,
         func.extract('month', HistorialMovimientos.fecha) == current_month,
         func.extract('year', HistorialMovimientos.fecha) == current_year
     ).order_by(HistorialMovimientos.fecha.desc()).all()
 
-    # Calculate the sum of the 'monto' field for the current month
-    total_pago_mes = sum([movimiento.monto for movimiento in movimientos])
-
-    # Get the client name
-    cliente = Cliente.query.filter_by(id_cliente=cliente_id).first()
-    cliente_nombre = cliente.nombre if cliente else "Unknown"
+    # Calculate the total payment for the current month
+    total_pago_mes = sum([movimiento.HistorialMovimientos.monto for movimiento in movimientos])
 
     # Serialize the results
     historial_data = []
-    for movimiento in movimientos:
+    for movimiento, nombre_cliente in movimientos:
         historial_data.append({
-            "nombre_cliente": cliente_nombre,
+            "nombre_cliente": nombre_cliente,  # From the explicit join
             "id": movimiento.id,
             "descripcion": movimiento.descripcion,
             "fecha": movimiento.fecha.strftime('%Y-%m-%d %H:%M:%S'),

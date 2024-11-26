@@ -80,7 +80,7 @@ class PantallaCobroCobrador(QWidget):
         else:
             # If no client data, display all data
             self.populate_client_list(self.client_data)
-
+            
     def load_client_data(self):
         # Fetch client data from the API when this screen is displayed
         try:
@@ -113,7 +113,6 @@ class PantallaCobroCobrador(QWidget):
 
         if 'monto_debido' in client_data:
             monto_debido = client_data['monto_debido']
-            print("Monto debido:", monto_debido)  # Debug line
 
             if monto_debido < 0:
                 monto_debido_display = abs(monto_debido)  # Use absolute value to remove the negative sign

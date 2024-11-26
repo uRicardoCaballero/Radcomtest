@@ -70,6 +70,7 @@ class PantallaCrearSComunidad(QWidget):
 
 
     def populate_municipio_dropdown(self):
+        self.ui.Select2.clear()
         try:
             response = self.session.get("http://127.0.0.1:5000/api/municipios")
             if response.status_code == 200:
@@ -96,8 +97,12 @@ class PantallaCrearSComunidad(QWidget):
             
             if response.status_code == 200:
                 QMessageBox.information(self, "Success", "Comunidad assigned to Municipio successfully!")
+            elif response.status_code == 400:
+                QMessageBox.information(self, "Aviso", "La comunidad se encuentra duplicada")
             else:
-                QMessageBox.warning(self, "Error", "Failed to assign comunidad.")
-        except Exception as e:
-            print("Exception occurred while assigning comunidad:", e)
-            QMessageBox.warning(self, "Error", "Failed to assign comunidad.")
+                QMessageBox.warning(self, "Error", response.status_code)
+        except requests.exceptions.RequestException as e:
+            QMessageBox.warning(self, "Error", str(e))
+
+    def clearfields(self):
+        self.ui.Select2.clear()

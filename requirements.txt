@@ -21,7 +21,7 @@ click-repl==0.3.0
 colorama==0.4.6
 cryptography==43.0.3
 Deprecated==1.2.15
-dsdev-utils @ file:///C:/Users/rcagt/OneDrive/Documents/radcom/ds/dsdev-utils-1.3.0
+dsdev-utils @ file:///C:\Users\rcagt\OneDrive\Documents\radcom22\RADCOM\finalradcom\Radcomtest\ds\dsdev-utils-1.3.0
 et-xmlfile==1.1.0
 fastapi==0.115.0
 Flask==3.0.3

@@ -6,6 +6,7 @@ import os
 import pandas as pd
 import requests
 from datetime import datetime
+import Qt
 
 class PantallaHistorialGlobal(QWidget):
     def __init__(self, change_screen_func, logout, session, parent=None):
@@ -18,6 +19,9 @@ class PantallaHistorialGlobal(QWidget):
         self.change_screen = change_screen_func
         self.logout = logout
         self.session = session
+
+        # Conexión con las funcionalidades de búsqueda
+        self.ui.lineEdit.textChanged.connect(self.filter_table_by_name)
 
         # Aquí puedes agregar más funcionalidades o conectores si es necesario
         self.setup_connections()
@@ -73,11 +77,22 @@ class PantallaHistorialGlobal(QWidget):
             self.logout()
 
 
+    def filter_table_by_name(self):
+        search_text = self.ui.lineEdit.text().lower()  # Get the search text from QLineEdit
+        if self.excel_data is not None and search_text:
+            # Filter the DataFrame based on the name column
+            filtered_data = self.excel_data[self.excel_data['Tipo de cuenta'].str.contains(search_text, case=False, na=False)]
+
+            self.populate_table(filtered_data)  # Populate the table with filtered data
+        else:
+            # If search text is empty or data is unavailable, populate with the full data
+            self.populate_table(self.excel_data)
+
 
     def excel_read(self):
         # Fetch client data from the API when this screen is displayed
         try:
-            response = self.session.get("http://127.0.0.1:5000/api/export/excel")
+            response = self.session.get("http://192.168.200.5:5000/api/export/excel")
             
             if response.status_code == 200:
                 # Read the Excel file into a DataFrame without saving it
@@ -108,24 +123,29 @@ class PantallaHistorialGlobal(QWidget):
         else:
             print("No Excel data available to download.")
 
-            
-    def populate_table(self):
-        if self.excel_data is not None:
-                # Set the number of columns
-            self.ui.Table.setColumnCount(len(self.excel_data.columns))
-            self.ui.Table.setHorizontalHeaderLabels(self.excel_data.columns.tolist())  # Set column headers
-                
-                # Set the number of rows
-            self.ui.Table.setRowCount(len(self.excel_data))
-                
-                # Populate the table with data
-            for row in range(len(self.excel_data)):
-                for column in range(len(self.excel_data.columns)):
-                    self.ui.Table.setItem(row, column, QTableWidgetItem(str(self.excel_data.iat[row, column])))
 
-            print("Table populated with Excel data.")
+
+    def populate_table(self, data):
+        if data is not None and not data.empty:
+            # Exclude the 'id' column from being displayed
+            headers = [col for col in data.columns if col != "id"]
+            self.ui.Table.setColumnCount(len(headers))
+            self.ui.Table.setHorizontalHeaderLabels(headers)
+
+            # Populate the table rows
+            self.ui.Table.setRowCount(len(data))
+            for row_index, row_data in data.iterrows():
+                for col_index, column in enumerate(headers):
+                    value = row_data[column]
+                    item = QTableWidgetItem(str(value) if pd.notna(value) else "")
+
+                    if column == "id":  # Store `id` as hidden data
+                        item.setData(Qt.UserRole, row_data["id"])
+                    else:
+                        self.ui.Table.setItem(row_index, col_index, item)
+
+            print("Table populated successfully.")
         else:
-            print("No Excel data available to populate the table.")
-
-
+            self.ui.Table.setRowCount(0)  # Clear the table if no data
+            print("No data available to populate the table.")
         

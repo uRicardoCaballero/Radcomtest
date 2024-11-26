@@ -76,7 +76,6 @@ class PantallaCrearSCliente(QWidget):
 
     
     def populate_antena_dropdown(self):
-        self.ui.Select1.clear()
         municipio_actual = self.ui.Select2.currentData()
         try:
             # Fetch comunidades (optionally with municipio filter)
@@ -165,10 +164,6 @@ class PantallaCrearSCliente(QWidget):
 
         # Make the API call
         try:
-            msg_box = QMessageBox()
-            msg_box.setWindowTitle("Client Data")
-            msg_box.setText(f"Data received:\n{data}")
-            msg_box.exec_()
             response = self.session.post('http://127.0.0.1:5000/api/clientes', json=data)  # Replace with your actual API URL
             if response.status_code == 201:
                 QMessageBox.information(self, "Éxito", "Cliente creado exitosamente.")
@@ -183,6 +178,9 @@ class PantallaCrearSCliente(QWidget):
     def clear_fields(self):
         """Clears the input fields."""
         self.ui.Select1.setCurrentIndex(0)
+        self.ui.PaqueteHolder.clear()
+        self.ui.tIPOcLIENTEText.clear()
+        self.ui.ColoniaHolder.clear()
         self.ui.NombreHolder.clear()
         self.ui.IPHolder.clear()
         self.ui.TelHolder.clear()
@@ -192,3 +190,7 @@ class PantallaCrearSCliente(QWidget):
         self.ui.GratuitoOption.setChecked(False)
         self.ui.MensualOption.setChecked(False)
         self.ui.AnualOption.setChecked(False)
+
+    def clearfields(self):
+        self.ui.Select1.clear()
+        self.ui.Select2.clear()

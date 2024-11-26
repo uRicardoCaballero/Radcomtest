@@ -156,26 +156,36 @@ class Ui_Form(object):
         self.Select1.setGeometry(QtCore.QRect(280, 160, 311, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
-        font.setPointSize(1)
+        font.setPointSize(16)
         self.Select1.setFont(font)
-        self.Select1.setStyleSheet("QComboBox{\n"
-"     background: #FFFFFF;\n"
-"    color: #37373d;\n"
-"    border-radius: 5px;\n"
-"    font-family: Montserrat; /* Type of font */\n"
-"    font-size: 16px;                /* Size of the text */\n"
+        self.Select1.setStyleSheet("QComboBox {"
+"    background: #FFFFFF;"
+"    color: #37373d;"
+"    border-radius: 5px;"
+"    font-family: Montserrat;"
+"    font-size: 16px;"
+"}"
+"QComboBox::drop-down {"
+"    background: #FFFFFF;"
+"    border: none;"
+"}"
+"QComboBox QAbstractItemView {"
+"    background: #FFFFFF;"
+"    color: #37373d;"
+"    border-radius: 5px;"
+"    padding: 5px;"
 "}")
         self.Select1.setObjectName("Select1")
         self.cliente = QtWidgets.QLabel(self.frame_white)
         self.cliente.setGeometry(QtCore.QRect(30, 60, 81, 81))
         self.cliente.setText("")
-        self.cliente.setPixmap(QtGui.QPixmap("frontend/assets/Profile.png"))
+        self.cliente.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/Profile.png"))
         self.cliente.setScaledContents(True)
         self.cliente.setObjectName("cliente")
         self.comunidad = QtWidgets.QLabel(self.frame_white)
         self.comunidad.setGeometry(QtCore.QRect(20, 210, 91, 61))
         self.comunidad.setText("")
-        self.comunidad.setPixmap(QtGui.QPixmap("frontend/assets/Comunidad.png"))
+        self.comunidad.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/Comunidad.png"))
         self.comunidad.setScaledContents(True)
         self.comunidad.setObjectName("comunidad")
         self.ClienteText = QtWidgets.QTextBrowser(self.frame_white)
@@ -241,7 +251,7 @@ class Ui_Form(object):
         self.municipio = QtWidgets.QLabel(self.frame_white)
         self.municipio.setGeometry(QtCore.QRect(40, 340, 71, 81))
         self.municipio.setText("")
-        self.municipio.setPixmap(QtGui.QPixmap("frontend/assets/Municipio.png"))
+        self.municipio.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/Municipio.png"))
         self.municipio.setScaledContents(True)
         self.municipio.setObjectName("municipio")
         self.frame_12 = QtWidgets.QFrame(self.frame_white)
@@ -296,7 +306,7 @@ class Ui_Form(object):
         self.antena = QtWidgets.QLabel(self.frame_white)
         self.antena.setGeometry(QtCore.QRect(30, 470, 81, 81))
         self.antena.setText("")
-        self.antena.setPixmap(QtGui.QPixmap("frontend/assets/Antena.png"))
+        self.antena.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/Antena.png"))
         self.antena.setScaledContents(True)
         self.antena.setObjectName("antena")
         self.frame_13 = QtWidgets.QFrame(self.frame_white)
@@ -313,7 +323,7 @@ class Ui_Form(object):
         self.globalimg = QtWidgets.QLabel(self.frame_white)
         self.globalimg.setGeometry(QtCore.QRect(30, 620, 81, 81))
         self.globalimg.setText("")
-        self.globalimg.setPixmap(QtGui.QPixmap("frontend/assets/Global.png"))
+        self.globalimg.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/Global.png"))
         self.globalimg.setScaledContents(True)
         self.globalimg.setObjectName("globalimg")
         self.globaltext = QtWidgets.QTextBrowser(self.frame_white)
@@ -338,7 +348,7 @@ class Ui_Form(object):
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("frontend/assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("Radcomtest/app/frontend/assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.menuOption7_2 = QtWidgets.QTextBrowser(Form)
