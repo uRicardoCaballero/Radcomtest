@@ -24,10 +24,10 @@ class PantallaHistorialCliente(QWidget):
 
         # Conexión con las funcionalidades de búsqueda
         self.ui.lineEdit.textChanged.connect(self.filter_table_by_name)
+        
 
         # Aquí puedes agregar más funcionalidades o conectores si es necesario
         self.setup_connections()
-
 
     def setup_connections(self):
         # Connect each QLabel's mousePressEvent to the same slot function
@@ -123,6 +123,8 @@ class PantallaHistorialCliente(QWidget):
             self.excel_data = df
             self.ui.Table.clear()
             self.populate_table(df)
+            self.load_all_clients_monthly_payments()
+
         else:
             print(f"Failed to fetch client IDs: {client_ids_response.status_code}")
 
@@ -172,39 +174,62 @@ class PantallaHistorialCliente(QWidget):
         if selected_row != -1:
             hidden_id = self.ui.Table.item(selected_row, 0).data(Qt.UserRole)  # Retrieve hidden ID
 
-    def load_client_monthly_payments(self, client_id):
+    def load_all_clients_monthly_payments(self):
         # Get the current month and year
         current_date = datetime.now()
         current_month = current_date.month
         current_year = current_date.year
 
         try:
-            # Fetch client history data from the API
-            response = self.session.get(f"http://127.0.0.1:5000/api/historial/{client_id}")
-            if response.status_code == 200:
-                historial_data = response.json()  # Parse the JSON data
+            # Fetch all client IDs
+            client_ids_url = 'http://127.0.0.1:5000/api/clientesid'
+            client_ids_response = self.session.get(client_ids_url)
 
-                # Filter movements for the current month and year
-                monthly_movements = [
-                    movimiento for movimiento in historial_data
-                    if datetime.strptime(movimiento['fecha'], '%Y-%m-%d %H:%M:%S').month == current_month
-                    and datetime.strptime(movimiento['fecha'], '%Y-%m-%d %H:%M:%S').year == current_year
-                ]
+            if client_ids_response.status_code == 200:
+                all_client_ids = client_ids_response.json()  # [{"id_cliente": 1, "nombre": "John"}, ...]
 
-                # Calculate the total sum of payments for the current month
-                total_payments = sum(
-                    movimiento['monto'] for movimiento in monthly_movements
-                    if movimiento['tipo_movimiento'] == 'pago'  # Ensure it's a payment type
-                )
+                total_all_clients_payments = 0  # To store the total sum for all clients
 
-               
-                self.show_monthly_payments(total_payments)  # Optional: Display in UI
+                for client in all_client_ids:
+                    client_id = client["id_cliente"]
+                    # Fetch client history data from the API
+                    response = self.session.get(f"http://127.0.0.1:5000/api/historial/{client_id}")
+
+                    if response.status_code == 200:
+                        try:
+                            # Unpack the tuple returned by the API
+                            historial_data, total_pago_mes = response.json()
+
+                            # Filter movements for the current month and year
+                            monthly_movements = [
+                                movimiento for movimiento in historial_data
+                                if 'fecha' in movimiento and 'tipo_movimiento' in movimiento and
+                                datetime.strptime(movimiento['fecha'], '%Y-%m-%d %H:%M:%S').month == current_month and
+                                datetime.strptime(movimiento['fecha'], '%Y-%m-%d %H:%M:%S').year == current_year
+                            ]
+
+                            # Sum up payments for this client
+                            total_client_payments = sum(
+                                movimiento['monto'] for movimiento in monthly_movements
+                                if movimiento.get('tipo_movimiento') == 'pago'  # Ensure it's a payment type
+                            )
+
+                            # Add this client's payments to the total
+                            total_all_clients_payments += total_client_payments
+                        except (KeyError, ValueError) as e:
+                            print(f"Error processing client {client_id}'s data: {e}")
+                    else:
+                        print(f"Failed to fetch history for client {client_id}: {response.status_code}")
+
+                # Display the total payments for all clients
+                self.show_total_monthly_payments(total_all_clients_payments)
             else:
-                print(f"Failed to fetch client history: {response.status_code}")
+                print(f"Failed to fetch client IDs: {client_ids_response.status_code}")
 
         except requests.RequestException as e:
             print("Request error:", e)
 
-    def show_monthly_payments(self, total_payments):
-        # Optional: Update the UI with the total payments
-        self.ui.Adeudo.setText(f"Total Payments This Month: ${total_payments:.2f}")
+    def show_total_monthly_payments(self, total_payments):
+        # Update the UI with the total payments for all clients
+        self.ui.Adeudo.setText(f"Pagos totales este mes: ${total_payments:.2f}")
+        print(f"Total payments for all clients this month: ${total_payments:.2f}")

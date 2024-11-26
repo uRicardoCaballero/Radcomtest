@@ -112,7 +112,7 @@ class Ui_Form(object):
         font.setFamily("Montserrat")
         font.setPointSize(5)
         self.Adeudo.setFont(font)
-        self.Adeudo.setToolTipDuration(-1)
+        self.Adeudo.setToolTipDuration(1)
         self.Adeudo.setAutoFillBackground(False)
         self.Adeudo.setStyleSheet("QTextBrowser {\n"
 "    background: transparent;  /* Quitar el fondo */\n"
