@@ -7,7 +7,7 @@ import pandas as pd
 import requests
 from datetime import datetime
 from PyQt5.QtCore import Qt
-
+import re
 
 class PantallaHistorialCliente(QWidget):
     def __init__(self, change_screen_func, logout, session, parent=None):
@@ -93,6 +93,11 @@ class PantallaHistorialCliente(QWidget):
             self.filtered_data.reset_index(drop=True, inplace=True)
 
             self.populate_table(self.filtered_data)
+
+            total_monthly_payments = self.filtered_data['descripcion'].apply(self.extract_payment_amount).sum()
+
+            # Display the total payments in the UI (modify as needed)
+            self.ui.Adeudo.setText(f"Pagos totales este mes de: {search_text}, ${total_monthly_payments:.2f}")
 
         else:
             # If search text is empty or data is unavailable, populate with the full data
@@ -233,3 +238,11 @@ class PantallaHistorialCliente(QWidget):
         # Update the UI with the total payments for all clients
         self.ui.Adeudo.setText(f"Pagos totales este mes: ${total_payments:.2f}")
         print(f"Total payments for all clients this month: ${total_payments:.2f}")
+
+
+    def extract_payment_amount(self, movimiento):
+    
+        match = re.search(r'\$(\d+(?:\.\d{1,2})?)', movimiento)  # Matches amounts like $100 or $100.50
+        if match:
+            return float(match.group(1))
+        return 0.0

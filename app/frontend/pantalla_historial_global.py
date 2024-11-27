@@ -6,6 +6,7 @@ import os
 import pandas as pd
 import requests
 from datetime import datetime
+import re
 
 class PantallaHistorialGlobal(QWidget):
     def __init__(self, change_screen_func, logout, session, parent=None):
@@ -88,6 +89,12 @@ class PantallaHistorialGlobal(QWidget):
 
             self.populate_table(self.filtered_data)
 
+            total_monthly_payments = self.filtered_data['Movimiento'].apply(self.extract_payment_amount).sum()
+
+            # Display the total payments in the UI (modify as needed)
+            self.ui.Adeudo.setText(f"Pagos totales este mes de: {search_text}, ${total_monthly_payments:.2f}")
+
+            #self.ui.Adeudo.setText(f"Pagos totales este mes de: {search_text}, ${total_payments:.2f}")
         else:
             # If search text is empty or data is unavailable, populate with the full data
             self.populate_table(self.excel_data)
@@ -149,4 +156,9 @@ class PantallaHistorialGlobal(QWidget):
             print("No data available to populate the table.")
 
 
-        
+    def extract_payment_amount(self, movimiento):
+    
+        match = re.search(r'\$(\d+(?:\.\d{1,2})?)', movimiento)  # Matches amounts like $100 or $100.50
+        if match:
+            return float(match.group(1))
+        return 0.0
