@@ -97,7 +97,7 @@ class PantallaHistorialCliente(QWidget):
             total_monthly_payments = self.filtered_data['descripcion'].apply(self.extract_payment_amount).sum()
 
             # Display the total payments in the UI (modify as needed)
-            self.ui.Adeudo.setText(f"Pagos totales este mes de: {search_text}, ${total_monthly_payments:.2f}")
+            self.ui.Adeudo.setText(f"Pagos totales este mes:n ${total_monthly_payments:.2f}")
 
         else:
             # If search text is empty or data is unavailable, populate with the full data
@@ -112,7 +112,7 @@ class PantallaHistorialCliente(QWidget):
         client_ids_response = self.session.get(client_ids_url)
 
         if client_ids_response.status_code == 200:
-            all_client_ids = client_ids_response.json()  # [{"id_cliente": 1, "nombre": "John"}, ...]
+            all_client_ids = client_ids_response.json() 
 
             all_data = []
             for client in all_client_ids:

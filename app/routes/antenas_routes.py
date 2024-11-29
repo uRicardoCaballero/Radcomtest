@@ -14,12 +14,10 @@ def crear_antena():
     # Get data from request
     data = request.get_json()
     nombre = data.get('nombre')
-    nombreDispositivo = data.get('nombreDispositivo')
-    modelo = data.get('modelo')
-    ssid = data.get('ssid')
+    
 
     # Validate required fields
-    if not nombre or not nombreDispositivo or not modelo or not ssid:
+    if not nombre :
         return jsonify({"error": "Todos los campos son obligatorios"}), 400
 
     # Check if folio is unique
@@ -30,9 +28,6 @@ def crear_antena():
     # Create a new Antena instance
     nueva_antena = Antena(
         nombre=nombre,
-        nombreDispositivo=nombreDispositivo,
-        modelo=modelo,
-        ssid=ssid
     )
 
     # Add to the session and commit
@@ -48,10 +43,7 @@ def obtener_antenas():
     antenas_data = [
         {
             "id": antena.id,
-            "nombre": antena.nombre,
-            "nombreDispositivo": antena.nombreDispositivo,
-            "modelo": antena.modelo,
-            "ssid": antena.ssid
+            "nombre": antena.nombre
         }
         for antena in antenas
     ]
@@ -63,10 +55,7 @@ def obtener_antena(antena_id):
     antena = Antena.query.get_or_404(antena_id)
     antena_data = {
         "id": antena.id,
-        "nombre": antena.nombre,
-        "nombreDispositivo": antena.nombreDispositivo,
-        "modelo": antena.modelo,
-        "ssid": antena.ssid
+        "nombre": antena.nombre
     }
     return jsonify(antena_data), 200
 
@@ -80,9 +69,6 @@ def actualizar_antena(antena_id):
     data = request.get_json()
 
     antena.nombre = data.get('nombre', antena.nombre)
-    antena.nombreDispositivo = data.get('nombreDispositivo', antena.nombreDispositivo)
-    antena.modelo = data.get('modelo', antena.modelo)
-    antena.ssid = data.get('ssid', antena.ssid)
 
     db.session.commit()
 

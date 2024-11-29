@@ -8,9 +8,6 @@ class Antena(db.Model):
     __tablename__ = 'antenas'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     nombre = db.Column(db.String(100), nullable=False)
-    nombreDispositivo = db.Column(db.String(100), nullable=False)
-    modelo = db.Column (db.String(100), nullable=False)
-    ssid = db.Column (db.String(100), nullable=False)
     municipios = db.relationship('Municipio', backref='antena', lazy=True)
 
 # Municipios table
@@ -55,9 +52,9 @@ class Cliente(db.Model):
     tipo = db.Column(db.String(50), nullable=False)  # "libre", "mensual", "anual"
     estado_cobro = db.Column(db.String(50), nullable=False)  # "pagado", "por cobrar"
     estatus = db.Column(db.String(50), nullable=False)  # "en linea", "baja temporal"
-    fecha_cobro = db.Column(db.Date, nullable=False)
+    fecha_cobro = db.Column(db.Date, nullable=True)
     fecha_alerta = db.Column(db.Date, nullable=False)
-    fecha_creacion = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now)
+    fecha_creacion = db.Column(db.DateTime, default=datetime.now, onupdate=datetime.now, nullable=True)
     plan_pago = db.Column(db.String(50), nullable=False)  # '400', '350', '200', 'libre'
     monto_pagado = db.Column(db.Float, default=0.0)  # To track how much the client has paid
     monto_debido = db.Column(db.Float, default=0.0)
