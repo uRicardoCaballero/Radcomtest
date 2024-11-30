@@ -319,16 +319,16 @@ class Ui_Form(object):
 "}")
         self.MontoText.setObjectName("MontoText")
         self.NombreHolder = QtWidgets.QLineEdit(self.frame_white_grey)
-        self.NombreHolder.setGeometry(QtCore.QRect(70, 50, 411, 51))
+        self.NombreHolder.setGeometry(QtCore.QRect(70, 50, 531, 51))
         font = QtGui.QFont()
         font.setFamily("\"Montserratl\"")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.NombreHolder.setFont(font)
         self.NombreHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.NombreHolder.setStyleSheet("QLineEdit{\n"
 "        color: #FFFFFF;\n"
 "        Font-family: \\\"Montserratl\\\";\n"
-"        font-size: 36px;\n"
+"        font-size: 26px;\n"
 "        border: none;\n"
 "        background: transparent; \n"
 "}")
@@ -342,7 +342,7 @@ class Ui_Form(object):
         self.CobroHolder.setGeometry(QtCore.QRect(60, 140, 181, 51))
         font = QtGui.QFont()
         font.setFamily("\"Montserratl\"")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.CobroHolder.setFont(font)
         self.CobroHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.CobroHolder.setStyleSheet("QLineEdit{\n"
@@ -403,7 +403,7 @@ class Ui_Form(object):
         self.Select1.setGeometry(QtCore.QRect(40, 600, 231, 31))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.Select1.setFont(font)
         self.Select1.setStyleSheet("QComboBox{\n"
 "     background: #FFFFFF;\n"
@@ -416,7 +416,7 @@ class Ui_Form(object):
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("Personal Projects/RADCOM/app/assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("app/frontend/assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.frame = QtWidgets.QFrame(Form)

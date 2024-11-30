@@ -328,7 +328,7 @@ class Ui_Form(object):
         self.IPHolder.setGeometry(QtCore.QRect(440, 160, 181, 21))
         font = QtGui.QFont()
         font.setFamily("\"Montserratl\"")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.IPHolder.setFont(font)
         self.IPHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.IPHolder.setStyleSheet("QLineEdit{\n"
@@ -348,7 +348,7 @@ class Ui_Form(object):
         self.TelHolder.setGeometry(QtCore.QRect(440, 120, 151, 31))
         font = QtGui.QFont()
         font.setFamily("\"Montserratl\"")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.TelHolder.setFont(font)
         self.TelHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.TelHolder.setStyleSheet("QLineEdit{\n"
@@ -387,16 +387,16 @@ class Ui_Form(object):
 "}")
         self.TELText.setObjectName("TELText")
         self.NombreHolder = QtWidgets.QLineEdit(self.frame_white_grey)
-        self.NombreHolder.setGeometry(QtCore.QRect(70, 50, 411, 51))
+        self.NombreHolder.setGeometry(QtCore.QRect(70, 50, 531, 51))
         font = QtGui.QFont()
         font.setFamily("\"Montserratl\"")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.NombreHolder.setFont(font)
         self.NombreHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.NombreHolder.setStyleSheet("QLineEdit{\n"
 "        color: #FFFFFF;\n"
 "        Font-family: \\\"Montserratl\\\";\n"
-"        font-size: 36px;\n"
+"        font-size: 26px;\n"
 "        border: none;\n"
 "        background: transparent; \n"
 "}")
@@ -410,7 +410,7 @@ class Ui_Form(object):
         self.CobroHolder.setGeometry(QtCore.QRect(60, 140, 181, 51))
         font = QtGui.QFont()
         font.setFamily("\"Montserratl\"")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.CobroHolder.setFont(font)
         self.CobroHolder.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.CobroHolder.setStyleSheet("QLineEdit{\n"
@@ -471,7 +471,7 @@ class Ui_Form(object):
         self.Select1.setGeometry(QtCore.QRect(30, 600, 251, 41))
         font = QtGui.QFont()
         font.setFamily("Montserrat")
-        font.setPointSize(-1)
+        font.setPointSize(1)
         self.Select1.setFont(font)
         self.Select1.setStyleSheet("QComboBox{\n"
 "     background: #FFFFFF;\n"
@@ -484,7 +484,7 @@ class Ui_Form(object):
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(30, 0, 261, 191))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("assets/LOGO_M.png"))
+        self.label.setPixmap(QtGui.QPixmap("app/frontend/assets/LOGO_M.png"))
         self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.menuOption7_2 = QtWidgets.QTextBrowser(Form)

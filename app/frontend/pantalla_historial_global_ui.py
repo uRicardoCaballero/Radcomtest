@@ -119,6 +119,7 @@ class Ui_Form(object):
 "    color:#FFFFFF;\n"
 "    border: none;             /* Quitar el borde */\n"
 "    margin: 0;                /* Eliminar márgenes */\n"
+"    font-size: 26px"
 "}")
         self.Adeudo.setObjectName("Adeudo")
         self.GuardarButton = QtWidgets.QPushButton(self.frame_white_grey)

@@ -213,7 +213,7 @@ class Ui_Form(object):
         self.MontoHolder.setPlaceholderText("")
         self.MontoHolder.setObjectName("MontoHolder")
         self.NombreHolder = QtWidgets.QLineEdit(self.frame_white_grey)
-        self.NombreHolder.setGeometry(QtCore.QRect(70, 50, 411, 51))
+        self.NombreHolder.setGeometry(QtCore.QRect(70, 50, 531, 51))
         font = QtGui.QFont()
         font.setFamily("\"Montserratl\"")
         font.setPointSize(1)
@@ -222,7 +222,7 @@ class Ui_Form(object):
         self.NombreHolder.setStyleSheet("QLineEdit{\n"
 "        color: #FFFFFF;\n"
 "        Font-family: \\\"Montserratl\\\";\n"
-"        font-size: 36px;\n"
+"        font-size: 26px;\n"
 "        border: none;\n"
 "        background: transparent; \n"
 "}")

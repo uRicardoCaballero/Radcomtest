@@ -1,7 +1,7 @@
-from PyQt5.QtWidgets import QWidget, QApplication, QMessageBox
+from PyQt5.QtWidgets import QWidget, QApplication, QMessageBox, QFileDialog
 from PyQt5.QtGui import QStandardItem, QStandardItemModel
 from app.frontend.pantalla_cobro_admin_ui import Ui_Form  # Importa la clase generada por Qt Designer
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QDate
 import requests
 import sys
 
@@ -183,6 +183,8 @@ class PantallaCobroAdmin(QWidget):
             response = self.session.post("http://127.0.0.1:5000/api/folios", json=data2)
             if response.status_code == 201:  
                 QMessageBox.information(self, "Success", "Ticket Creado Correctamente")
+
+                    
                 data = {
                     "num_cuenta": num_cuenta,
                     "monto_pagado": float(monto),
@@ -195,6 +197,13 @@ class PantallaCobroAdmin(QWidget):
                     
                     if update_response.status_code == 200:
                         QMessageBox.information(self, "Éxito", "Cobro Agregado.")
+                        respuesta = QMessageBox.question(self, "Generar Tiquet", 
+                                                    "¿Deseas generar un tiquet?", 
+                                                    QMessageBox.Yes | QMessageBox.No, 
+                                                    QMessageBox.No)
+                    
+                    if respuesta == QMessageBox.Yes:
+                        self.generar_tiquet(folio, metodo_pago, monto)
                         self.clear_selection()
                     else:
                         error_message = update_response.json().get("error", "Error al agregar cobro.")
@@ -206,6 +215,36 @@ class PantallaCobroAdmin(QWidget):
                 QMessageBox.warning(self, "Error", responseerror["error"])  # Correct usage
         except requests.exceptions.RequestException as e:
             QMessageBox.critical(self, "Error", f"No se pudo conectar al servidor: {str(e)}")
+    def generar_tiquet(self, folio, metodo_pago, monto):
+        
+        # Definir el contenido del tiquet
+        cliente = self.selected_client_data.get("nombre", "Cliente")
+        concepto = "Pago de saldo"  # Aquí puedes añadir más detalles si es necesario
+
+        # Definir el contenido del tiquet
+        tiquet_contenido = (
+            "Comprobante de Pago\n"
+            "====================\n"
+            f"Fecha de Pago: {QDate.currentDate().toString('dd/MM/yyyy')}\n"
+            f"Folio: {folio}\n"
+            f"Metodo de Pago: {metodo_pago}\n"
+            f"Cliente: {cliente}\n"
+            f"Concepto: {concepto}\n"
+            f"Pago: ${monto:.2f}\n"
+            "====================\n"
+            "¡Gracias por tu pago!\n"
+        )
+
+        # Selección de directorio y nombre de archivo
+        file_path, _ = QFileDialog.getSaveFileName(self, "Guardar Tiquet", "", "Archivos de texto (*.txt)")
+
+        if file_path:
+            # Guardar el tiquet como un archivo de texto
+            with open(file_path, 'w') as file:
+                file.write(tiquet_contenido)
+
+            # Mostrar mensaje de éxito
+        QMessageBox.information(self, "Tiquet Generado", f"Tiquet guardado en {file_path}")
 
     def clear_selection(self):
         self.ui.NombreHolder.clear()
@@ -215,6 +254,7 @@ class PantallaCobroAdmin(QWidget):
         self.ui.NumCuentaHolder.clear()
         self.ui.FolioHolder.clear()
         self.ui.MontoHolder.clear()
+        self.ui.MetodoHolder.clear()
         self.ui.listViewClients.clearSelection()
         self.selected_client_data = None
         self.load_client_data()

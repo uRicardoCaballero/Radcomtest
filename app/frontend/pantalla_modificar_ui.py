@@ -469,7 +469,7 @@ class Ui_Form(object):
         self.TelHolder.setStyleSheet("QLineEdit{\n"
 "        color: #FFFFFF;\n"
 "        Font-family: \\\"Montserratl\\\";\n"
-"        font-size: 28px;\n"
+"        font-size: 18px;\n"
 "        border: none;\n"
 "        background: transparent; \n"
 "}")
@@ -518,7 +518,7 @@ class Ui_Form(object):
         self.NombreHolder.setStyleSheet("QLineEdit{\n"
 "        color: #FFFFFF;\n"
 "        Font-family: \\\"Montserratl\\\";\n"
-"        font-size: 28px;\n"
+"        font-size: 26px;\n"
 "        border: none;\n"
 "        background: transparent; \n"
 "}")
@@ -585,7 +585,7 @@ class Ui_Form(object):
         self.IPHolder.setStyleSheet("QLineEdit{\n"
 "        color: #FFFFFF;\n"
 "        Font-family: \\\"Montserratl\\\";\n"
-"        font-size: 28px;\n"
+"        font-size: 18px;\n"
 "        border: none;\n"
 "        background: transparent; \n"
 "}")
